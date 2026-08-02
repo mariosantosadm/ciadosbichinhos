@@ -18,7 +18,7 @@ const minutes = readingTime(post.body);
     {
       post.data.heroImage && (
         <div class="post-card__media">
-          <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+          <img src={post.data.heroImage} alt={post.data.heroImageAlt ?? post.data.title} loading="lazy" />
           {post.data.affiliate && <span class="badge badge-publicidade post-card__ad-badge">Publicidade</span>}
         </div>
       )

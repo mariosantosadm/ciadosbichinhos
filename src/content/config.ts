@@ -12,6 +12,7 @@ const blog = defineCollection({
     pilar: z.enum(['comer', 'brincar', 'passear', 'dormir', 'vestir', 'educar', 'cuidar']),
     tags: z.array(z.string()).default([]),
     heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
     affiliate: z.boolean().default(false),
     affiliateProduct: z
       .object({

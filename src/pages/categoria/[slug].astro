@@ -31,8 +31,6 @@ const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
   </div>
 
   <div class="container category-layout">
-    <Sidebar posts={allPosts} />
-
     <section class="category-feed">
       {categoryPosts.length === 0 && <p>Ainda não temos posts nesta categoria. Volte em breve!</p>}
 
@@ -53,6 +51,8 @@ const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
         )
       }
     </section>
+
+    <Sidebar posts={allPosts} />
   </div>
 </BaseLayout>
 
@@ -68,7 +68,7 @@ const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
 
   .category-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 1fr 280px;
     gap: 2.5rem;
     padding-bottom: 3rem;
     align-items: start;

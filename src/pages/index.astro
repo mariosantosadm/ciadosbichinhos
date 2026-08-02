@@ -33,8 +33,6 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
   </div>
 
   <div class="container home-layout">
-    <Sidebar posts={allPosts} />
-
     <section class="home-feed">
       <h2>Últimos posts</h2>
       <div class="home-feed__grid">
@@ -54,6 +52,8 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
         )
       }
     </section>
+
+    <Sidebar posts={allPosts} />
   </div>
 
   <section class="newsletter">
@@ -86,7 +86,7 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
 
   .home-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 1fr 280px;
     gap: 2.5rem;
     padding-bottom: 3rem;
     align-items: start;

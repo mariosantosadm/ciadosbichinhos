@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { post, allPosts } = Astro.props;
-const { title, description, pubDate, updatedDate, category, heroImage, affiliate, affiliateProduct } = post.data;
+const { title, description, pubDate, updatedDate, category, heroImage, heroImageAlt, affiliate, affiliateProduct } = post.data;
 const cat = categories[category];
 const minutes = readingTime(post.body);
 
@@ -21,8 +21,6 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
 
 <BaseLayout title={title} description={description} image={heroImage} article={{ publishDate: pubDate, updatedDate }}>
   <div class="container post-layout">
-    <Sidebar posts={allPosts} />
-
     <article class="post-layout__main">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Início</a>
@@ -40,7 +38,7 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
         · {minutes} min de leitura
       </p>
 
-      {heroImage && <img class="post-layout__hero" src={heroImage} alt={title} />}
+      {heroImage && <img class="post-layout__hero" src={heroImage} alt={heroImageAlt ?? title} />}
 
       <div class="post-layout__content">
         <slot />
@@ -59,13 +57,15 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
         )
       }
     </article>
+
+    <Sidebar posts={allPosts} />
   </div>
 </BaseLayout>
 
 <style>
   .post-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 1fr 280px;
     gap: 2.5rem;
     padding-block: 2.5rem;
     align-items: start;
