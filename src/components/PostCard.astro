@@ -24,7 +24,10 @@ const minutes = readingTime(post.body);
       )
     }
     <div class="post-card__body">
-      <span class={`badge badge-${post.data.category}`}>{cat.label}</span>
+      <div class="post-card__badges">
+        <span class={`badge badge-${post.data.category}`}>{cat.label}</span>
+        {!post.data.heroImage && post.data.affiliate && <span class="badge badge-publicidade">Publicidade</span>}
+      </div>
       <h3 class="post-card__title">{post.data.title}</h3>
       {variant === 'featured' && <p class="post-card__excerpt">{post.data.description}</p>}
       {
@@ -88,6 +91,12 @@ const minutes = readingTime(post.body);
 
   .post-card--featured .post-card__body {
     padding: 1.4rem 1.6rem 1.6rem;
+  }
+
+  .post-card__badges {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
   }
 
   .post-card__title {
