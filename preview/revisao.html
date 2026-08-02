@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Preview de Revisão — Cia dos Bichinhos (não é o site final)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+  :root {
+    --color-green: #1f7a54;
+    --color-green-dark: #145c3f;
+    --color-green-light: #e6f4ec;
+    --color-accent: #ff7a59; /* reservado só pra CTA de compra/afiliado — não usar em mais nada */
+    --color-text: #1c2620;
+    --color-bg: #f7faf8;
+
+    --cat-cachorro-bg: #dcefe3;
+    --cat-cachorro-text: #145c3f;
+    --cat-gato-bg: #dceaf6;
+    --cat-gato-text: #1b4f78;
+    --cat-cuidados-bg: #f7e7c4;
+    --cat-cuidados-text: #7a5008;
+    --cat-alimentacao-bg: #f7dccb;
+    --cat-alimentacao-text: #8a3f1e;
+    --cat-comportamento-bg: #e9e1f5;
+    --cat-comportamento-text: #55408a;
+    --cat-publicidade-bg: #ffe4dc;
+    --cat-publicidade-text: #b33d1f;
+
+    --color-card-bg: #ffffff;
+    --color-card-border: #e3ede7;
+
+    --font-heading: 'Poppins', 'Nunito', 'Segoe UI', sans-serif;
+    --font-body: 'Nunito', 'Segoe UI', sans-serif;
+
+    --max-width: 1120px;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; margin: 0 0 0.5em; color: var(--color-text); }
+  h1 { font-size: 2.2rem; font-weight: 700; }
+  h2 { font-size: 1.6rem; font-weight: 600; }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 0.5em 0 0; }
+  p { margin: 0 0 1em; }
+  a { color: var(--color-green-dark); text-decoration: none; }
+  ul { list-style: none; margin: 0; padding: 0; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.25rem; }
+
+  .btn {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 0.65em 1.4em;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--color-green); color: #fff; }
+  .btn-primary:hover { background: var(--color-green-dark); }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 0.3em 0.75em;
+    border-radius: 999px;
+  }
+  .badge-cachorro { background: var(--cat-cachorro-bg); color: var(--cat-cachorro-text); }
+  .badge-gato { background: var(--cat-gato-bg); color: var(--cat-gato-text); }
+  .badge-cuidados { background: var(--cat-cuidados-bg); color: var(--cat-cuidados-text); }
+  .badge-alimentacao { background: var(--cat-alimentacao-bg); color: var(--cat-alimentacao-text); }
+  .badge-comportamento { background: var(--cat-comportamento-bg); color: var(--cat-comportamento-text); }
+  .badge-publicidade { background: var(--cat-publicidade-bg); color: var(--cat-publicidade-text); }
+
+  .pill {
+    display: inline-block;
+    background: var(--color-green-light);
+    color: var(--color-green-dark);
+    border-radius: 999px;
+    padding: 0.35em 0.9em;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .ad-slot {
+    width: 100%;
+    min-height: 90px;
+    background: #eef3f0;
+    border: 1px dashed #c7d6cd;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7a72;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 2rem 0;
+  }
+
+  /* ===== Barra de preview (NÃO existe no site real) ===== */
+  .preview-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #1c2620;
+    color: #fff;
+    padding: 0.6rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    font-family: var(--font-heading);
+  }
+  .preview-toolbar__label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ffb199;
+    white-space: nowrap;
+  }
+  .preview-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .preview-tab {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .preview-tab:hover { border-color: #fff; }
+  .preview-tab.is-active { background: var(--color-accent); border-color: var(--color-accent); }
+
+  .preview-panel { display: none; }
+  .preview-panel.is-active { display: block; }
+
+  /* ===== Header do site (replicado por aba) ===== */
+  .site-header { background: var(--color-green); }
+  .site-header__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; padding-block: 0.85rem;
+  }
+  .site-header__logo { flex-shrink: 0; display: flex; }
+  .site-header__logo svg { display: block; }
+  .site-header__nav ul { display: flex; gap: 1.5rem; }
+  .site-header__nav a { color: #fff; font-family: var(--font-heading); font-weight: 500; font-size: 0.95rem; }
+  .site-header__nav a:hover { color: var(--color-green-light); }
+
+  /* ===== Rodapé do site (replicado por aba) ===== */
+  .site-footer { background: var(--color-green-dark); color: #eaf3ee; margin-top: 3rem; }
+  .site-footer__inner { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2rem; padding-block: 3rem; }
+  .site-footer__col svg { display: block; }
+  .site-footer__col h2 { color: #fff; font-size: 1rem; margin-bottom: 0.85em; }
+  .site-footer__col p { color: #cfe4d8; font-size: 0.9rem; margin-top: 1rem; }
+  .site-footer__col ul { display: flex; flex-direction: column; gap: 0.6em; }
+  .site-footer__col a { color: #cfe4d8; font-size: 0.9rem; }
+  .site-footer__col a:hover { color: #fff; }
+  .site-footer__bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-block: 1.25rem; font-size: 0.8rem; color: #a9c7b8; }
+
+  /* ===== Cards de post ===== */
+  .post-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: block;
+    color: inherit;
+  }
+  .post-card__media {
+    aspect-ratio: 16 / 10;
+    background: var(--icon-bg, var(--color-green-light));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .post-card--featured .post-card__media { aspect-ratio: 16 / 9; }
+  .post-card__media .card-icon { width: 44%; height: 44%; color: var(--icon-fg, var(--color-green-dark)); }
+  .post-card--featured .post-card__media .card-icon { width: 30%; height: 30%; }
+  .post-card__body { padding: 1rem 1.1rem 1.25rem; }
+  .post-card--featured .post-card__body { padding: 1.4rem 1.6rem 1.6rem; }
+  .post-card__badges { display: flex; gap: 0.5em; flex-wrap: wrap; }
+  .post-card__excerpt { margin-top: 0.5em; color: #4a564d; }
+  .post-card__meta { display: block; margin-top: 0.75em; font-size: 0.8rem; color: #6b7a72; }
+  .post-card--featured h3 { font-size: 1.5rem; }
+  .post-card--secondary h3 { font-size: 1rem; }
+
+  /* ===== Ícones (sprite) ===== */
+  .card-icon { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ===== Sidebar ===== */
+  .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+  .sidebar__block {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.4rem;
+  }
+  .sidebar__title { font-size: 1.05rem; margin-bottom: 0.85em; }
+  .sidebar__list { list-style: decimal; padding-left: 1.1em; display: flex; flex-direction: column; gap: 0.6em; }
+  .sidebar__list a { color: var(--color-text); font-size: 0.92rem; }
+  .sidebar__list a:hover { color: var(--color-green-dark); }
+  .sidebar__tags { display: flex; flex-wrap: wrap; gap: 0.5em; }
+
+  /* ===== Home ===== */
+  .home-highlights { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; padding-top: 2.5rem; }
+  .home-highlights__secondary { display: flex; flex-direction: column; gap: 1.5rem; }
+  .home-layout, .category-layout { display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; padding-bottom: 3rem; align-items: start; }
+  .feed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .feed-hidden { display: none; }
+  .feed-more { display: block; margin: 2rem auto 0; }
+
+  .newsletter { background: var(--color-green-light); margin-top: 2rem; }
+  .newsletter__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; padding-block: 2.5rem; }
+  .newsletter__inner h2 { margin-bottom: 0.3em; }
+  .newsletter__inner p { margin: 0; color: var(--color-green-dark); }
+  .newsletter__form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .newsletter__form input { padding: 0.7em 1em; border-radius: 999px; border: 1px solid #bcdcc9; min-width: 240px; font-family: var(--font-body); font-size: 0.95rem; }
+
+  /* ===== Categoria ===== */
+  .category-header { padding-top: 2.5rem; }
+  .category-header__descriptor { color: #4a564d; font-size: 1.05rem; }
+
+  @media (max-width: 860px) {
+    .home-highlights, .home-layout, .category-layout, .feed-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-toolbar">
+  <span class="preview-toolbar__label">Preview interno · dados fictícios · não é o site final</span>
+  <div class="preview-tabs" id="tabs"></div>
+</div>
+
+<div id="panels"></div>
+
+<!-- ===== Sprite de ícones (um símbolo por tema de post) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+
+<symbol id="icon-bowl" viewBox="0 0 24 24">
+  <path d="M3 11h18a9 9 0 0 1-18 0Z"/>
+  <path d="M7 11a3 3 0 0 1 5-2 3 3 0 0 1 5 2"/>
+</symbol>
+
+<symbol id="icon-bed" viewBox="0 0 24 24">
+  <path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/>
+  <path d="M3 18h18"/>
+  <path d="M5 10V7a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3"/>
+  <path d="M12 10V9a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1"/>
+</symbol>
+
+<symbol id="icon-sound-wave" viewBox="0 0 24 24">
+  <path d="M3 12h1.5"/>
+  <path d="M7 8v8"/>
+  <path d="M11 5v14"/>
+  <path d="M15 8v8"/>
+  <path d="M19.5 10v4"/>
+</symbol>
+
+<symbol id="icon-jacket" viewBox="0 0 24 24">
+  <path d="M8 4 4 7v4l2-1v9h12v-9l2 1V7l-4-3-2 2h-4Z"/>
+</symbol>
+
+<symbol id="icon-paw" viewBox="0 0 24 24">
+  <circle cx="12" cy="15.5" r="3"/>
+  <circle cx="6.5" cy="9" r="1.7"/>
+  <circle cx="10.8" cy="6" r="1.7"/>
+  <circle cx="15.2" cy="6" r="1.7"/>
+  <circle cx="19" cy="9.2" r="1.7"/>
+</symbol>
+
+<symbol id="icon-eye" viewBox="0 0 24 24">
+  <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
+  <circle cx="12" cy="12" r="3"/>
+</symbol>
+
+<symbol id="icon-moon" viewBox="0 0 24 24">
+  <path d="M20 14.7A8 8 0 1 1 9.3 4a6.5 6.5 0 0 0 10.7 10.7Z"/>
+  <path d="M15.5 5h3.5l-3.5 3.2h3.5" stroke-width="1.3"/>
+</symbol>
+
+<symbol id="icon-lightbulb" viewBox="0 0 24 24">
+  <path d="M9.5 18h5"/>
+  <path d="M10 21h4"/>
+  <path d="M12 3a6 6 0 0 0-3 11.2c.6.4 1 1.1 1 1.8h4c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/>
+</symbol>
+
+<symbol id="icon-speech" viewBox="0 0 24 24">
+  <path d="M4 5h16v11H8l-4 4Z"/>
+</symbol>
+
+<symbol id="icon-claw" viewBox="0 0 24 24">
+  <path d="M6 4 4 19"/>
+  <path d="M10.3 4 9 19"/>
+  <path d="M14.6 4 14 19"/>
+  <path d="M19 5 15 19"/>
+</symbol>
+
+<symbol id="icon-shield" viewBox="0 0 24 24">
+  <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6Z"/>
+  <path d="M9 12l2 2 4-4"/>
+</symbol>
+
+<symbol id="icon-water-drop" viewBox="0 0 24 24">
+  <path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12Z"/>
+</symbol>
+
+<symbol id="icon-scale" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M8 13a4 4 0 0 0 8 0"/>
+  <path d="M12 7v2"/>
+</symbol>
+
+<symbol id="icon-hourglass" viewBox="0 0 24 24">
+  <path d="M6 3h12"/>
+  <path d="M6 21h12"/>
+  <path d="M7 3c0 5 5 6 5 9s-5 4-5 9"/>
+  <path d="M17 3c0 5-5 6-5 9s5 4 5 9"/>
+</symbol>
+
+<symbol id="icon-house-heart" viewBox="0 0 24 24">
+  <path d="M4 11 12 4l8 7"/>
+  <path d="M6 10v10h12V10"/>
+  <path d="M12 17s-2.5-1.6-2.5-3.4A1.6 1.6 0 0 1 12 12a1.6 1.6 0 0 1 2.5 1.6C14.5 15.4 12 17 12 17Z" fill="currentColor" stroke="none"/>
+</symbol>
+
+<symbol id="icon-thermometer" viewBox="0 0 24 24">
+  <path d="M12 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/>
+</symbol>
+
+<symbol id="icon-heart-pulse" viewBox="0 0 24 24">
+  <path d="M20 8.5c0 4-8 10.5-8 10.5S4 12.5 4 8.5a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 8.5Z"/>
+  <path d="M5 11h3l1.5-3L11 14l1.5-4h5.5"/>
+</symbol>
+
+<symbol id="icon-toy-ball" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="8"/>
+  <path d="M4.5 8.5c4 2 11 2 15 0"/>
+  <path d="M4.5 15.5c4-2 11-2 15 0"/>
+</symbol>
+
+</defs>
+</svg>
+
+<script>
+(function () {
+  // ===== Logo inline (mesma versão branca usada no header/rodapé do site real) =====
+  function logoSvg(h) {
+    var w = Math.round(h * (470 / 148));
+    return '<svg viewBox="-14 -14 470 148" width="' + w + '" height="' + h + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cia dos Bichinhos">' +
+      '<path d="M48,38 C44,32 40,27 35,25 C29,22 24,26 22,33 C19,44 17,54 16,62 C15,67 20,69 24,64 C28,58 37,46 48,38 Z" fill="#FFFFFF"/>' +
+      '<path d="M68,44 Q74,20 88,10 Q95,30 90,56 Z" fill="#FFFFFF"/>' +
+      '<path fill-rule="evenodd" d="M26,70 A34,34 0 1,0 94,70 A34,34 0 1,0 26,70 Z M52.9,71.8 Q60,69.3 67.1,71.8 Q69.9,72.9 67.4,76.4 Q63.2,82.3 61.1,84.1 Q60,85 58.9,84.1 Q56.8,82.3 52.6,76.4 Q50.1,72.9 52.9,71.8 Z" fill="#FFFFFF"/>' +
+      '<text x="140" y="78" font-family="Poppins, Nunito, Segoe UI, sans-serif" font-size="34">' +
+      '<tspan fill="#BFE0CE" font-weight="500">Cia dos </tspan><tspan fill="#FFFFFF" font-weight="700">Bichinhos</tspan>' +
+      '</text></svg>';
+  }
+
+  // ===== Metadados das 5 categorias (mesma ordem/textos do site real) =====
+  var CATEGORY_META = {
+    cachorro: { label: 'Cachorro', descriptor: 'Dicas, cuidados e curiosidades pra quem tem um cão em casa.' },
+    gato: { label: 'Gato', descriptor: 'Dicas, cuidados e curiosidades pra quem tem um gato em casa.' },
+    cuidados: { label: 'Cuidados', descriptor: 'Saúde, sintomas e prevenção pra cachorros e gatos.' },
+    alimentacao: { label: 'Alimentação', descriptor: 'Ração, dieta e petiscos pra cachorros e gatos.' },
+    comportamento: { label: 'Comportamento', descriptor: 'Comportamento, adestramento e curiosidades pet.' }
+  };
+  var NAV_ORDER = ['cachorro', 'gato', 'cuidados', 'alimentacao', 'comportamento'];
+  var TAB_ORDER = ['home', 'gato', 'cachorro', 'cuidados', 'alimentacao', 'comportamento'];
+  var TAB_LABELS = { home: 'Home', gato: 'Gato', cachorro: 'Cachorro', cuidados: 'Cuidados', alimentacao: 'Alimentação', comportamento: 'Comportamento' };
+  var PAGE_SIZE = 6;
+
+  // ===== Posts fictícios (pautas do calendário editorial + variações pra testar paginação) =====
+  var POSTS = {
+    cachorro: [
+      { title: 'Por que os cachorros uivam? Entenda o comportamento', icon: 'sound-wave', affiliate: false },
+      { title: 'Roupinhas de inverno para cachorro: o que considerar antes de comprar', icon: 'jacket', affiliate: true },
+      { title: 'Etiqueta pet: como se comportar em espaços públicos com seu cão', icon: 'paw', affiliate: false },
+      { title: 'Cachorro tremendo: o que pode ser?', icon: 'thermometer', affiliate: false },
+      { title: 'Cachorro babando: quando é normal?', icon: 'heart-pulse', affiliate: false },
+      { title: 'Coleira ou peitoral: qual escolher pro seu cão?', icon: 'paw', affiliate: true },
+      { title: 'Brinquedos indestrutíveis pra cães que mastigam tudo', icon: 'toy-ball', affiliate: true },
+      { title: 'Cama impermeável pra cachorro: vale o investimento?', icon: 'bed', affiliate: true },
+      { title: 'Como apresentar um cachorro novo aos outros pets da casa', icon: 'house-heart', affiliate: false }
+    ],
+    gato: [
+      { title: 'Gato sabe quando vai morrer? Entenda o mito', icon: 'lightbulb', affiliate: false },
+      { title: 'Por que gatos fazem aquele barulho ao ver passarinho pela janela?', icon: 'speech', affiliate: false },
+      { title: 'Arranhador ou poste? Como escolher o certo pro seu gato', icon: 'claw', affiliate: true }
+    ],
+    cuidados: [
+      { title: 'Sinais de que seu pet está doente: quando procurar o vet', icon: 'heart-pulse', affiliate: false },
+      { title: 'Como cuidar de um cachorro filhote nas primeiras semanas', icon: 'house-heart', affiliate: false },
+      { title: 'Cama ortopédica para cachorro idoso: guia de escolha', icon: 'bed', affiliate: true },
+      { title: 'Vacinação em dia: calendário básico pra cães e gatos', icon: 'shield', affiliate: false }
+    ],
+    alimentacao: [
+      { title: 'Melhor ração para gatos castrados: comparativo', icon: 'bowl', affiliate: true },
+      { title: 'Alimentação natural para cães: vale a pena?', icon: 'bowl', affiliate: false },
+      { title: 'Bebedouro automático: vale a pena? Comparativo', icon: 'water-drop', affiliate: true },
+      { title: 'Petiscos saudáveis: como escolher sem exagerar nas calorias', icon: 'bowl', affiliate: true },
+      { title: 'Meu gato está acima do peso: o que fazer?', icon: 'scale', affiliate: false },
+      { title: 'Ração úmida x seca: qual a diferença pro seu pet', icon: 'bowl', affiliate: false },
+      { title: 'Comedouro lento: ajuda mesmo na ansiedade alimentar?', icon: 'bowl', affiliate: true }
+    ],
+    comportamento: [
+      { title: 'Por que gatos amassam antes de deitar?', icon: 'moon', affiliate: false },
+      { title: 'Ansiedade de separação em cães: como identificar e ajudar', icon: 'hourglass', affiliate: false },
+      { title: 'O que os gatos enxergam que a gente não vê?', icon: 'eye', affiliate: false },
+      { title: 'Como escolher o brinquedo certo pro temperamento do seu pet', icon: 'toy-ball', affiliate: true },
+      { title: 'Cachorro que destrói tudo sozinho em casa: por onde começar', icon: 'hourglass', affiliate: false },
+      { title: 'Gato mia demais: o que pode estar tentando dizer', icon: 'speech', affiliate: false }
+    ]
+  };
+
+  // Contagens propositais: cachorro (9) e alimentação (7) passam de 6 → botão aparece;
+  // gato (3), cuidados (4) e comportamento (6, no limite exato) ficam ≤6 → botão escondido.
+
+  var MAIS_LIDOS = [
+    'Ansiedade de separação em cães: como identificar e ajudar',
+    'Cama ortopédica para cachorro idoso: guia de escolha',
+    'Por que gatos amassam antes de deitar?',
+    'Melhor ração para gatos castrados: comparativo',
+    'Como cuidar de um cachorro filhote nas primeiras semanas'
+  ];
+  var TAGS = ['ansiedade de separação', 'comportamento canino', 'adestramento', 'cachorro idoso', 'cama ortopédica', 'conforto', 'comportamento felino', 'curiosidades', 'ração', 'gato castrado', 'alimentação felina', 'filhote'];
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  function iconSvg(id) {
+    return '<svg class="card-icon" aria-hidden="true"><use href="#icon-' + id + '"></use></svg>';
+  }
+
+  function headerHtml() {
+    var items = NAV_ORDER.map(function (slug) {
+      return '<li><a href="#" onclick="return false">' + CATEGORY_META[slug].label + '</a></li>';
+    }).join('');
+    return '<header class="site-header"><div class="container site-header__inner">' +
+      '<a href="#" class="site-header__logo" onclick="return false">' + logoSvg(40) + '</a>' +
+      '<nav class="site-header__nav"><ul>' + items + '</ul></nav>' +
+      '</div></header>';
+  }
+
+  function footerHtml() {
+    var catItems = NAV_ORDER.map(function (slug) {
+      return '<li><a href="#" onclick="return false">' + CATEGORY_META[slug].label + '</a></li>';
+    }).join('');
+    return '<footer class="site-footer"><div class="container site-footer__inner">' +
+      '<div class="site-footer__col">' + logoSvg(36) +
+      '<p>Conteúdo pra quem ama cachorro e gato: cuidados, alimentação e comportamento, direto ao ponto e sem enrolação.</p></div>' +
+      '<div class="site-footer__col"><h2>Categorias</h2><ul>' + catItems + '</ul></div>' +
+      '<div class="site-footer__col"><h2>Institucional</h2><ul>' +
+      '<li><a href="#" onclick="return false">Sobre</a></li>' +
+      '<li><a href="#" onclick="return false">Contato</a></li>' +
+      '<li><a href="#" onclick="return false">Política de Privacidade</a></li>' +
+      '<li><a href="#" onclick="return false">Disclosure de afiliados</a></li>' +
+      '</ul></div></div>' +
+      '<div class="site-footer__bottom container"><p>&copy; 2026 Cia dos Bichinhos. Todos os direitos reservados. (dados de exemplo)</p></div>' +
+      '</footer>';
+  }
+
+  function sidebarHtml() {
+    var items = MAIS_LIDOS.map(function (t) {
+      return '<li><a href="#" onclick="return false">' + esc(t) + '</a></li>';
+    }).join('');
+    var tags = TAGS.map(function (t) { return '<span class="pill">' + esc(t) + '</span>'; }).join('');
+    return '<aside class="sidebar">' +
+      '<div class="sidebar__block"><h2 class="sidebar__title">Mais lidos</h2><ol class="sidebar__list">' + items + '</ol></div>' +
+      '<div class="sidebar__block"><h2 class="sidebar__title">Tags</h2><div class="sidebar__tags">' + tags + '</div></div>' +
+      '</aside>';
+  }
+
+  function newsletterHtml() {
+    return '<section class="newsletter"><div class="container newsletter__inner">' +
+      '<div><h2>Receba as novidades no seu e-mail</h2><p>Dicas de cuidado, alimentação e comportamento pet direto na sua caixa de entrada. Sem spam.</p></div>' +
+      '<form class="newsletter__form" onsubmit="return false"><input type="email" placeholder="Seu melhor e-mail" aria-label="Seu e-mail" />' +
+      '<button type="submit" class="btn btn-primary">Assinar</button></form>' +
+      '</div></section>';
+  }
+
+  function cardHtml(post, catSlug, variant) {
+    variant = variant || 'default';
+    var badges = '<span class="badge badge-' + catSlug + '">' + CATEGORY_META[catSlug].label + '</span>';
+    if (post.affiliate) badges += '<span class="badge badge-publicidade">Publicidade</span>';
+    var body = '<div class="post-card__badges">' + badges + '</div><h3>' + esc(post.title) + '</h3>';
+    if (variant === 'featured') {
+      body += '<p class="post-card__excerpt">Pauta de exemplo pra revisão de layout — texto fictício representando o resumo do artigo.</p>';
+      body += '<span class="post-card__meta">4 min de leitura</span>';
+    }
+    return '<a href="#" class="post-card post-card--' + variant + '" onclick="return false">' +
+      '<div class="post-card__media"><span aria-hidden="true">' + iconSvg(post.icon) + '</span></div>' +
+      '<div class="post-card__body">' + body + '</div></a>';
+  }
+
+  function feedHtml(posts, catSlugFor, gridId) {
+    var visible = posts.slice(0, PAGE_SIZE);
+    var hidden = posts.slice(PAGE_SIZE);
+    var html = '<div class="feed-grid" id="' + gridId + '">';
+    visible.forEach(function (p) { html += cardHtml(p, catSlugFor(p), 'default'); });
+    hidden.forEach(function (p) {
+      html += '<div class="feed-hidden" data-more-post>' + cardHtml(p, catSlugFor(p), 'default') + '</div>';
+    });
+    html += '</div>';
+    if (hidden.length > 0) {
+      html += '<button class="btn btn-primary feed-more" data-load-more data-target="' + gridId + '">Carregar mais posts</button>';
+    }
+    return html;
+  }
+
+  function homePanelHtml() {
+    // pool de posts por categoria (cada item guarda a própria categoria)
+    var pool = [];
+    Object.keys(POSTS).forEach(function (slug) {
+      POSTS[slug].forEach(function (p) { pool.push({ post: p, cat: slug }); });
+    });
+
+    var featuredEntry = pool.filter(function (e) { return e.post.title.indexOf('Ansiedade de separação') === 0; })[0];
+    var sec1Entry = pool.filter(function (e) { return e.post.title.indexOf('Cama ortopédica') === 0; })[0];
+    var sec2Entry = pool.filter(function (e) { return e.post.title.indexOf('Arranhador ou poste') === 0; })[0];
+
+    var used = [featuredEntry, sec1Entry, sec2Entry];
+    var rest = pool.filter(function (e) { return used.indexOf(e) === -1; });
+
+    var html = headerHtml();
+    html += '<div class="container home-highlights">';
+    html += cardHtml(featuredEntry.post, featuredEntry.cat, 'featured');
+    html += '<div class="home-highlights__secondary">' +
+      cardHtml(sec1Entry.post, sec1Entry.cat, 'secondary') +
+      cardHtml(sec2Entry.post, sec2Entry.cat, 'secondary') +
+      '</div></div>';
+    html += '<div class="container"><div class="ad-slot">Espaço publicitário</div></div>';
+    html += '<div class="container home-layout">' + sidebarHtml();
+    html += '<section><h2>Últimos posts</h2>';
+    html += feedHtml(rest.map(function (e) { return e.post; }), function (p) {
+      var found = rest.filter(function (e) { return e.post === p; })[0];
+      return found.cat;
+    }, 'grid-home');
+    html += '</section></div>';
+    html += newsletterHtml();
+    html += footerHtml();
+    return html;
+  }
+
+  function categoryPanelHtml(slug) {
+    var meta = CATEGORY_META[slug];
+    var posts = POSTS[slug];
+    var html = headerHtml();
+    html += '<div class="container category-header"><h1>' + meta.label + '</h1>' +
+      '<p class="category-header__descriptor">' + meta.descriptor + '</p>' +
+      '<div class="ad-slot">Espaço publicitário</div></div>';
+    html += '<div class="container category-layout">' + sidebarHtml();
+    html += '<section>';
+    html += feedHtml(posts, function () { return slug; }, 'grid-' + slug);
+    html += '</section></div>';
+    html += footerHtml();
+    return html;
+  }
+
+  // ===== Monta abas + painéis =====
+  var tabsEl = document.getElementById('tabs');
+  var panelsEl = document.getElementById('panels');
+
+  TAB_ORDER.forEach(function (tab, i) {
+    var btn = document.createElement('button');
+    btn.className = 'preview-tab' + (i === 0 ? ' is-active' : '');
+    btn.textContent = TAB_LABELS[tab];
+    btn.setAttribute('data-tab', tab);
+    btn.setAttribute('role', 'tab');
+    tabsEl.appendChild(btn);
+
+    var panel = document.createElement('div');
+    panel.className = 'preview-panel' + (i === 0 ? ' is-active' : '');
+    panel.id = 'panel-' + tab;
+    panel.innerHTML = tab === 'home' ? homePanelHtml() : categoryPanelHtml(tab);
+    panelsEl.appendChild(panel);
+  });
+
+  tabsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.preview-tab');
+    if (!btn) return;
+    document.querySelectorAll('.preview-tab').forEach(function (t) { t.classList.remove('is-active'); });
+    document.querySelectorAll('.preview-panel').forEach(function (p) { p.classList.remove('is-active'); });
+    btn.classList.add('is-active');
+    document.getElementById('panel-' + btn.getAttribute('data-tab')).classList.add('is-active');
+    window.scrollTo(0, 0);
+  });
+
+  panelsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-load-more]');
+    if (!btn) return;
+    var grid = document.getElementById(btn.getAttribute('data-target'));
+    grid.querySelectorAll('[data-more-post]').forEach(function (el) { el.style.display = 'block'; });
+    btn.remove();
+  });
+})();
+</script>
+</body>
+</html>
