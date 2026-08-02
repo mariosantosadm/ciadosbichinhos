@@ -56,10 +56,10 @@ const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12).m
   }
 
   .sidebar__block {
-    background: #fff;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
     border-radius: var(--radius);
     padding: 1.25rem 1.4rem;
-    box-shadow: 0 1px 3px rgba(28, 38, 32, 0.08);
   }
 
   .sidebar__title {

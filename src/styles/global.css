@@ -29,6 +29,10 @@
 
   --max-width: 1120px;
   --radius: 12px;
+
+  /* Cards de conteúdo */
+  --color-card-bg: #ffffff;
+  --color-card-border: #e3ede7;
 }
 
 *,

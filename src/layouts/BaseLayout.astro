@@ -80,7 +80,7 @@ const schema = article
     <header class="site-header">
       <div class="container site-header__inner">
         <a href="/" class="site-header__logo" aria-label={siteName}>
-          <img src="/logo-horizontal.svg" alt={siteName} height="40" />
+          <img src="/logo-horizontal-branco.svg" alt={siteName} height="40" />
         </a>
         <nav class="site-header__nav" aria-label="Categorias">
           <ul>
@@ -154,8 +154,14 @@ const schema = article
     padding-block: 0.85rem;
   }
 
+  .site-header__logo {
+    flex-shrink: 0;
+  }
+
   .site-header__logo img {
     display: block;
+    height: 40px;
+    width: auto;
   }
 
   .site-header__nav ul {
@@ -189,6 +195,12 @@ const schema = article
     grid-template-columns: 1.3fr 1fr 1fr;
     gap: 2rem;
     padding-block: 3rem;
+  }
+
+  .site-footer__col img {
+    display: block;
+    height: 36px;
+    width: auto;
   }
 
   .site-footer__col h2 {
