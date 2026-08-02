@@ -1,0 +1,171 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import PostCard from '../components/PostCard.astro';
+
+const PAGE_SIZE = 6;
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const [featured, secondary1, secondary2, ...rest] = allPosts;
+const feedPosts = rest;
+const visiblePosts = feedPosts.slice(0, PAGE_SIZE);
+const hiddenPosts = feedPosts.slice(PAGE_SIZE);
+---
+
+<BaseLayout
+  title="Cia dos Bichinhos"
+  description="Cuidados, alimentação e comportamento pra cachorros e gatos — conteúdo direto ao ponto pra tutores que amam seus pets."
+>
+  <div class="container home-highlights">
+    {featured && <PostCard post={featured} variant="featured" />}
+    <div class="home-highlights__secondary">
+      {secondary1 && <PostCard post={secondary1} variant="secondary" />}
+      {secondary2 && <PostCard post={secondary2} variant="secondary" />}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ad-slot">Espaço publicitário</div>
+  </div>
+
+  <div class="container home-layout">
+    <Sidebar posts={allPosts} />
+
+    <section class="home-feed">
+      <h2>Últimos posts</h2>
+      <div class="home-feed__grid">
+        {visiblePosts.map((post) => <PostCard post={post} />)}
+        {hiddenPosts.map((post) => (
+          <div class="home-feed__hidden" data-more-post>
+            <PostCard post={post} />
+          </div>
+        ))}
+      </div>
+
+      {
+        hiddenPosts.length > 0 && (
+          <button class="btn btn-primary home-feed__more" id="load-more">
+            Carregar mais posts
+          </button>
+        )
+      }
+    </section>
+  </div>
+
+  <section class="newsletter">
+    <div class="container newsletter__inner">
+      <div>
+        <h2>Receba as novidades no seu e-mail</h2>
+        <p>Dicas de cuidado, alimentação e comportamento pet direto na sua caixa de entrada. Sem spam.</p>
+      </div>
+      <form class="newsletter__form">
+        <input type="email" name="email" placeholder="Seu melhor e-mail" required aria-label="Seu e-mail" />
+        <button type="submit" class="btn btn-primary">Assinar</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-highlights {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+  }
+
+  .home-highlights__secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .home-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+    align-items: start;
+  }
+
+  .home-feed__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .home-feed__hidden {
+    display: none;
+  }
+
+  .home-feed__more {
+    display: block;
+    margin: 2rem auto 0;
+  }
+
+  .newsletter {
+    background: var(--color-green-light);
+    margin-top: 2rem;
+  }
+
+  .newsletter__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-block: 2.5rem;
+  }
+
+  .newsletter__inner h2 {
+    margin-bottom: 0.3em;
+  }
+
+  .newsletter__inner p {
+    margin: 0;
+    color: var(--color-green-dark);
+  }
+
+  .newsletter__form {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .newsletter__form input {
+    padding: 0.7em 1em;
+    border-radius: 999px;
+    border: 1px solid #bcdcc9;
+    min-width: 240px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 860px) {
+    .home-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .home-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .home-feed__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const button = document.getElementById('load-more');
+  button?.addEventListener('click', () => {
+    document.querySelectorAll('[data-more-post]').forEach((el) => {
+      (el as HTMLElement).style.display = 'block';
+    });
+    button.remove();
+  });
+</script>

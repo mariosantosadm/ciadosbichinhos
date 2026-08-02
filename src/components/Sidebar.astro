@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+
+// "Mais lidos" — sem analytics ainda, usamos os mais recentes como proxy.
+// Trocar por dados reais de pageviews assim que houver integração de analytics.
+const maisLidos = [...posts].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
+
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([tag]) => tag);
+---
+
+<aside class="sidebar" aria-label="Barra lateral">
+  <div class="sidebar__block">
+    <h2 class="sidebar__title">Mais lidos</h2>
+    <ol class="sidebar__list">
+      {
+        maisLidos.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  {
+    tags.length > 0 && (
+      <div class="sidebar__block">
+        <h2 class="sidebar__title">Tags</h2>
+        <div class="sidebar__tags">
+          {tags.map((tag) => (
+            <span class="pill">{tag}</span>
+          ))}
+        </div>
+      </div>
+    )
+  }
+</aside>
+
+<style>
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sidebar__block {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 1.25rem 1.4rem;
+    box-shadow: 0 1px 3px rgba(28, 38, 32, 0.08);
+  }
+
+  .sidebar__title {
+    font-size: 1.05rem;
+    margin-bottom: 0.85em;
+  }
+
+  .sidebar__list {
+    list-style: decimal;
+    margin: 0;
+    padding-left: 1.1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+  }
+
+  .sidebar__list a {
+    color: var(--color-text);
+    font-size: 0.92rem;
+  }
+
+  .sidebar__list a:hover {
+    color: var(--color-green-dark);
+  }
+
+  .sidebar__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+</style>

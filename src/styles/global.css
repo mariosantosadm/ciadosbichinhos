@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  /* Marca */
+  --color-green: #1f7a54;
+  --color-green-dark: #145c3f;
+  --color-green-light: #e6f4ec;
+  --color-accent: #ff7a59; /* reservado só pra CTA de compra/afiliado */
+  --color-text: #1c2620;
+  --color-bg: #f7faf8;
+
+  /* Categorias */
+  --cat-cachorro-bg: #dcefe3;
+  --cat-cachorro-text: #145c3f;
+  --cat-gato-bg: #dceaf6;
+  --cat-gato-text: #1b4f78;
+  --cat-cuidados-bg: #f7e7c4;
+  --cat-cuidados-text: #7a5008;
+  --cat-alimentacao-bg: #f7dccb;
+  --cat-alimentacao-text: #8a3f1e;
+  --cat-comportamento-bg: #e9e1f5;
+  --cat-comportamento-text: #55408a;
+  --cat-publicidade-bg: #ffe4dc;
+  --cat-publicidade-text: #b33d1f;
+
+  /* Tipografia */
+  --font-heading: 'Poppins', 'Nunito', 'Segoe UI', sans-serif;
+  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+
+  --max-width: 1120px;
+  --radius: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--color-green-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.65em 1.4em;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-green);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-green-dark);
+}
+
+/* Reservado apenas para ação de compra/afiliado — nunca usar em outro contexto */
+.btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background: #e5623f;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+}
+
+.badge-cachorro {
+  background: var(--cat-cachorro-bg);
+  color: var(--cat-cachorro-text);
+}
+
+.badge-gato {
+  background: var(--cat-gato-bg);
+  color: var(--cat-gato-text);
+}
+
+.badge-cuidados {
+  background: var(--cat-cuidados-bg);
+  color: var(--cat-cuidados-text);
+}
+
+.badge-alimentacao {
+  background: var(--cat-alimentacao-bg);
+  color: var(--cat-alimentacao-text);
+}
+
+.badge-comportamento {
+  background: var(--cat-comportamento-bg);
+  color: var(--cat-comportamento-text);
+}
+
+.badge-publicidade {
+  background: var(--cat-publicidade-bg);
+  color: var(--cat-publicidade-text);
+}
+
+.pill {
+  display: inline-block;
+  background: var(--color-green-light);
+  color: var(--color-green-dark);
+  border-radius: 999px;
+  padding: 0.35em 0.9em;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pill:hover {
+  background: var(--color-green);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ad-slot {
+  width: 100%;
+  min-height: 90px;
+  background: #eef3f0;
+  border: 1px dashed #c7d6cd;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7a72;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 2rem 0;
+}

@@ -1,0 +1,246 @@
+---
+import '../styles/global.css';
+import { categoryList } from '../lib/categories';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  article?: {
+    publishDate: Date;
+    updatedDate?: Date;
+  };
+}
+
+const { title, description, image, article } = Astro.props;
+
+const siteName = 'Cia dos Bichinhos';
+const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image ?? '/logo-horizontal.svg', Astro.site);
+
+const schema = article
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: title,
+      description,
+      image: ogImage.toString(),
+      datePublished: article.publishDate.toISOString(),
+      dateModified: (article.updatedDate ?? article.publishDate).toISOString(),
+      publisher: {
+        '@type': 'Organization',
+        name: siteName,
+        logo: {
+          '@type': 'ImageObject',
+          url: new URL('/logo-icone.svg', Astro.site).toString(),
+        },
+      },
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: siteName,
+      url: Astro.site?.toString(),
+    };
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icone.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="/" class="site-header__logo" aria-label={siteName}>
+          <img src="/logo-horizontal.svg" alt={siteName} height="40" />
+        </a>
+        <nav class="site-header__nav" aria-label="Categorias">
+          <ul>
+            {
+              categoryList.map((cat) => (
+                <li>
+                  <a href={`/categoria/${cat.slug}/`}>{cat.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="site-footer__col">
+          <img src="/logo-horizontal-branco.svg" alt={siteName} height="36" />
+          <p>
+            Conteúdo pra quem ama cachorro e gato: cuidados, alimentação e comportamento, direto ao ponto e sem
+            enrolação.
+          </p>
+        </div>
+        <div class="site-footer__col">
+          <h2>Categorias</h2>
+          <ul>
+            {
+              categoryList.map((cat) => (
+                <li>
+                  <a href={`/categoria/${cat.slug}/`}>{cat.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Institucional</h2>
+          <ul>
+            <li><a href="/sobre/">Sobre</a></li>
+            <li><a href="/contato/">Contato</a></li>
+            <li><a href="/privacidade/">Política de Privacidade</a></li>
+            <li><a href="/disclosure/">Disclosure de afiliados</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom container">
+        <p>&copy; {new Date().getFullYear()} {siteName}. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  .site-header {
+    background: var(--color-green);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 0.85rem;
+  }
+
+  .site-header__logo img {
+    display: block;
+  }
+
+  .site-header__nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header__nav a {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .site-header__nav a:hover {
+    color: var(--color-green-light);
+    text-decoration: none;
+  }
+
+  .site-footer {
+    background: var(--color-green-dark);
+    color: #eaf3ee;
+    margin-top: 3rem;
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 2rem;
+    padding-block: 3rem;
+  }
+
+  .site-footer__col h2 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.85em;
+  }
+
+  .site-footer__col p {
+    color: #cfe4d8;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .site-footer__col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+  }
+
+  .site-footer__col a {
+    color: #cfe4d8;
+    font-size: 0.9rem;
+  }
+
+  .site-footer__col a:hover {
+    color: #fff;
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-block: 1.25rem;
+    font-size: 0.8rem;
+    color: #a9c7b8;
+  }
+
+  @media (max-width: 720px) {
+    .site-header__inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .site-header__nav ul {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
