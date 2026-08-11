@@ -7,6 +7,7 @@ species: ambos
 pilar: cuidar
 tags: ["hidratação", "urina", "saúde do pet", "calor"]
 heroImage: "https://cdn.pixabay.com/photo/2018/03/25/19/45/cat-3260452_1280.jpg"
+heroImageAlt: "gato tigrado bebendo água de um recipiente no jardim, cercado de plantas"
 affiliate: false
 ---
 
