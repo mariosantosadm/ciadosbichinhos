@@ -13,12 +13,18 @@ affiliate: false
 
 Se você sentiu que agosto de 2026 está mais quente que o normal, não é impressão sua — o El Niño deste ano está entre os mais fortes das últimas décadas, com previsão de ondas de calor atípicas em boa parte do Brasil. E o que incomoda a gente incomoda o pet também — só que ele não consegue pedir água, tirar o casaco ou ligar o ventilador sozinho.
 
+*Ver também: [Sinais de que seu pet está doente: quando procurar o vet](/blog/sinais-de-que-seu-pet-esta-doente/)*
+
 ## Sinais de que seu pet pode estar desidratado
 
 - Gengiva seca ou pegajosa (o normal é úmida e brilhante)
 - Letargia fora do padrão — muito mais quieto ou desanimado que o de costume
 - Pele que demora a voltar ao normal quando beliscada suavemente entre as escápulas (em pets bem hidratados, ela volta rápido)
 - Nariz seco persistente, embora esse sinal sozinho não seja conclusivo
+
+## Cães mais vulneráveis ao calor
+
+Raças braquicefálicas — focinho curto, como pug, buldogue francês, buldogue inglês e shih tzu — têm mais dificuldade de dissipar calor pela respiração, que já é o principal jeito de um cão se refrescar. Filhotes e cães idosos também merecem atenção redobrada nos dias mais quentes.
 
 ## Como ajudar na prática
 
@@ -27,6 +33,10 @@ Se você sentiu que agosto de 2026 está mais quente que o normal, não é impre
 - Evitar passeio e exercício entre 11h e 16h, o pico de calor do dia
 - Nunca deixar o pet em carro fechado, nem "só um minutinho" — a temperatura interna sobe muito rápido e pode ser fatal
 - Gatos que bebem pouca água costumam aceitar melhor fontes de água corrente (bebedouro tipo fonte) do que tigela parada
+
+## Primeiros socorros leves, antes de virar emergência
+
+Se o pet parecer incomodado mas ainda alerta e responsivo — ofegante, meio desanimado — leve-o pra um ambiente fresco e com sombra, e umedeça focinho, patinhas e virilha com um pano em água em temperatura ambiente (nunca gelada, pode causar choque térmico). Ofereça água aos poucos, sem forçar. Se não melhorar rápido, é hora do veterinário.
 
 ## Quando é emergência: golpe de calor
 
