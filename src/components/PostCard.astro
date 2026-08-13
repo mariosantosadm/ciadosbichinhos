@@ -1,0 +1,126 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { categories } from '../lib/categories';
+import { readingTime } from '../lib/reading-time';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  variant?: 'featured' | 'secondary' | 'default';
+}
+
+const { post, variant = 'default' } = Astro.props;
+const cat = categories[post.data.category];
+const minutes = readingTime(post.body);
+---
+
+<article class={`post-card post-card--${variant}`}>
+  <a href={`/blog/${post.slug}/`} class="post-card__link">
+    {
+      post.data.heroImage && (
+        <div class="post-card__media">
+          <img src={post.data.heroImage} alt={post.data.heroImageAlt ?? post.data.title} loading="lazy" />
+          {post.data.affiliate && <span class="badge badge-publicidade post-card__ad-badge">Publicidade</span>}
+        </div>
+      )
+    }
+    <div class="post-card__body">
+      <div class="post-card__badges">
+        <span class={`badge badge-${post.data.category}`}>{cat.label}</span>
+        {!post.data.heroImage && post.data.affiliate && <span class="badge badge-publicidade">Publicidade</span>}
+      </div>
+      <h3 class="post-card__title">{post.data.title}</h3>
+      {variant === 'featured' && <p class="post-card__excerpt">{post.data.description}</p>}
+      {
+        variant === 'featured' && (
+          <span class="post-card__meta">{minutes} min de leitura</span>
+        )
+      }
+    </div>
+  </a>
+</article>
+
+<style>
+  .post-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(28, 38, 32, 0.12);
+  }
+
+  .post-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-card__link:hover {
+    text-decoration: none;
+  }
+
+  .post-card__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--color-green-light);
+  }
+
+  .post-card--featured .post-card__media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .post-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .post-card__ad-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .post-card__body {
+    padding: 1rem 1.1rem 1.25rem;
+  }
+
+  .post-card--featured .post-card__body {
+    padding: 1.4rem 1.6rem 1.6rem;
+  }
+
+  .post-card__badges {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .post-card__title {
+    margin: 0.5em 0 0;
+    font-size: 1.05rem;
+  }
+
+  .post-card--featured .post-card__title {
+    font-size: 1.6rem;
+  }
+
+  .post-card--secondary .post-card__title {
+    font-size: 1rem;
+  }
+
+  .post-card__excerpt {
+    margin-top: 0.5em;
+    color: #4a564d;
+  }
+
+  .post-card__meta {
+    display: block;
+    margin-top: 0.75em;
+    font-size: 0.8rem;
+    color: #6b7a72;
+  }
+</style>

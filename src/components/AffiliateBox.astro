@@ -1,0 +1,99 @@
+---
+interface Props {
+  productName: string;
+  productImage?: string;
+  store: string;
+  url: string;
+  price?: string;
+  note?: string;
+}
+
+const { productName, productImage, store, url, price, note } = Astro.props;
+---
+
+<aside class="affiliate-box" aria-label="Recomendação de produto patrocinada">
+  <span class="badge badge-publicidade affiliate-box__badge">Publicidade</span>
+  <div class="affiliate-box__content">
+    {
+      productImage && (
+        <img class="affiliate-box__image" src={productImage} alt={productName} loading="lazy" />
+      )
+    }
+    <div class="affiliate-box__info">
+      <p class="affiliate-box__product">{productName}</p>
+      {price && <p class="affiliate-box__price">{price}</p>}
+      {note && <p class="affiliate-box__note">{note}</p>}
+      <a class="btn btn-accent affiliate-box__cta" href={url} target="_blank" rel="sponsored noopener noreferrer">
+        Ver na {store}
+      </a>
+    </div>
+  </div>
+  <p class="affiliate-box__disclosure">
+    Este é um link de afiliado: se você comprar por ele, o Cia dos Bichinhos pode ganhar uma comissão, sem custo
+    extra pra você. Saiba mais na nossa <a href="/disclosure/">página de disclosure</a>.
+  </p>
+</aside>
+
+<style>
+  .affiliate-box {
+    border: 1px solid #f0d4c8;
+    background: #fff8f5;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin: 1.75rem 0;
+    position: relative;
+  }
+
+  .affiliate-box__badge {
+    margin-bottom: 0.75rem;
+  }
+
+  .affiliate-box__content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .affiliate-box__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #fff;
+    flex-shrink: 0;
+  }
+
+  .affiliate-box__info {
+    flex: 1;
+    min-width: 180px;
+  }
+
+  .affiliate-box__product {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin: 0 0 0.25em;
+  }
+
+  .affiliate-box__price {
+    color: var(--color-green-dark);
+    font-weight: 700;
+    margin: 0 0 0.4em;
+  }
+
+  .affiliate-box__note {
+    font-size: 0.9rem;
+    color: #4a564d;
+    margin: 0 0 0.75em;
+  }
+
+  .affiliate-box__cta {
+    margin-top: 0.25em;
+  }
+
+  .affiliate-box__disclosure {
+    margin: 1rem 0 0;
+    font-size: 0.78rem;
+    color: #7a5c50;
+  }
+</style>

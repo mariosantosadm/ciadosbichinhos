@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import PostCard from '../../components/PostCard.astro';
+import { categories, categoryList } from '../../lib/categories';
+
+const PAGE_SIZE = 6;
+
+export async function getStaticPaths() {
+  return categoryList.map((cat) => ({ params: { slug: cat.slug } }));
+}
+
+const { slug } = Astro.params;
+const cat = categories[slug as keyof typeof categories];
+
+const allPosts = await getCollection('blog');
+const categoryPosts = allPosts
+  .filter((post) => post.data.category === cat.slug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const visiblePosts = categoryPosts.slice(0, PAGE_SIZE);
+const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
+---
+
+<BaseLayout title={`${cat.label}: dicas e cuidados`} description={cat.metaDescription}>
+  <div class="container category-header">
+    <h1>{cat.label}</h1>
+    <p class="category-header__descriptor">{cat.descriptor}</p>
+    <div class="ad-slot">Espaço publicitário</div>
+  </div>
+
+  <div class="container category-layout">
+    <section class="category-feed">
+      {categoryPosts.length === 0 && <p>Ainda não temos posts nesta categoria. Volte em breve!</p>}
+
+      <div class="category-feed__grid">
+        {visiblePosts.map((post) => <PostCard post={post} />)}
+        {hiddenPosts.map((post) => (
+          <div class="category-feed__hidden" data-more-post>
+            <PostCard post={post} />
+          </div>
+        ))}
+      </div>
+
+      {
+        hiddenPosts.length > 0 && (
+          <button class="btn btn-primary category-feed__more" id="load-more">
+            Carregar mais posts
+          </button>
+        )
+      }
+    </section>
+
+    <Sidebar posts={allPosts} />
+  </div>
+</BaseLayout>
+
+<style>
+  .category-header {
+    padding-top: 2.5rem;
+  }
+
+  .category-header__descriptor {
+    color: #4a564d;
+    font-size: 1.05rem;
+  }
+
+  .category-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+    align-items: start;
+  }
+
+  .category-feed__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .category-feed__hidden {
+    display: none;
+  }
+
+  .category-feed__more {
+    display: block;
+    margin: 2rem auto 0;
+  }
+
+  @media (max-width: 860px) {
+    .category-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .category-feed__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const button = document.getElementById('load-more');
+  button?.addEventListener('click', () => {
+    document.querySelectorAll('[data-more-post]').forEach((el) => {
+      (el as HTMLElement).style.display = 'block';
+    });
+    button.remove();
+  });
+</script>
