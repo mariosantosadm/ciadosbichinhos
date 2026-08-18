@@ -13,8 +13,6 @@ affiliate: false
 
 Se você sentiu que agosto de 2026 está mais quente que o normal, não é impressão sua — o El Niño deste ano está entre os mais fortes das últimas décadas, com previsão de ondas de calor atípicas em boa parte do Brasil. E o que incomoda a gente incomoda o pet também — só que ele não consegue pedir água, tirar o casaco ou ligar o ventilador sozinho.
 
-*Ver também: [Sinais de que seu pet está doente: quando procurar o vet](/blog/sinais-de-que-seu-pet-esta-doente/)*
-
 ## Sinais de que seu pet pode estar desidratado
 
 - Gengiva seca ou pegajosa (o normal é úmida e brilhante)

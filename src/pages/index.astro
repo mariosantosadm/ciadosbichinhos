@@ -11,6 +11,7 @@ const allPosts = (await getCollection('blog')).sort(
 );
 
 const [featured, secondary1, secondary2, ...rest] = allPosts;
+const hasSecondaryHighlights = Boolean(secondary1 && secondary2);
 const feedPosts = rest;
 const visiblePosts = feedPosts.slice(0, PAGE_SIZE);
 const hiddenPosts = feedPosts.slice(PAGE_SIZE);
@@ -20,12 +21,16 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
   title="Cia dos Bichinhos"
   description="Cuidados, alimentação e comportamento pra cachorros e gatos — conteúdo direto ao ponto pra tutores que amam seus pets."
 >
-  <div class="container home-highlights">
+  <div class={`container home-highlights ${hasSecondaryHighlights ? '' : 'home-highlights--single'}`}>
     {featured && <PostCard post={featured} variant="featured" />}
-    <div class="home-highlights__secondary">
-      {secondary1 && <PostCard post={secondary1} variant="secondary" />}
-      {secondary2 && <PostCard post={secondary2} variant="secondary" />}
-    </div>
+    {
+      hasSecondaryHighlights && (
+        <div class="home-highlights__secondary">
+          <PostCard post={secondary1} variant="secondary" />
+          <PostCard post={secondary2} variant="secondary" />
+        </div>
+      )
+    }
   </div>
 
   <div class="container">
@@ -33,25 +38,29 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
   </div>
 
   <div class="container home-layout">
-    <section class="home-feed">
-      <h2>Últimos posts</h2>
-      <div class="home-feed__grid">
-        {visiblePosts.map((post) => <PostCard post={post} />)}
-        {hiddenPosts.map((post) => (
-          <div class="home-feed__hidden" data-more-post>
-            <PostCard post={post} />
+    {
+      feedPosts.length > 0 && (
+        <section class="home-feed">
+          <h2>Últimos posts</h2>
+          <div class="home-feed__grid">
+            {visiblePosts.map((post) => <PostCard post={post} />)}
+            {hiddenPosts.map((post) => (
+              <div class="home-feed__hidden" data-more-post>
+                <PostCard post={post} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {
-        hiddenPosts.length > 0 && (
-          <button class="btn btn-primary home-feed__more" id="load-more">
-            Carregar mais posts
-          </button>
-        )
-      }
-    </section>
+          {
+            hiddenPosts.length > 0 && (
+              <button class="btn btn-primary home-feed__more" id="load-more">
+                Carregar mais posts
+              </button>
+            )
+          }
+        </section>
+      )
+    }
 
     <Sidebar posts={allPosts} />
   </div>
@@ -78,6 +87,10 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
     padding-top: 2.5rem;
   }
 
+  .home-highlights--single {
+    grid-template-columns: 1fr;
+  }
+
   .home-highlights__secondary {
     display: flex;
     flex-direction: column;
@@ -90,6 +103,11 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
     gap: 2.5rem;
     padding-bottom: 3rem;
     align-items: start;
+  }
+
+  /* Mantém a sidebar na coluna estreita mesmo quando o feed (1ª coluna) não é renderizado */
+  .home-layout :global(.sidebar) {
+    grid-column: 2;
   }
 
   .home-feed__grid {
@@ -152,6 +170,10 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
 
     .home-layout {
       grid-template-columns: 1fr;
+    }
+
+    .home-layout :global(.sidebar) {
+      grid-column: 1;
     }
 
     .home-feed__grid {
