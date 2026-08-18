@@ -1,13 +1,13 @@
 ---
 title: "Como manter seu pet hidratado no calor extremo"
-description: "Com El Niño e ondas de calor previstas para 2026, veja como garantir que seu cão ou gato fique bem hidratado e evite golpe de calor."
-pubDate: 2026-08-11
+description: "Com El Niño e ondas de calor previstas para 2026, veja sinais de desidratação, o que a cor da urina revela, e quando é hora do veterinário."
+pubDate: 2026-08-14
 category: cuidados
 species: ambos
 pilar: cuidar
-tags: ["hidratação", "calor", "golpe de calor", "verão"]
-heroImage: "https://cdn.pixabay.com/photo/2016/05/07/19/54/dog-1378087_1280.jpg"
-heroImageAlt: "beagle bebendo água em tigela de metal ao ar livre em dia de sol"
+tags: ["hidratação", "calor", "golpe de calor", "urina", "verão"]
+heroImage: "https://cdn.pixabay.com/photo/2023/03/16/03/36/german-shepherd-7855868_1280.jpg"
+heroImageAlt: "pastor alemão ofegante caminhando ao ar livre em dia de calor"
 affiliate: false
 ---
 
@@ -21,6 +21,16 @@ Se você sentiu que agosto de 2026 está mais quente que o normal, não é impre
 - Letargia fora do padrão — muito mais quieto ou desanimado que o de costume
 - Pele que demora a voltar ao normal quando beliscada suavemente entre as escápulas (em pets bem hidratados, ela volta rápido)
 - Nariz seco persistente, embora esse sinal sozinho não seja conclusivo
+
+## O que a cor da urina revela
+
+- **Transparente ou muito clara:** geralmente sinal de que o pet está bebendo bastante água — normal, mas se for acompanhado de sede exagerada e frequência muito alta, vale mencionar ao veterinário.
+- **Amarelo claro:** o ideal — sinal de boa hidratação.
+- **Amarelo escuro ou alaranjado:** costuma indicar desidratação leve a moderada — hora de oferecer mais água e observar.
+- **Vermelha ou rosada:** pode indicar sangue na urina — não é sobre hidratação, é sinal de atenção veterinária.
+- **Marrom:** também foge do tema hidratação — pede avaliação veterinária o quanto antes.
+
+Frequência muito acima ou abaixo do normal, volume incomum, cheiro forte diferente do habitual, ou urina turva — qualquer uma dessas mudanças, mesmo com a cor normal, já vale uma atenção maior. Mudança brusca de cor, sangue, urina marrom, ou qualquer alteração que persista por mais de um dia pede uma consulta.
 
 ## Cães mais vulneráveis ao calor
 
@@ -37,6 +47,10 @@ Raças braquicefálicas — focinho curto, como pug, buldogue francês, buldogue
 ## Primeiros socorros leves, antes de virar emergência
 
 Se o pet parecer incomodado mas ainda alerta e responsivo — ofegante, meio desanimado — leve-o pra um ambiente fresco e com sombra, e umedeça focinho, patinhas e virilha com um pano em água em temperatura ambiente (nunca gelada, pode causar choque térmico). Ofereça água aos poucos, sem forçar. Se não melhorar rápido, é hora do veterinário.
+
+## Atenção redobrada com gatos
+
+Gatos costumam disfarçar bem quando não estão bem, e machos em particular têm risco de **obstrução urinária** — uma emergência real. Se o gato ficar entrando e saindo da caixa de areia, fazendo força e **sem conseguir urinar**, isso não espera: procure atendimento veterinário imediatamente.
 
 ## Quando é emergência: golpe de calor
 
