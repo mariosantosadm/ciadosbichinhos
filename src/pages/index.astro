@@ -10,9 +10,11 @@ const allPosts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const [featured, secondary1, secondary2, ...rest] = allPosts;
-const hasSecondaryHighlights = Boolean(secondary1 && secondary2);
-const feedPosts = rest;
+const [featured, ...afterFeatured] = allPosts;
+const hasSecondaryHighlights = afterFeatured.length >= 2;
+const secondary1 = hasSecondaryHighlights ? afterFeatured[0] : undefined;
+const secondary2 = hasSecondaryHighlights ? afterFeatured[1] : undefined;
+const feedPosts = hasSecondaryHighlights ? afterFeatured.slice(2) : afterFeatured;
 const visiblePosts = feedPosts.slice(0, PAGE_SIZE);
 const hiddenPosts = feedPosts.slice(PAGE_SIZE);
 ---
@@ -24,7 +26,7 @@ const hiddenPosts = feedPosts.slice(PAGE_SIZE);
   <div class={`container home-highlights ${hasSecondaryHighlights ? '' : 'home-highlights--single'}`}>
     {featured && <PostCard post={featured} variant="featured" />}
     {
-      hasSecondaryHighlights && (
+      secondary1 && secondary2 && (
         <div class="home-highlights__secondary">
           <PostCard post={secondary1} variant="secondary" />
           <PostCard post={secondary2} variant="secondary" />
