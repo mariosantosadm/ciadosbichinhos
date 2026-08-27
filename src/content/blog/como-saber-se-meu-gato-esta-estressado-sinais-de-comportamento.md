@@ -6,7 +6,7 @@ category: comportamento
 species: gato
 pilar: educar
 tags: ["estresse em gatos", "comportamento felino", "bem-estar"]
-heroImage: "" # TODO (Mário): a URL enviada (catsanddogs.today) não é banco de imagem licenciado — ver aviso no chat. Substituir por foto do Unsplash/Pexels antes de publicar.
+heroImage: "https://cdn.pixabay.com/photo/2017/11/18/18/37/cat-2960805_960_720.jpg"
 affiliate: false
 ---
 
