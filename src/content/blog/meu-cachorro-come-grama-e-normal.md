@@ -6,7 +6,7 @@ category: comportamento
 species: cachorro
 pilar: educar
 tags: ["comportamento canino", "curiosidades", "cachorro come grama"]
-heroImage: "" # TODO (Mário): a URL enviada (mywoof.com/cdn/shop/files/...) é o CDN da loja Shopify de uma marca de produtos pet, não um banco de imagem licenciado — mesmo problema do post do gato estressado. Substituir por foto do Unsplash/Pexels antes de publicar.
+heroImage: "https://cdn.pixabay.com/photo/2019/04/13/21/52/dog-eats-grass-4125723_640.jpg"
 affiliate: false
 ---
 
