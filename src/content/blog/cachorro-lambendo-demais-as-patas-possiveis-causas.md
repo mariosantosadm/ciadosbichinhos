@@ -6,7 +6,7 @@ category: cuidados
 species: cachorro
 pilar: cuidar
 tags: ["cachorro", "comportamento canino", "saúde do pet"]
-heroImage: "" # TODO (Mário): a URL enviada era uma página de venda do iStock (istockphoto.com/photo/...), não uma imagem direta — os parâmetros utm_source=pixabay&utm_medium=affiliate indicam que é um resultado patrocinado do iStock misturado na busca do Pixabay, não uma foto grátis de verdade. iStock é banco pago: usar sem licença comprada é violação de direito autoral, e mesmo com licença essa URL é a página de venda, não o arquivo de imagem. Substituir por um link direto cdn.pixabay.com/... (ou Unsplash/Pexels) antes de publicar.
+heroImage: "https://cdn.pixabay.com/photo/2019/07/04/17/14/paw-4316944_1280.jpg"
 affiliate: false
 ---
 
