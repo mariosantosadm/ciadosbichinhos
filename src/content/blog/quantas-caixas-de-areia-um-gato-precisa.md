@@ -6,8 +6,7 @@ category: gato
 species: gato
 pilar: educar
 tags: ["caixa de areia", "gato", "rotina felina", "xixi fora da caixa"]
-heroImage: "https://cdn.pixabay.com/photo/2013/04/21/14/03/scoops-playground-106155_1280.jpg"
-heroImageAlt: "Pá de plástico azul quebrada na areia"
+heroImage: "https://images.pexels.com/photos/13705506/pexels-photo-13705506.jpeg"
 affiliate: false
 ---
 
