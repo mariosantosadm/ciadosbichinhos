@@ -72,6 +72,8 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
   }
 
   .post-layout__main {
+    /* Permite que o item do grid encolha; sem isso, conteúdo largo (ex.: tabelas) estoura a página no mobile */
+    min-width: 0;
     background: var(--color-card-bg);
     border: 1px solid var(--color-card-border);
     border-radius: var(--radius);
@@ -138,9 +140,58 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
     margin-bottom: 0;
   }
 
+  .post-layout__content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75em 0;
+    font-size: 0.97rem;
+    border-radius: var(--radius);
+    /* Borda externa via box-shadow: com border-collapse, border + border-radius não arredonda os cantos */
+    box-shadow: 0 0 0 1px var(--color-card-border);
+    overflow: hidden;
+  }
+
+  .post-layout__content :global(tr) {
+    border-bottom: 1px solid var(--color-card-border);
+  }
+
+  .post-layout__content :global(tbody tr:last-child) {
+    border-bottom: none;
+  }
+
+  .post-layout__content :global(th),
+  .post-layout__content :global(td) {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .post-layout__content :global(thead th) {
+    background: var(--color-green-light);
+    color: var(--color-green-dark);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .post-layout__content :global(tbody tr:nth-child(even)) {
+    background: var(--color-bg);
+  }
+
+  .post-layout__content :global(tbody td:first-child) {
+    font-weight: 700;
+  }
+
   @media (max-width: 860px) {
     .post-layout {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .post-layout__content :global(table) {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 </style>
