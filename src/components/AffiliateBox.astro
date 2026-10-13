@@ -23,7 +23,7 @@ const { productName, productImage, store, url, price, note } = Astro.props;
       <p class="affiliate-box__product">{productName}</p>
       {price && <p class="affiliate-box__price">{price}</p>}
       {note && <p class="affiliate-box__note">{note}</p>}
-      <a class="btn btn-accent affiliate-box__cta" href={url} target="_blank" rel="sponsored noopener noreferrer">
+      <a class="btn btn-accent affiliate-box__cta" href={url} target="_blank" rel="sponsored nofollow noopener">
         Ver na {store}
       </a>
     </div>
@@ -34,7 +34,8 @@ const { productName, productImage, store, url, price, note } = Astro.props;
   </p>
 </aside>
 
-<style>
+<!-- Estilos globais para que o mesmo markup possa ser usado em HTML direto dentro de posts .md -->
+<style is:global>
   .affiliate-box {
     border: 1px solid #f0d4c8;
     background: #fff8f5;
