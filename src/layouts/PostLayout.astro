@@ -3,8 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import Sidebar from '../components/Sidebar.astro';
 import AffiliateBox from '../components/AffiliateBox.astro';
+import PostCard from '../components/PostCard.astro';
 import { categories } from '../lib/categories';
 import { readingTime } from '../lib/reading-time';
+import { getRelatedPosts } from '../lib/posts';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -15,6 +17,7 @@ const { post, allPosts } = Astro.props;
 const { title, description, pubDate, updatedDate, category, heroImage, heroImageAlt, affiliate, affiliateProduct } = post.data;
 const cat = categories[category];
 const minutes = readingTime(post.body);
+const related = getRelatedPosts(post, allPosts);
 
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 ---
@@ -53,7 +56,21 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
             url={affiliateProduct.url}
             price={affiliateProduct.price}
             note={affiliateProduct.note}
+            postSlug={post.slug}
           />
+        )
+      }
+
+      {
+        related.length > 0 && (
+          <section class="related" aria-labelledby="related-title">
+            <h2 id="related-title" class="related__title">Leia também</h2>
+            <div class="related__grid">
+              {related.map((p) => (
+                <PostCard post={p} variant="secondary" />
+              ))}
+            </div>
+          </section>
         )
       }
     </article>
@@ -61,6 +78,19 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
     <Sidebar posts={allPosts} />
   </div>
 </BaseLayout>
+
+<script is:inline>
+  // Medição de cliques em links de afiliado. Só dispara se o gtag existir na página; caso contrário, não faz nada.
+  document.addEventListener('click', function (event) {
+    var link = event.target instanceof Element && event.target.closest('a[data-affiliate="true"]');
+    if (!link || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'affiliate_click', {
+      product: link.dataset.product,
+      post: link.dataset.post,
+      link_url: link.href,
+    });
+  });
+</script>
 
 <style>
   .post-layout {
@@ -181,6 +211,23 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
     font-weight: 700;
   }
 
+  .related {
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-card-border);
+  }
+
+  .related__title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .related__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
   @media (max-width: 860px) {
     .post-layout {
       grid-template-columns: 1fr;
@@ -188,6 +235,10 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
   }
 
   @media (max-width: 640px) {
+    .related__grid {
+      grid-template-columns: 1fr;
+    }
+
     .post-layout__content :global(table) {
       display: block;
       overflow-x: auto;

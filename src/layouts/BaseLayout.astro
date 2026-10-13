@@ -28,6 +28,16 @@ const schema = article
       image: ogImage.toString(),
       datePublished: article.publishDate.toISOString(),
       dateModified: (article.updatedDate ?? article.publishDate).toISOString(),
+      url: canonicalURL.toString(),
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': canonicalURL.toString(),
+      },
+      author: {
+        '@type': 'Organization',
+        name: siteName,
+        url: Astro.site?.toString(),
+      },
       publisher: {
         '@type': 'Organization',
         name: siteName,

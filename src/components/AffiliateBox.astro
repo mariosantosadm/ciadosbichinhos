@@ -6,9 +6,11 @@ interface Props {
   url: string;
   price?: string;
   note?: string;
+  /** Slug do post, usado na medição de cliques (data-post) */
+  postSlug?: string;
 }
 
-const { productName, productImage, store, url, price, note } = Astro.props;
+const { productName, productImage, store, url, price, note, postSlug } = Astro.props;
 ---
 
 <aside class="affiliate-box" aria-label="Recomendação de produto patrocinada">
@@ -23,7 +25,15 @@ const { productName, productImage, store, url, price, note } = Astro.props;
       <p class="affiliate-box__product">{productName}</p>
       {price && <p class="affiliate-box__price">{price}</p>}
       {note && <p class="affiliate-box__note">{note}</p>}
-      <a class="btn btn-accent affiliate-box__cta" href={url} target="_blank" rel="sponsored nofollow noopener">
+      <a
+        class="btn btn-accent affiliate-box__cta"
+        href={url}
+        target="_blank"
+        rel="sponsored nofollow noopener"
+        data-affiliate="true"
+        data-product={productName}
+        data-post={postSlug}
+      >
         Ver na {store}
       </a>
     </div>

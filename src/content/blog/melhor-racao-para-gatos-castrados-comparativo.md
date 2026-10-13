@@ -37,7 +37,7 @@ Depois da castração, é comum o gato gastar menos energia e comer com mais von
 <div class="affiliate-box__info">
 <p class="affiliate-box__product">Royal Canin Sterilised Appetite Control</p>
 <p class="affiliate-box__note">Gatos adultos castrados · 1,5 kg</p>
-<a class="btn btn-accent affiliate-box__cta" href="https://link.amazon/B0dpiaZ8m" target="_blank" rel="sponsored nofollow noopener">Ver na Amazon</a>
+<a class="btn btn-accent affiliate-box__cta" href="https://link.amazon/B0dpiaZ8m" target="_blank" rel="sponsored nofollow noopener" data-affiliate="true" data-product="Royal Canin Sterilised Appetite Control" data-post="melhor-racao-para-gatos-castrados-comparativo">Ver na Amazon</a>
 </div>
 </div>
 <p class="affiliate-box__disclosure">Este é um link de afiliado: se você comprar por ele, o Cia dos Bichinhos pode ganhar uma comissão, sem custo extra pra você. Saiba mais na nossa <a href="/disclosure/">página de disclosure</a>.</p>
@@ -60,7 +60,7 @@ Linha super premium pensada para gatos adultos castrados que têm tendência a p
 <div class="affiliate-box__info">
 <p class="affiliate-box__product">Golden Gatos Adultos Castrados Sabor Salmão</p>
 <p class="affiliate-box__note">Premier Pet · 10,1 kg</p>
-<a class="btn btn-accent affiliate-box__cta" href="https://link.amazon/B0gbe2sCe" target="_blank" rel="sponsored nofollow noopener">Ver na Amazon</a>
+<a class="btn btn-accent affiliate-box__cta" href="https://link.amazon/B0gbe2sCe" target="_blank" rel="sponsored nofollow noopener" data-affiliate="true" data-product="Golden Gatos Adultos Castrados Sabor Salmão" data-post="melhor-racao-para-gatos-castrados-comparativo">Ver na Amazon</a>
 </div>
 </div>
 <p class="affiliate-box__disclosure">Este é um link de afiliado: se você comprar por ele, o Cia dos Bichinhos pode ganhar uma comissão, sem custo extra pra você. Saiba mais na nossa <a href="/disclosure/">página de disclosure</a>.</p>

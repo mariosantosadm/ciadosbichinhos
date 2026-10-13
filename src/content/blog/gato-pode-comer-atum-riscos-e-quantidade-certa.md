@@ -40,6 +40,8 @@ Se for dar, segue esse roteiro:
 - Frequência: no máximo 1 a 2 vezes por semana, nunca todo dia.
 - Trate como petisco, não como refeição — a base da alimentação continua sendo a ração completa e balanceada pra idade e porte dele.
 
+Se o seu gato é castrado, veja [como escolher a ração para gato castrado](/blog/melhor-racao-para-gatos-castrados-comparativo/).
+
 ## Quando procurar o veterinário
 
 Se o seu gato apresentar vômito persistente, diarreia, letargia ou parar de aceitar a ração normal depois de comer atum, vale marcar uma consulta — principalmente se ele já tiver histórico de problema renal ou urinário. O veterinário também é a pessoa certa pra avaliar se faz sentido incluir atum na rotina de um gato com alguma condição de saúde específica.

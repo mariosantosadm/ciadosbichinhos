@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getMaisLidos } from '../lib/posts';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
@@ -7,9 +8,7 @@ interface Props {
 
 const { posts } = Astro.props;
 
-// "Mais lidos" — sem analytics ainda, usamos os mais recentes como proxy.
-// Trocar por dados reais de pageviews assim que houver integração de analytics.
-const maisLidos = [...posts].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
+const maisLidos = getMaisLidos(posts);
 
 const tagCounts = new Map<string, number>();
 for (const post of posts) {

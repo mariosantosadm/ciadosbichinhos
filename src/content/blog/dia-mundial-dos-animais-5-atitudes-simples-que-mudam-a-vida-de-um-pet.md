@@ -23,6 +23,8 @@ Milhares de cães e gatos esperam por um lar em ONGs, abrigos e feiras de adoç�
 
 A castração evita ninhadas indesejadas, que são uma das principais origens do abandono, e ainda traz benefícios de saúde, como menor risco de alguns tumores e de certas doenças do trato reprodutivo. Muitas prefeituras e ONGs oferecem castração gratuita ou a preço social.
 
+Depois da castração, vale rever a alimentação: veja nosso [comparativo de rações para gatos castrados](/blog/melhor-racao-para-gatos-castrados-comparativo/).
+
 Identificar o pet também faz toda a diferença: uma plaquinha com telefone na coleira ou um microchip aumenta bastante as chances de um animal perdido voltar pra casa.
 
 ## 3. Mantenha vacinas e consultas em dia

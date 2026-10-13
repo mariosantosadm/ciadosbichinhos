@@ -57,3 +57,5 @@ Esses sinais podem ter relação com estresse, e vale conferir [como saber se se
 ## Quando procurar o veterinário
 
 Se o gato começar a fazer xixi fora da caixa de repente, forçar sem conseguir urinar, urinar em pequenas quantidades várias vezes ou miar de dor na caixa, procure o veterinário com urgência. Problemas urinários em gatos podem evoluir rápido, e nem sempre o problema é só de comportamento.
+
+*Ver também: [Melhor ração para gatos castrados: comparativo](/blog/melhor-racao-para-gatos-castrados-comparativo/)*
