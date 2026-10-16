@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { categoryList } from '../lib/categories';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -58,18 +59,6 @@ const schema = article
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C1KRZQXCT"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-7C1KRZQXCT');
-    </script>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/logo-icone.svg" />
@@ -150,6 +139,7 @@ const schema = article
             <li><a href="/contato/">Contato</a></li>
             <li><a href="/privacidade/">Política de Privacidade</a></li>
             <li><a href="/disclosure/">Disclosure de afiliados</a></li>
+            <li><button type="button" id="cookie-prefs-link" class="footer-link-btn">Preferências de cookies</button></li>
           </ul>
         </div>
       </div>
@@ -157,6 +147,8 @@ const schema = article
         <p>&copy; {new Date().getFullYear()} {siteName}. Todos os direitos reservados.</p>
       </div>
     </footer>
+
+    <CookieConsent />
   </body>
 </html>
 
@@ -253,6 +245,23 @@ const schema = article
 
   .site-footer__col a:hover {
     color: #fff;
+  }
+
+  .footer-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #cfe4d8;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .footer-link-btn:hover {
+    color: #fff;
+    text-decoration: underline;
   }
 
   .site-footer__bottom {
