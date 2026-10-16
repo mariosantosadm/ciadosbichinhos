@@ -5,6 +5,7 @@ pubDate: 2026-10-15
 category: cachorro
 species: cachorro
 pilar: passear
+alsoIn: ["cuidados"]
 tags: ["plantas tóxicas", "intoxicação em cães", "passeio com cachorro", "segurança do cachorro"]
 heroImage: "https://images.pexels.com/photos/15222727/pexels-photo-15222727.jpeg?auto=compress&cs=tinysrgb&w=1260"
 heroImageAlt: "Cachorro Lagotto Romagnolo deitado na grama de um jardim"

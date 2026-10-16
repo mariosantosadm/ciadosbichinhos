@@ -5,6 +5,7 @@ pubDate: 2026-09-02
 category: cachorro
 species: cachorro
 pilar: educar
+alsoIn: ["cuidados", "comportamento"]
 tags: ["comportamento canino", "cachorro come grama"]
 heroImage: "https://cdn.pixabay.com/photo/2017/07/13/03/15/dog-2499023_960_720.jpg"
 affiliate: false

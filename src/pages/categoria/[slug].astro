@@ -15,8 +15,15 @@ const { slug } = Astro.params;
 const cat = categories[slug as keyof typeof categories];
 
 const allPosts = await getCollection('blog');
+
+const isSpeciesPage = cat.slug === 'cachorro' || cat.slug === 'gato';
+
 const categoryPosts = allPosts
-  .filter((post) => post.data.category === cat.slug)
+  .filter((post) =>
+    isSpeciesPage
+      ? post.data.species === cat.slug || post.data.species === 'ambos'
+      : post.data.category === cat.slug || post.data.alsoIn.includes(cat.slug)
+  )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const visiblePosts = categoryPosts.slice(0, PAGE_SIZE);

@@ -5,6 +5,7 @@ pubDate: 2026-10-07
 category: gato
 species: gato
 pilar: educar
+alsoIn: ["cuidados"]
 tags: ["caixa de areia", "gato", "rotina felina", "xixi fora da caixa"]
 heroImage: "https://images.pexels.com/photos/13705506/pexels-photo-13705506.jpeg"
 affiliate: false

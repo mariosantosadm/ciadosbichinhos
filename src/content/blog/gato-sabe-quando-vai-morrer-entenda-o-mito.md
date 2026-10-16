@@ -5,6 +5,7 @@ pubDate: 2026-09-04
 category: gato
 species: gato
 pilar: cuidar
+alsoIn: ["comportamento"]
 tags: ["fim de vida", "comportamento felino", "cuidados paliativos", "gato idoso"]
 heroImage: "https://cdn.pixabay.com/photo/2025/11/04/10/43/cat-9936281_1280.jpg"
 heroImageAlt: "Gato deitado e relaxado em ambiente aconchegante"

@@ -9,6 +9,7 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     category: z.enum(['cachorro', 'gato', 'cuidados', 'alimentacao', 'comportamento']),
     species: z.enum(['cachorro', 'gato', 'ambos']),
+    alsoIn: z.array(z.enum(['cachorro', 'gato', 'cuidados', 'alimentacao', 'comportamento'])).default([]),
     pilar: z.enum(['comer', 'brincar', 'passear', 'dormir', 'vestir', 'educar', 'cuidar']),
     tags: z.array(z.string()).default([]),
     heroImage: z.string().optional(),
