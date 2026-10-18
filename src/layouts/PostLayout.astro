@@ -14,7 +14,18 @@ interface Props {
 }
 
 const { post, allPosts } = Astro.props;
-const { title, description, pubDate, updatedDate, category, heroImage, heroImageAlt, affiliate, affiliateProduct } = post.data;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  category,
+  heroImage,
+  heroImageAlt,
+  heroImagePosition,
+  affiliate,
+  affiliateProduct,
+} = post.data;
 const cat = categories[category];
 const minutes = readingTime(post.body);
 const related = getRelatedPosts(post, allPosts);
@@ -41,7 +52,16 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
         · {minutes} min de leitura
       </p>
 
-      {heroImage && <img class="post-layout__hero" src={heroImage} alt={heroImageAlt ?? title} />}
+      {
+        heroImage && (
+          <img
+            class="post-layout__hero"
+            src={heroImage}
+            alt={heroImageAlt ?? title}
+            style={`object-position: ${heroImagePosition ?? 'center'}`}
+          />
+        )
+      }
 
       <div class="post-layout__content">
         <slot />

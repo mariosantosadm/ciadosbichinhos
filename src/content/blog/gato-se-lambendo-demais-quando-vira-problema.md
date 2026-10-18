@@ -8,6 +8,7 @@ pilar: cuidar
 tags: ["gato", "higiene", "lambedura excessiva", "estresse", "pele", "cuidados"]
 heroImage: "https://images.pexels.com/photos/32623350/pexels-photo-32623350.jpeg?auto=compress&cs=tinysrgb&w=1260"
 heroImageAlt: "Gato de pelagem volumosa se limpando ao ar livre, curtindo um momento de sol"
+heroImagePosition: "center 70%"
 affiliate: false
 ---
 
