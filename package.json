@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "node scripts/gerar-pins.mjs",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gerar-pins": "node scripts/gerar-pins.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
@@ -17,6 +19,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "typescript": "^5.6.3"
+    "@fontsource/nunito": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "satori": "^0.63.2",
+    "typescript": "^5.6.3",
+    "yaml": "^2.9.1"
   }
 }

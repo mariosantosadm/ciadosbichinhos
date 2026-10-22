@@ -16,3 +16,6 @@ npm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# pins (Pinterest) gerados no build — ver scripts/gerar-pins.mjs
+public/pins/
