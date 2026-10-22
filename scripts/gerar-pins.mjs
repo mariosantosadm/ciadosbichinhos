@@ -225,7 +225,9 @@ function computeTopPanelHeightB(pinTitle, pinSubtitle, fontSize) {
   const lines = Math.min(3, estimateLines(pinTitle, fontSize, boxWidth));
   const titleH = lines * fontSize * 1.15;
   const GAP_AFTER_TITLE = 18;
-  const subtitleH = pinSubtitle ? 2 * 38 * 1.3 : 0;
+  const SUBTITLE_FONT_SIZE = 38;
+  const subtitleLines = pinSubtitle ? Math.min(2, estimateLines(pinSubtitle, SUBTITLE_FONT_SIZE, boxWidth)) : 0;
+  const subtitleH = subtitleLines * SUBTITLE_FONT_SIZE * 1.3;
   const PAD_BOTTOM = 40;
   return Math.round(
     PAD_TOP + BADGE_H + GAP_AFTER_BADGE + titleH + (pinSubtitle ? GAP_AFTER_TITLE + subtitleH : 0) + PAD_BOTTOM
@@ -275,7 +277,15 @@ function buildTree({ layout, category, affiliate, pinTitle, pinSubtitle, photoDa
     [
       h(
         'div',
-        { style: { height: topPanelHeightB, display: 'flex', flexDirection: 'column', padding: `48px ${CONTENT_PADDING_X}px 0` } },
+        {
+          style: {
+            height: topPanelHeightB,
+            display: 'flex',
+            flexDirection: 'column',
+            padding: `48px ${CONTENT_PADDING_X}px 0`,
+            overflow: 'hidden',
+          },
+        },
         [
           badgeRow,
           titleNode({ text: pinTitle, fontSize, color: '#145C3F' }),
