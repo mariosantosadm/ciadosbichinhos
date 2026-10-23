@@ -151,6 +151,8 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
 
   .post-layout__hero {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: var(--radius);
     margin: 1.5rem 0;
   }
@@ -255,6 +257,10 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
   }
 
   @media (max-width: 640px) {
+    .post-layout__hero {
+      max-height: 45vh;
+    }
+
     .related__grid {
       grid-template-columns: 1fr;
     }

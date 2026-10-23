@@ -8,6 +8,7 @@ pilar: educar
 tags: ["ansiedade de separação", "comportamento canino", "cachorro sozinho", "rotina do cão"]
 heroImage: "https://images.pexels.com/photos/39516767/pexels-photo-39516767.jpeg?auto=compress&cs=tinysrgb&w=1260"
 heroImageAlt: "Cachorro sentado sozinho e quieto em uma rua de paralelepípedos cercada de vegetação"
+heroImagePosition: "center 55%"
 affiliate: false
 ---
 
