@@ -2,6 +2,7 @@
 
 O blog conta com 5 subagentes em `.claude/agents/`: `pesquisador-seo`, `redator`, `revisor-tecnico`, `social-media` e `analista`.
 
+- **Posts são escritos pelo agente `redator` e revisados pelo `revisor-tecnico`.** Nada é criado como arquivo, commitado ou publicado antes do Mário dizer "aprovado". Pauta e imagem continuam sendo dele.
 - **Quem decide a pauta e a imagem é o Mário.** Nenhum agente cria post, faz commit ou push sem aprovação explícita dele.
 - **Fluxo**: `pesquisador-seo` propõe → Mário escolhe → `redator` escreve → `revisor-tecnico` revisa → Mário aprova → `redator` cria o arquivo → commit direto na `main`, sem PR → o site gera o pin sozinho no deploy → `social-media` escreve os textos do pin e do carrossel → `analista` faz o relatório semanal com os dados que o Mário colar.
 - **Nunca citar fonte não consultada.** Nunca dizer que há revisão veterinária. Sem dose, sem diagnóstico.
