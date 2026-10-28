@@ -41,14 +41,14 @@ Monte o texto final (aplicando as correções do `revisor-tecnico` que forem ine
 
 ## (g) Agente `social-media`
 
-Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.md` (títulos/descrições do pin, board sugerida do Pinterest, endereços do post e do pin, roteiro de carrossel, divulgação de publicidade se for afiliado). Mostre a resposta dele ao Mário sob o título `[social-media]`. Commit e push direto na `main` esse arquivo também (é conteúdo versionado do repositório).
+Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.md` (títulos/descrições do pin, board sugerida do Pinterest, tags/palavras-chave do pin, endereços do post e do pin, roteiro de carrossel, divulgação de publicidade se for afiliado). Mostre a resposta dele ao Mário sob o título `[social-media]`. Commit e push direto na `main` esse arquivo também (é conteúdo versionado do repositório).
 
 ## (h) Prompt para o Claude in Chrome
 
-Depois do `[social-media]`, monte e entregue ao Mário, em bloco de código, o prompt abaixo pronto para colar no Claude in Chrome — usando o título e a descrição da **variação 1** e a **pasta sugerida** que o `social-media` entregou:
+Depois do `[social-media]`, monte e entregue ao Mário, em bloco de código, o prompt abaixo pronto para colar no Claude in Chrome — usando o título, a descrição e as tags da **variação 1** e a **pasta sugerida** que o `social-media` entregou:
 
 ```
-No Pinterest (já estou logado), crie UM pin: abra Criar > Criar pin; baixe a imagem de <URL_DO_PIN> e anexe como arquivo (se não conseguir, me avise e pare); título: <título da variação 1 do social-media>; descrição: <descrição da variação 1, com o aviso de publicidade se o post for afiliado>; link de destino: <URL_DO_POST>; pasta: <board sugerida>. Preencha tudo e PARE antes de publicar, para eu revisar e clicar em Publicar. Não crie mais de um pin e não mexa em nenhuma outra configuração da conta.
+No Pinterest (já estou logado), crie UM pin: abra Criar > Criar pin; baixe a imagem de <URL_DO_PIN> e anexe como arquivo (se não conseguir, me avise e pare); título: <título da variação 1 do social-media>; descrição: <descrição da variação 1, com o aviso de publicidade se o post for afiliado>; tags: <tags/palavras-chave sugeridas pelo social-media>; link de destino: <URL_DO_POST>; pasta: <board sugerida>. Preencha tudo e PARE antes de publicar, para eu revisar e clicar em Publicar. Não crie mais de um pin e não mexa em nenhuma outra configuração da conta.
 ```
 
 Não pule esta etapa — ela é parte obrigatória do fluxo do `/post`, mesmo quando não for pedida explicitamente na invocação do comando.
