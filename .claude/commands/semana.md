@@ -6,7 +6,7 @@ Siga esta sequência, sem pular etapas:
 
 ## (a) Coleta de dados
 
-Rode `node scripts/dados-semana.mjs` (ou `npm run dados-semana`). Isso gera `relatorios/dados/<AAAA-MM-DD>.json` (completo) e `relatorios/dados/<AAAA-MM-DD>-resumo.md` (compacto) com os últimos 7 dias — Search Console, GA4 e Cloudflare Web Analytics — comparados aos 7 dias anteriores. Fontes não configuradas ou com erro ficam marcadas como tal no resumo; o script nunca inventa número.
+Rode `npm run dados-semana` (chama `node --use-env-proxy scripts/dados-semana.mjs` — a flag é necessária para o Node alcançar a API da Cloudflare neste ambiente). Isso gera `relatorios/dados/<AAAA-MM-DD>.json` (completo) e `relatorios/dados/<AAAA-MM-DD>-resumo.md` (compacto) com os últimos 7 dias — Search Console, GA4 e Cloudflare Web Analytics — comparados aos 7 dias anteriores. Fontes não configuradas ou com erro ficam marcadas como tal no resumo; o script nunca inventa número.
 
 Se o Mário colou dados do Pinterest Analytics ou do relatório de Associados Amazon nesta conversa, guarde-os para passar ao `analista` no próximo passo (o script não coleta essas duas fontes).
 

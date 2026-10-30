@@ -1,23 +1,170 @@
 {
-  "gerado_em": "2026-10-30T15:54:21.972Z",
+  "gerado_em": "2026-10-30T16:26:02.857Z",
   "search_console": {
-    "status": "nao_configurado",
-    "faltando": [
-      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE"
-    ]
+    "status": "ok",
+    "dados": {
+      "janela": {
+        "atual": [
+          "2026-10-21",
+          "2026-10-27"
+        ],
+        "anterior": [
+          "2026-10-14",
+          "2026-10-20"
+        ]
+      },
+      "atraso_dados_dias": 3,
+      "totais": {
+        "atual": {
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 65
+        },
+        "anterior": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": 0
+        }
+      },
+      "top_paginas": [
+        {
+          "pagina": "https://ciadosbichinhos.com.br/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 1
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-chocolate-entenda-o-perigo/",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 66.33333333333333
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/como-manter-seu-pet-hidratado-no-calor-extremo/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 7
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/gato-nao-usa-a-caixa-de-areia-possiveis-motivos/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/gato-se-lambendo-demais-quando-vira-problema/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/categoria/gato/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 4
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/privacidade/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 2
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/sobre/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 3
+        }
+      ],
+      "top_consultas": [
+        {
+          "consulta": "chocolate cachorro pode comer",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 96
+        },
+        {
+          "consulta": "o que o chocolate causa no cachorro",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 98
+        }
+      ]
+    }
   },
   "ga4": {
-    "status": "nao_configurado",
-    "faltando": [
-      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE",
-      "GA4_PROPERTY_ID"
-    ]
+    "status": "ok",
+    "dados": {
+      "janela": {
+        "atual": [
+          "2026-10-23",
+          "2026-10-29"
+        ],
+        "anterior": [
+          "2026-10-16",
+          "2026-10-22"
+        ]
+      },
+      "totais": {
+        "atual": {
+          "usuarios": 1,
+          "sessoes": 4
+        },
+        "anterior": {
+          "usuarios": 4,
+          "sessoes": 7
+        }
+      },
+      "cliques_afiliado_por_pagina": []
+    }
   },
   "cloudflare": {
-    "status": "nao_configurado",
-    "faltando": [
-      "CLOUDFLARE_API_TOKEN",
-      "CLOUDFLARE_ZONE_ID"
-    ]
+    "status": "ok",
+    "dados": {
+      "janela": {
+        "atual": [
+          "2026-10-23",
+          "2026-10-29"
+        ],
+        "anterior": [
+          "2026-10-16",
+          "2026-10-22"
+        ]
+      },
+      "visitas": {
+        "atual": 4,
+        "anterior": 60
+      },
+      "top_paginas": [
+        {
+          "pagina": "/pinterest-3102a.html",
+          "visitas": 2
+        },
+        {
+          "pagina": "/pins/",
+          "visitas": 1
+        },
+        {
+          "pagina": "/",
+          "visitas": 1
+        },
+        {
+          "pagina": "/blog/ansiedade-de-separacao-em-caes-como-identificar-e-ajudar/",
+          "visitas": 0
+        }
+      ]
+    }
   }
 }

@@ -19,6 +19,7 @@ try {
 }
 
 const OUT_DIR = path.join(ROOT, 'relatorios/dados');
+const SITE_DOMAIN = 'ciadosbichinhos.com.br';
 
 // ---------- datas ----------
 
@@ -89,7 +90,7 @@ async function getGoogleAccessToken(scope) {
 // ---------- Search Console ----------
 
 async function fetchSearchConsole() {
-  const siteUrl = process.env.GSC_SITE_URL || 'sc-domain:ciadosbichinhos.com.br';
+  const siteUrl = process.env.GSC_SITE_URL || `sc-domain:${SITE_DOMAIN}`;
   const token = await getGoogleAccessToken('https://www.googleapis.com/auth/webmasters.readonly');
 
   async function query(startDate, endDate, dimensions, rowLimit = 10) {
@@ -188,29 +189,43 @@ async function fetchGA4() {
 }
 
 // ---------- Cloudflare Web Analytics ----------
-// Obs.: consulta GraphQL não testada contra a API real neste ambiente (sem credenciais/rede
-// disponíveis no momento em que isso foi escrito) — conferir o nome exato dos campos
-// (rumPageloadEventsAdaptiveGroups / requestPath) na primeira execução real e ajustar se a
-// Cloudflare tiver mudado o schema.
+// Os dados de RUM/Web Analytics só existem no schema GraphQL sob `viewer.accounts(...)`
+// (não sob `viewer.zones(...)`), filtrados por requestHost — confirmado via introspecção
+// contra a API real. O accountTag é obtido a partir do zoneTag via REST, então o Mário só
+// precisa configurar CLOUDFLARE_API_TOKEN e CLOUDFLARE_ZONE_ID (sem credencial extra).
 
 async function fetchCloudflare() {
   const token = process.env.CLOUDFLARE_API_TOKEN;
   const zoneTag = process.env.CLOUDFLARE_ZONE_ID;
 
+  async function cfFetch(url, opts = {}) {
+    const res = await fetch(url, {
+      ...opts,
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(opts.headers || {}) },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status} ${await res.text()}`);
+    return res.json();
+  }
+
+  const zoneInfo = await cfFetch(`https://api.cloudflare.com/client/v4/zones/${zoneTag}`);
+  const accountTag = zoneInfo.result?.account?.id;
+  if (!accountTag) throw new Error('não foi possível obter o accountTag a partir da zona');
+
   async function query(since, until) {
     const gql = `
-      query ($zoneTag: String!, $since: Time!, $until: Time!) {
+      query ($accountTag: String!, $requestHost: String!, $since: Time!, $until: Time!) {
         viewer {
-          zones(filter: { zoneTag: $zoneTag }) {
+          accounts(filter: { accountTag: $accountTag }) {
             total: rumPageloadEventsAdaptiveGroups(
-              filter: { datetime_geq: $since, datetime_leq: $until }
+              limit: 100
+              filter: { requestHost: $requestHost, datetime_geq: $since, datetime_leq: $until }
             ) {
               sum { visits }
             }
             topPaths: rumPageloadEventsAdaptiveGroups(
               limit: 10
               orderBy: [sum_visits_DESC]
-              filter: { datetime_geq: $since, datetime_leq: $until }
+              filter: { requestHost: $requestHost, datetime_geq: $since, datetime_leq: $until }
             ) {
               sum { visits }
               dimensions { requestPath }
@@ -218,19 +233,16 @@ async function fetchCloudflare() {
           }
         }
       }`;
-    const res = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+    const data = await cfFetch('https://api.cloudflare.com/client/v4/graphql', {
       method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: gql, variables: { zoneTag, since, until } }),
+      body: JSON.stringify({ query: gql, variables: { accountTag, requestHost: SITE_DOMAIN, since, until } }),
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${await res.text()}`);
-    const data = await res.json();
-    if (data.errors) throw new Error(JSON.stringify(data.errors));
-    return data.data.viewer.zones[0];
+    if (data.errors && data.errors.length) throw new Error(JSON.stringify(data.errors));
+    return data.data.viewer.accounts[0];
   }
 
-  function sumVisits(zone) {
-    return (zone.total || []).reduce((acc, g) => acc + (g.sum?.visits || 0), 0);
+  function sumVisits(account) {
+    return (account.total || []).reduce((acc, g) => acc + (g.sum?.visits || 0), 0);
   }
 
   const [current, prev] = await Promise.all([

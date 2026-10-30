@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "gerar-pins": "node scripts/gerar-pins.mjs",
-    "dados-semana": "node scripts/dados-semana.mjs"
+    "dados-semana": "node --use-env-proxy scripts/dados-semana.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
