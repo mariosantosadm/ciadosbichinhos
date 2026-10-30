@@ -14,7 +14,7 @@ O site já gera automaticamente uma imagem de pin para cada post, publicada em `
 
 - **2 a 3 variações** de título (até 100 caracteres) e descrição (2 a 3 frases, com palavras-chave, sem exagero, sem promessa de resultado, sem clickbait enganoso), pensadas pro mesmo pin ser usado em dias diferentes.
 - **Pasta (board) sugerida do Pinterest** para o post.
-- **Tags/palavras-chave sugeridas para o pin** (5 a 10, relacionadas ao tema do post — reaproveite as `tags` do frontmatter do post como ponto de partida, mas adapte para o que funciona como tag de busca no Pinterest).
+- **Tags/palavras-chave sugeridas para o pin** (exatamente 3, as mais relevantes pro tema do post — reaproveite as `tags` do frontmatter do post como ponto de partida, mas adapte para o que funciona como tag de busca no Pinterest). Esse limite de 3 é deliberado (início de operação no Pinterest); pode mudar no futuro se o Mário pedir.
 - O **endereço do post** (`https://ciadosbichinhos.com.br/blog/<slug>/`) e o **endereço da imagem do pin** (`https://ciadosbichinhos.com.br/pins/<slug>.png`).
 - **1 roteiro de carrossel para Instagram** (5 a 7 telas), com o texto de cada tela.
 - Se o post for de afiliado (`affiliate: true` no frontmatter), **incluir a divulgação de publicidade na descrição** (ex.: menção a link de afiliado/parceria).
