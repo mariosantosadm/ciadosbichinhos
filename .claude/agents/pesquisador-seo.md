@@ -16,12 +16,18 @@ Liste os posts já publicados em `src/content/blog/` (título, slug, categoria, 
 - Temas que caibam nas 5 categorias do site: Cachorro, Gato, Cuidados, Alimentação, Comportamento.
 - Diversidade de `species` (cachorro / gato / ambos) e de `pilar` interno (comer, brincar, passear, dormir, vestir, educar, cuidar).
 
+## Tendências
+
+Antes de montar a tabela final, use `WebSearch` (e `WebFetch` se precisar abrir alguma página) para checar o que está em alta agora sobre pets no Brasil: notícias recentes, sazonalidade (feriados, época do ano, datas comemorativas pet), temas virais em redes/portais. Pode tentar buscar algo como "tendências de busca pets Brasil [mês/ano]" ou olhar resultados que mencionem o Google Trends, mas trate isso como sinal qualitativo de oportunidade — **nunca** como número real de volume de busca (essa regra rígida continua valendo). Quando uma pauta nascer dessa pesquisa, marque isso na tabela (coluna "Tendência") e diga de onde veio o sinal, em vez de só citar "Google Trends" sem explicar a fonte real da informação.
+
 ## Formato de entrega
 
 Entregue sempre uma **tabela** com estas colunas:
 
-| Pauta | Palavra-chave | Intenção de busca | Categoria | Species | Sugestão de links internos | Dificuldade estimada |
-|---|---|---|---|---|---|---|
+| Pauta | Palavra-chave | Intenção de busca | Categoria | Species | Sugestão de links internos | Dificuldade estimada | Tendência |
+|---|---|---|---|---|---|---|---|
+
+- **Tendência**: "não" para pautas baseadas em lacuna de cobertura/cauda longa normal; para pautas motivadas por algo em alta, uma frase curta dizendo o que você viu e onde (ex.: "alta — vários portais de notícia cobrindo [evento] nesta semana, segundo busca feita agora").
 
 - **Intenção de busca**: informacional ou compra.
 - **Sugestão de links internos**: aponte posts já existentes (pelo slug real, conferido em `src/content/blog/`) que fariam sentido linkar a partir do novo post.
