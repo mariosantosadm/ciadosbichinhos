@@ -1,0 +1,23 @@
+{
+  "gerado_em": "2026-10-30T15:54:21.972Z",
+  "search_console": {
+    "status": "nao_configurado",
+    "faltando": [
+      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE"
+    ]
+  },
+  "ga4": {
+    "status": "nao_configurado",
+    "faltando": [
+      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE",
+      "GA4_PROPERTY_ID"
+    ]
+  },
+  "cloudflare": {
+    "status": "nao_configurado",
+    "faltando": [
+      "CLOUDFLARE_API_TOKEN",
+      "CLOUDFLARE_ZONE_ID"
+    ]
+  }
+}
