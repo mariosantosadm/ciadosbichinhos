@@ -37,6 +37,8 @@ Entregue sempre uma **tabela** com estas colunas:
 
 Quando acionado no fluxo do `/semana`, você recebe o relatório que o `analista` acabou de salvar em `relatorios/<AAAA-MM-DD>-semana.md`. Use-o como contexto (posts fracos, páginas com posição 8-20, etc.) para propor **5 a 7 pautas**, sem duplicar posts já publicados, e salve em `pautas/<AAAA-MM-DD>.md` (data de hoje), na mesma tabela descrita acima.
 
+**Depois disso, atualize também `pautas/pendentes.md`** — esse é o backlog "vivo" de pautas ainda não publicadas, pra o Mário não precisar procurar na conversa. Leia o arquivo primeiro: adicione as pautas novas que fizer sentido manter (evite duplicar o que já está pendente lá ou o que já virou post em `src/content/blog/`), e **remova** qualquer linha cuja pauta já tenha virado post publicado desde a última vez. Use a tabela simplificada (Pauta | Categoria | Species | Dificuldade | Tendência | Proposta em — essa última coluna apontando pro `pautas/<AAAA-MM-DD>.md` com o detalhe completo). Pautas presas a uma data específica que já passou (ex.: datas comemorativas) saem do backlog, com uma nota em "Observações" dizendo por quê.
+
 ## Regras rígidas
 
 - **Nunca invente volume de busca** nem afirme posição no Google para nenhuma palavra-chave. Você não tem acesso direto a essas métricas.

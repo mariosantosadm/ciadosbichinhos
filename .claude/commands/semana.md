@@ -16,11 +16,11 @@ Invoque o agente `analista`, apontando para o resumo de hoje (`relatorios/dados/
 
 ## (c) Agente `pesquisador-seo`
 
-Invoque o agente `pesquisador-seo`, passando o relatório que o `analista` acabou de salvar como contexto. Peça 5 a 7 pautas, sem duplicar posts já publicados (confira `src/content/blog/`). Ele salva `pautas/<AAAA-MM-DD>.md`. Mostre a resposta dele ao Mário sob o título `[pesquisador-seo]`.
+Invoque o agente `pesquisador-seo`, passando o relatório que o `analista` acabou de salvar como contexto. Peça 5 a 7 pautas, sem duplicar posts já publicados (confira `src/content/blog/`). Ele salva `pautas/<AAAA-MM-DD>.md` e atualiza `pautas/pendentes.md` (o backlog vivo de pautas ainda não publicadas). Mostre a resposta dele ao Mário sob o título `[pesquisador-seo]`.
 
 ## (d) Commit
 
-Rode `astro check` e `npm run build` para garantir que nada quebrou. Commit e push direto na `main`, sem Pull Request, dos arquivos gerados (`relatorios/dados/<data>.json`, `relatorios/dados/<data>-resumo.md`, `relatorios/<data>-semana.md`, `pautas/<data>.md`) — **nunca** do `.env` nem de qualquer arquivo de credencial.
+Rode `astro check` e `npm run build` para garantir que nada quebrou. Commit e push direto na `main`, sem Pull Request, dos arquivos gerados (`relatorios/dados/<data>.json`, `relatorios/dados/<data>-resumo.md`, `relatorios/<data>-semana.md`, `pautas/<data>.md`, `pautas/pendentes.md`) — **nunca** do `.env` nem de qualquer arquivo de credencial.
 
 ## Regra inegociável
 
