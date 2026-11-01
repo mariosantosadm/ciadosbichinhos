@@ -16,4 +16,4 @@
 ## Observações
 
 - A pauta "Fantasia de Halloween no pet" (`pautas/2026-10-30.md`) saiu do backlog: era específica da data de 31/10, que já passou. Pode voltar a fazer sentido perto do próximo Halloween.
-- "Cachorro comeu bala/chiclete sem açúcar: o perigo do xilitol" (publicado em 31/10) e "Gato pode comer chocolate branco?" (em andamento em 01/11) saíram do backlog porque viraram post.
+- "Cachorro comeu bala/chiclete sem açúcar: o perigo do xilitol" (publicado em 31/10) e "Gato pode comer chocolate branco?" (publicado em 01/11) saíram do backlog porque viraram post.
