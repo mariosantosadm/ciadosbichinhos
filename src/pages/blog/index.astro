@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { categoryList } from '../../lib/categories';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const groups = categoryList
+  .map((cat) => ({ cat, posts: posts.filter((p) => p.data.category === cat.slug) }))
+  .filter((g) => g.posts.length > 0);
+
+const dateFmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout
+  title="Todos os posts"
+  description="Lista completa dos posts da Cia dos Bichinhos sobre cachorros e gatos, organizada por categoria: cuidados, alimentação, comportamento e mais."
+>
+  <div class="container all-posts">
+    <h1>Todos os posts</h1>
+    <p class="all-posts__intro">{posts.length} posts, organizados por categoria.</p>
+
+    {
+      groups.map(({ cat, posts: catPosts }) => (
+        <section class="all-posts__group" aria-labelledby={`grupo-${cat.slug}`}>
+          <h2 id={`grupo-${cat.slug}`}>
+            <a href={`/categoria/${cat.slug}/`}>{cat.label}</a>
+          </h2>
+          <ul>
+            {catPosts.map((post) => (
+              <li>
+                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                <time datetime={post.data.pubDate.toISOString()}>{dateFmt.format(post.data.pubDate)}</time>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .all-posts {
+    padding-block: 2.5rem 3rem;
+    max-width: 820px;
+  }
+
+  .all-posts__intro {
+    color: #4a564d;
+  }
+
+  .all-posts__group {
+    margin-top: 2rem;
+  }
+
+  .all-posts__group h2 a {
+    color: inherit;
+  }
+
+  .all-posts__group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-card-border);
+  }
+
+  .all-posts__group li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--color-card-border);
+  }
+
+  .all-posts__group li a {
+    color: var(--color-text);
+  }
+
+  .all-posts__group li a:hover {
+    color: var(--color-green-dark);
+  }
+
+  .all-posts__group time {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: #6b7a72;
+  }
+</style>

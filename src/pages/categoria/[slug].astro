@@ -5,8 +5,6 @@ import Sidebar from '../../components/Sidebar.astro';
 import PostCard from '../../components/PostCard.astro';
 import { categories, categoryList } from '../../lib/categories';
 
-const PAGE_SIZE = 6;
-
 export async function getStaticPaths() {
   return categoryList.map((cat) => ({ params: { slug: cat.slug } }));
 }
@@ -25,9 +23,6 @@ const categoryPosts = allPosts
       : post.data.category === cat.slug || post.data.alsoIn.includes(cat.slug)
   )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const visiblePosts = categoryPosts.slice(0, PAGE_SIZE);
-const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
 ---
 
 <BaseLayout title={`${cat.label}: dicas e cuidados`} description={cat.metaDescription}>
@@ -42,21 +37,8 @@ const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
       {categoryPosts.length === 0 && <p>Ainda não temos posts nesta categoria. Volte em breve!</p>}
 
       <div class="category-feed__grid">
-        {visiblePosts.map((post) => <PostCard post={post} />)}
-        {hiddenPosts.map((post) => (
-          <div class="category-feed__hidden" data-more-post>
-            <PostCard post={post} />
-          </div>
-        ))}
+        {categoryPosts.map((post) => <PostCard post={post} />)}
       </div>
-
-      {
-        hiddenPosts.length > 0 && (
-          <button class="btn btn-primary category-feed__more" id="load-more">
-            Carregar mais posts
-          </button>
-        )
-      }
     </section>
 
     <Sidebar posts={allPosts} />
@@ -87,15 +69,6 @@ const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
     gap: 1.5rem;
   }
 
-  .category-feed__hidden {
-    display: none;
-  }
-
-  .category-feed__more {
-    display: block;
-    margin: 2rem auto 0;
-  }
-
   @media (max-width: 860px) {
     .category-layout {
       grid-template-columns: 1fr;
@@ -106,13 +79,3 @@ const hiddenPosts = categoryPosts.slice(PAGE_SIZE);
     }
   }
 </style>
-
-<script>
-  const button = document.getElementById('load-more');
-  button?.addEventListener('click', () => {
-    document.querySelectorAll('[data-more-post]').forEach((el) => {
-      (el as HTMLElement).style.display = 'block';
-    });
-    button.remove();
-  });
-</script>
