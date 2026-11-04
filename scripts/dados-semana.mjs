@@ -3,7 +3,7 @@
 // Nunca inventa números: fonte não configurada ou que falhe é registrada como tal, e o
 // script segue coletando as outras. Não usa nenhuma chamada a modelo de IA — só HTTP puro.
 
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readdir } from 'node:fs/promises';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,6 +20,12 @@ try {
 
 const OUT_DIR = path.join(ROOT, 'relatorios/dados');
 const SITE_DOMAIN = 'ciadosbichinhos.com.br';
+const GSC_SITE_URL = process.env.GSC_SITE_URL || `sc-domain:${SITE_DOMAIN}`;
+
+// Termos que marcam uma busca como local (Brasília/DF). Sintaxe RE2 do Search Console.
+// Ficaram de fora termos ambíguos num blog pet, como "guará" (lobo-guará).
+const LOCAL_QUERY_REGEX =
+  'bras[ií]lia|distrito federal|\\bdf\\b|asa (sul|norte)|lago (sul|norte)|[aá]guas claras|taguatinga|plano piloto|ceil[aâ]ndia|vicente pires|park way';
 
 // ---------- datas ----------
 
@@ -90,16 +96,21 @@ async function getGoogleAccessToken(scope) {
 // ---------- Search Console ----------
 
 async function fetchSearchConsole() {
-  const siteUrl = process.env.GSC_SITE_URL || `sc-domain:${SITE_DOMAIN}`;
   const token = await getGoogleAccessToken('https://www.googleapis.com/auth/webmasters.readonly');
 
-  async function query(startDate, endDate, dimensions, rowLimit = 10) {
+  async function query(startDate, endDate, dimensions, rowLimit = 10, dimensionFilterGroups) {
     const res = await fetch(
-      `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`,
+      `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE_URL)}/searchAnalytics/query`,
       {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ startDate, endDate, dimensions, rowLimit }),
+        body: JSON.stringify({
+          startDate,
+          endDate,
+          dimensions,
+          rowLimit,
+          ...(dimensionFilterGroups ? { dimensionFilterGroups } : {}),
+        }),
       }
     );
     if (!res.ok) throw new Error(`HTTP ${res.status} ${await res.text()}`);
@@ -113,24 +124,34 @@ async function fetchSearchConsole() {
       : { clicks: 0, impressions: 0, ctr: 0, position: 0 };
   }
 
-  const [totalsCurrent, totalsPrev, pages, queries] = await Promise.all([
+  const localFilter = [
+    { filters: [{ dimension: 'query', operator: 'includingRegex', expression: LOCAL_QUERY_REGEX }] },
+  ];
+
+  const [totalsCurrent, totalsPrev, pages, queries, localCurrent, localPrev, localQueries] = await Promise.all([
     query(gscCurrentStart, gscCurrentEnd, []),
     query(gscPrevStart, gscPrevEnd, []),
-    query(gscCurrentStart, gscCurrentEnd, ['page'], 10),
+    query(gscCurrentStart, gscCurrentEnd, ['page'], 1000),
     query(gscCurrentStart, gscCurrentEnd, ['query'], 10),
+    query(gscCurrentStart, gscCurrentEnd, [], 1, localFilter),
+    query(gscPrevStart, gscPrevEnd, [], 1, localFilter),
+    query(gscCurrentStart, gscCurrentEnd, ['query'], 20, localFilter),
   ]);
+
+  const paginas = (pages.rows || []).map((r) => ({
+    pagina: r.keys[0],
+    clicks: r.clicks,
+    impressions: r.impressions,
+    ctr: r.ctr,
+    position: r.position,
+  }));
 
   return {
     janela: { atual: [gscCurrentStart, gscCurrentEnd], anterior: [gscPrevStart, gscPrevEnd] },
     atraso_dados_dias: GSC_DELAY_DAYS,
     totais: { atual: totalsFrom(totalsCurrent), anterior: totalsFrom(totalsPrev) },
-    top_paginas: (pages.rows || []).map((r) => ({
-      pagina: r.keys[0],
-      clicks: r.clicks,
-      impressions: r.impressions,
-      ctr: r.ctr,
-      position: r.position,
-    })),
+    paginas_com_impressao: paginas,
+    posts_com_impressao: paginas.filter((p) => p.pagina.includes('/blog/')).length,
     top_consultas: (queries.rows || []).map((r) => ({
       consulta: r.keys[0],
       clicks: r.clicks,
@@ -138,7 +159,104 @@ async function fetchSearchConsole() {
       ctr: r.ctr,
       position: r.position,
     })),
+    buscas_locais: {
+      regex: LOCAL_QUERY_REGEX,
+      totais: { atual: totalsFrom(localCurrent), anterior: totalsFrom(localPrev) },
+      consultas: (localQueries.rows || []).map((r) => ({
+        consulta: r.keys[0],
+        clicks: r.clicks,
+        impressions: r.impressions,
+        position: r.position,
+      })),
+    },
   };
+}
+
+// ---------- Indexação (URL Inspection API) ----------
+// Inspeciona cada URL do sitemap publicado. "Indexada" = veredito PASS do Google.
+// Cota da API: 2.000 inspeções/dia por propriedade — o sitemap cabe com folga.
+
+async function fetchSitemapUrls() {
+  async function locs(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`sitemap ${url}: HTTP ${res.status}`);
+    const xml = await res.text();
+    return [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
+  }
+  const index = await locs(`https://${SITE_DOMAIN}/sitemap-index.xml`);
+  const nested = await Promise.all(index.filter((u) => u.endsWith('.xml')).map(locs));
+  return [...new Set(nested.flat())];
+}
+
+async function fetchIndexacao() {
+  const token = await getGoogleAccessToken('https://www.googleapis.com/auth/webmasters.readonly');
+  const urls = await fetchSitemapUrls();
+  if (urls.length === 0) throw new Error('sitemap sem URLs');
+
+  async function inspect(url) {
+    const res = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ inspectionUrl: url, siteUrl: GSC_SITE_URL, languageCode: 'pt-BR' }),
+    });
+    if (!res.ok) throw new Error(`inspeção de ${url}: HTTP ${res.status} ${await res.text()}`);
+    const r = (await res.json()).inspectionResult?.indexStatusResult || {};
+    return {
+      url,
+      indexada: r.verdict === 'PASS',
+      veredito: r.verdict || null,
+      situacao: r.coverageState || null,
+      ultimo_rastreamento: r.lastCrawlTime || null,
+    };
+  }
+
+  const resultados = [];
+  const CONCORRENCIA = 4;
+  for (let i = 0; i < urls.length; i += CONCORRENCIA) {
+    resultados.push(...(await Promise.all(urls.slice(i, i + CONCORRENCIA).map(inspect))));
+  }
+
+  const posts = resultados.filter((r) => r.url.includes('/blog/'));
+  const porSituacao = {};
+  for (const r of resultados) {
+    const k = r.situacao || 'sem informação';
+    porSituacao[k] = (porSituacao[k] || 0) + 1;
+  }
+
+  return {
+    total: resultados.length,
+    indexadas: resultados.filter((r) => r.indexada).length,
+    posts_total: posts.length,
+    posts_indexados: posts.filter((r) => r.indexada).length,
+    por_situacao: porSituacao,
+    urls: resultados,
+  };
+}
+
+// Última coleta salva antes de hoje com indexação ok, para comparar semana a semana.
+async function previousIndexacao() {
+  let files;
+  try {
+    files = await readdir(OUT_DIR);
+  } catch {
+    return null;
+  }
+  const candidatos = files
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f) && f < `${TODAY}.json`)
+    .sort()
+    .reverse();
+  for (const f of candidatos) {
+    try {
+      const data = JSON.parse(readFileSync(path.join(OUT_DIR, f), 'utf8'));
+      if (data.indexacao?.status === 'ok') {
+        const { total, indexadas, posts_total, posts_indexados } = data.indexacao.dados;
+        return { data: f.replace('.json', ''), total, indexadas, posts_total, posts_indexados };
+      }
+    } catch {
+      // arquivo antigo ilegível — ignora e tenta o próximo
+    }
+  }
+  return null;
 }
 
 // ---------- GA4 ----------
@@ -293,14 +411,72 @@ function tableRows(rows, cols) {
   return [header, sep, body].join('\n');
 }
 
+function statusLine(src) {
+  return `- Status: ${src.status === 'nao_configurado' ? `não configurado (faltando: ${src.faltando.join(', ')})` : `erro — ${src.mensagem}`}`;
+}
+
+function ratio(n, total) {
+  return total ? `${n}/${total} (${((n / total) * 100).toFixed(0)}%)` : `${n}/${total}`;
+}
+
 function buildResumoMarkdown(date, full) {
   const lines = [`# Resumo semanal — ${date}`, ''];
+
+  // Indexação — métrica principal
+  lines.push('## Indexação no Google (métrica principal)');
+  const idx = full.indexacao;
+  if (idx.status !== 'ok') {
+    lines.push(statusLine(idx));
+  } else {
+    const d = idx.dados;
+    const ant = full.indexacao_anterior;
+    lines.push(`- URLs do sitemap indexadas: ${ratio(d.indexadas, d.total)}`);
+    lines.push(`- Posts indexados: ${ratio(d.posts_indexados, d.posts_total)}`);
+    if (ant) {
+      lines.push(
+        `- Coleta anterior (${ant.data}): URLs ${ratio(ant.indexadas, ant.total)}, posts ${ratio(ant.posts_indexados, ant.posts_total)}`
+      );
+    } else {
+      lines.push('- Coleta anterior: nenhuma ainda — esta é a linha de base.');
+    }
+    lines.push('', '### Por situação no Google');
+    lines.push(
+      tableRows(
+        Object.entries(d.por_situacao)
+          .sort((a, b) => b[1] - a[1])
+          .map(([situacao, qtd]) => ({ situacao, qtd })),
+        [
+          { key: 'situacao', label: 'Situação' },
+          { key: 'qtd', label: 'URLs' },
+        ]
+      )
+    );
+    const naoIndexadas = d.urls.filter((u) => !u.indexada);
+    if (naoIndexadas.length > 0) {
+      lines.push('', '### URLs ainda não indexadas');
+      lines.push(
+        tableRows(
+          naoIndexadas.map((u) => ({
+            url: u.url.replace(`https://${SITE_DOMAIN}`, ''),
+            situacao: u.situacao ?? '',
+            rastreio: u.ultimo_rastreamento ? u.ultimo_rastreamento.slice(0, 10) : 'nunca',
+          })),
+          [
+            { key: 'url', label: 'URL' },
+            { key: 'situacao', label: 'Situação' },
+            { key: 'rastreio', label: 'Último rastreamento' },
+          ]
+        )
+      );
+    }
+  }
+  lines.push('');
 
   // Search Console
   lines.push('## Search Console');
   const gsc = full.search_console;
   if (gsc.status !== 'ok') {
-    lines.push(`- Status: ${gsc.status === 'nao_configurado' ? `não configurado (faltando: ${gsc.faltando.join(', ')})` : `erro — ${gsc.mensagem}`}`);
+    lines.push(statusLine(gsc));
   } else {
     const d = gsc.dados;
     lines.push(`- Janela atual: ${d.janela.atual[0]} a ${d.janela.atual[1]} (dados com atraso de ${d.atraso_dados_dias} dias)`);
@@ -309,13 +485,25 @@ function buildResumoMarkdown(date, full) {
     lines.push(`- Impressões: ${d.totais.atual.impressions} (anterior: ${d.totais.anterior.impressions}, ${pct(d.totais.atual.impressions, d.totais.anterior.impressions)})`);
     lines.push(`- CTR: ${(d.totais.atual.ctr * 100).toFixed(2)}% (anterior: ${(d.totais.anterior.ctr * 100).toFixed(2)}%)`);
     lines.push(`- Posição média: ${d.totais.atual.position.toFixed(1)} (anterior: ${d.totais.anterior.position.toFixed(1)})`);
-    lines.push('', '### Top 10 páginas', tableRows(d.top_paginas, [
+    lines.push(`- Posts com pelo menos 1 impressão: ${d.posts_com_impressao}`);
+    const posicao = (r) => ({ ...r, position: r.position.toFixed(1) });
+    lines.push('', `### Páginas com impressão (${d.paginas_com_impressao.length})`, tableRows(d.paginas_com_impressao.map(posicao), [
       { key: 'pagina', label: 'Página' },
       { key: 'clicks', label: 'Cliques' },
       { key: 'impressions', label: 'Impressões' },
       { key: 'position', label: 'Posição' },
     ]));
-    lines.push('', '### Top 10 consultas', tableRows(d.top_consultas, [
+    lines.push('', '### Top 10 consultas', tableRows(d.top_consultas.map(posicao), [
+      { key: 'consulta', label: 'Consulta' },
+      { key: 'clicks', label: 'Cliques' },
+      { key: 'impressions', label: 'Impressões' },
+      { key: 'position', label: 'Posição' },
+    ]));
+    const loc = d.buscas_locais;
+    lines.push('', '### Buscas locais (Brasília/DF)');
+    lines.push(`- Impressões: ${loc.totais.atual.impressions} (anterior: ${loc.totais.anterior.impressions}, ${pct(loc.totais.atual.impressions, loc.totais.anterior.impressions)})`);
+    lines.push(`- Cliques: ${loc.totais.atual.clicks} (anterior: ${loc.totais.anterior.clicks})`);
+    lines.push('', tableRows(loc.consultas.map(posicao), [
       { key: 'consulta', label: 'Consulta' },
       { key: 'clicks', label: 'Cliques' },
       { key: 'impressions', label: 'Impressões' },
@@ -327,7 +515,7 @@ function buildResumoMarkdown(date, full) {
   lines.push('', '## GA4');
   const ga4 = full.ga4;
   if (ga4.status !== 'ok') {
-    lines.push(`- Status: ${ga4.status === 'nao_configurado' ? `não configurado (faltando: ${ga4.faltando.join(', ')})` : `erro — ${ga4.mensagem}`}`);
+    lines.push(statusLine(ga4));
   } else {
     const d = ga4.dados;
     lines.push(`- Janela atual: ${d.janela.atual[0]} a ${d.janela.atual[1]}`);
@@ -343,7 +531,7 @@ function buildResumoMarkdown(date, full) {
   lines.push('', '## Cloudflare Web Analytics');
   const cf = full.cloudflare;
   if (cf.status !== 'ok') {
-    lines.push(`- Status: ${cf.status === 'nao_configurado' ? `não configurado (faltando: ${cf.faltando.join(', ')})` : `erro — ${cf.mensagem}`}`);
+    lines.push(statusLine(cf));
   } else {
     const d = cf.dados;
     lines.push(`- Janela atual: ${d.janela.atual[0]} a ${d.janela.atual[1]}`);
@@ -362,16 +550,17 @@ async function main() {
   await mkdir(OUT_DIR, { recursive: true });
   console.log(`[dados-semana] Coletando dados para ${TODAY}...`);
 
-  const gsc = await collectSource(['GOOGLE_SERVICE_ACCOUNT_KEY_FILE'], fetchSearchConsole, () =>
-    existsSync(process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE || '') ? null : 'GOOGLE_SERVICE_ACCOUNT_KEY_FILE (arquivo não existe)'
-  );
-  const ga4 = await collectSource(['GOOGLE_SERVICE_ACCOUNT_KEY_FILE', 'GA4_PROPERTY_ID'], fetchGA4, () =>
-    existsSync(process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE || '') ? null : 'GOOGLE_SERVICE_ACCOUNT_KEY_FILE (arquivo não existe)'
-  );
+  const keyFileCheck = () =>
+    existsSync(process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE || '') ? null : 'GOOGLE_SERVICE_ACCOUNT_KEY_FILE (arquivo não existe)';
+  const indexacao = await collectSource(['GOOGLE_SERVICE_ACCOUNT_KEY_FILE'], fetchIndexacao, keyFileCheck);
+  const gsc = await collectSource(['GOOGLE_SERVICE_ACCOUNT_KEY_FILE'], fetchSearchConsole, keyFileCheck);
+  const ga4 = await collectSource(['GOOGLE_SERVICE_ACCOUNT_KEY_FILE', 'GA4_PROPERTY_ID'], fetchGA4, keyFileCheck);
   const cloudflare = await collectSource(['CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ZONE_ID'], fetchCloudflare);
 
   const full = {
     gerado_em: new Date().toISOString(),
+    indexacao,
+    indexacao_anterior: await previousIndexacao(),
     search_console: gsc,
     ga4,
     cloudflare,
@@ -384,7 +573,7 @@ async function main() {
 
   const statusLabel = (s) => (s.status === 'ok' ? 'ok' : s.status);
   console.log(
-    `[dados-semana] Search Console: ${statusLabel(gsc)} | GA4: ${statusLabel(ga4)} | Cloudflare: ${statusLabel(cloudflare)}`
+    `[dados-semana] Indexação: ${statusLabel(indexacao)} | Search Console: ${statusLabel(gsc)} | GA4: ${statusLabel(ga4)} | Cloudflare: ${statusLabel(cloudflare)}`
   );
   console.log(`[dados-semana] Salvo em ${path.relative(ROOT, jsonPath)} e ${path.relative(ROOT, resumoPath)}`);
 }
