@@ -1,0 +1,36 @@
+{
+  "gerado_em": "2026-11-06T11:43:05.267Z",
+  "indexacao": {
+    "status": "nao_configurado",
+    "faltando": [
+      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE"
+    ]
+  },
+  "indexacao_anterior": {
+    "data": "2026-11-04",
+    "total": 46,
+    "indexadas": 20,
+    "posts_total": 36,
+    "posts_indexados": 16
+  },
+  "search_console": {
+    "status": "nao_configurado",
+    "faltando": [
+      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE"
+    ]
+  },
+  "ga4": {
+    "status": "nao_configurado",
+    "faltando": [
+      "GOOGLE_SERVICE_ACCOUNT_KEY_FILE",
+      "GA4_PROPERTY_ID"
+    ]
+  },
+  "cloudflare": {
+    "status": "nao_configurado",
+    "faltando": [
+      "CLOUDFLARE_API_TOKEN",
+      "CLOUDFLARE_ZONE_ID"
+    ]
+  }
+}
