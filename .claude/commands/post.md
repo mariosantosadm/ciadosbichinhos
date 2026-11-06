@@ -31,7 +31,7 @@ Monte o texto final (aplicando as correções do `revisor-tecnico` que forem ine
 2. Se essa pauta estiver listada em `pautas/pendentes.md`, remova a linha dela de lá (o post deixou de ser pendente).
 3. Rode `astro check` e `npm run build`.
 4. Commit e push **direto na `main`, sem Pull Request** (incluindo a atualização do `pautas/pendentes.md`, se houve).
-5. Aguarde o deploy da Cloudflare: tente abrir o endereço do post e o do pin a cada ~20 segundos, por até 3 minutos. Se o ambiente não conseguir acessar o site (rede bloqueada), não fique esperando — siga para o próximo passo mesmo sem confirmar.
+5. Aguarde o deploy da Cloudflare: tente abrir o endereço do post e o do pin a cada ~20 segundos, por até 3 minutos. Só conte como no ar quando o `<title>` da página do post trouxer o título do post e o pin responder `200` com `Content-Type: image/png` — código `200` sozinho não prova nada. Se o ambiente não conseguir acessar o site (rede bloqueada), não fique esperando — siga para o próximo passo mesmo sem confirmar.
 
 ## (f) Entregue ao Mário
 
