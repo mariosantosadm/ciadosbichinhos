@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const AKC_URL = 'https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/';
+const ICATCARE_URL = 'https://icatcare.org/advice/how-to-tell-your-cats-age-in-human-years/';
+---
+
+<BaseLayout
+  title="Calculadora de idade do cachorro e do gato em anos humanos"
+  description="Descubra quantos anos o seu cachorro ou gato teria em anos humanos. A calculadora considera o porte do cão e usa tabelas de referência, não a regra do ×7."
+>
+  <div class="container calc-page">
+    <h1>Calculadora de idade do pet em anos humanos</h1>
+    <p class="calc-page__lead">
+      Quantos anos o seu cachorro ou gato teria se fosse gente? Escolha o pet, informe a idade e, para cachorros, o
+      porte. A conta não usa a regra de multiplicar por 7, que não funciona.
+    </p>
+
+    <form class="calc" id="calc" novalidate>
+      <fieldset class="calc__field">
+        <legend>Seu pet é</legend>
+        <div class="calc__options">
+          <label class="calc__option"><input type="radio" name="especie" value="cachorro" checked /> Cachorro</label>
+          <label class="calc__option"><input type="radio" name="especie" value="gato" /> Gato</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="calc__field" id="porte-field">
+        <legend>Porte do cachorro (peso adulto)</legend>
+        <div class="calc__options">
+          <label class="calc__option"><input type="radio" name="porte" value="pequeno" checked /> Pequeno (até 9 kg)</label>
+          <label class="calc__option"><input type="radio" name="porte" value="medio" /> Médio (10 a 23 kg)</label>
+          <label class="calc__option"><input type="radio" name="porte" value="grande" /> Grande (23 a 45 kg)</label>
+          <label class="calc__option"><input type="radio" name="porte" value="gigante" /> Gigante (mais de 45 kg)</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="calc__field">
+        <legend>Idade do pet</legend>
+        <div class="calc__age">
+          <label>Anos <input type="number" name="anos" min="0" max="30" step="1" value="0" inputmode="numeric" /></label>
+          <label>Meses <input type="number" name="meses" min="0" max="11" step="1" value="0" inputmode="numeric" /></label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary">Calcular</button>
+
+      <div class="calc__result" id="resultado" aria-live="polite" hidden></div>
+    </form>
+
+    <section class="calc-page__text">
+      <h2>Como a conta é feita</h2>
+      <p>
+        Cães e gatos envelhecem muito rápido no começo da vida e mais devagar depois. Por isso uma multiplicação fixa
+        não funciona. A calculadora usa duas tabelas de referência:
+      </p>
+      <ul>
+        <li>
+          <strong>Cachorro:</strong> a tabela do
+          <a href={AKC_URL} rel="noopener" target="_blank">American Kennel Club (AKC)</a>, que considera o porte. Até
+          o segundo ano, todos os portes envelhecem parecido. Depois, os cães maiores avançam mais rápido em anos
+          humanos. A tabela vai de 1 a 16 anos.
+        </li>
+        <li>
+          <strong>Gato:</strong> a tabela da
+          <a href={ICATCARE_URL} rel="noopener" target="_blank">International Cat Care</a>: os dois primeiros anos
+          equivalem a 24 anos humanos, e depois cada ano conta como 4. A tabela vai até 25 anos.
+        </li>
+      </ul>
+      <p>
+        Entre um ano e outro da tabela, a calculadora faz uma aproximação proporcional. Fora da faixa que as tabelas
+        cobrem, ela avisa em vez de inventar um número.
+      </p>
+      <p>
+        Existe também uma fórmula de um estudo genético da Universidade da Califórnia em San Diego, citada pelo AKC.
+        Ela não foi usada aqui porque foi feita com uma única raça, o labrador.
+      </p>
+
+      <h2>Quando o pet passa a ser considerado idoso?</h2>
+      <p>
+        Segundo a Associação Médica Veterinária Americana (AVMA), citada pelo AKC, gatos e cães pequenos costumam ser
+        considerados idosos por volta dos 7 anos, e cães de raças maiores, por volta dos 5 ou 6 anos. Para gatos, a
+        International Cat Care divide a vida em seis fases, e a calculadora mostra em qual delas o seu gato está.
+      </p>
+      <p>
+        Se o seu pet já entrou nessa fase, vale ler sobre
+        <a href="/blog/sinais-de-artrite-em-cachorro-idoso-quando-procurar-o-vet/">sinais de artrite em cachorro idoso</a>
+        e sobre <a href="/blog/cama-ortopedica-para-cachorro-idoso-guia-de-escolha/">como escolher uma cama ortopédica</a>.
+      </p>
+
+      <p class="calc-page__note">
+        A idade em anos humanos é uma estimativa para ajudar a entender a fase de vida do pet. Ela não substitui a
+        avaliação de um médico-veterinário, que considera a raça, a saúde e o histórico de cada animal.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .calc-page {
+    max-width: 760px;
+    padding-block: 2.5rem 3rem;
+  }
+
+  .calc-page__lead {
+    font-size: 1.05rem;
+    color: #4a564d;
+  }
+
+  .calc {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 1.75rem 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .calc__field {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .calc__field legend {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .calc__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .calc__option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--color-card-border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+
+  .calc__option:has(input:checked) {
+    border-color: var(--color-green);
+    background: var(--color-green-light);
+    color: var(--color-green-dark);
+  }
+
+  .calc__age {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .calc__age label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+  }
+
+  .calc__age input {
+    width: 7rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #bcdcc9;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+  }
+
+  .calc .btn {
+    align-self: flex-start;
+  }
+
+  .calc__result {
+    background: var(--color-green-light);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    color: var(--color-green-dark);
+  }
+
+  .calc__result :global(.calc__big) {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+  }
+
+  .calc__result :global(p) {
+    margin: 0.3rem 0 0;
+  }
+
+  .calc-page__text h2 {
+    margin-top: 1.75em;
+  }
+
+  .calc-page__text a {
+    color: var(--color-green-dark);
+    text-decoration: underline;
+  }
+
+  .calc-page__note {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #5c6b60;
+    font-style: italic;
+  }
+</style>
+
+<script>
+  // Tabela do AKC: idade do cão (1 a 16 anos) em anos humanos, por porte.
+  const DOG: Record<string, number[]> = {
+    pequeno: [15, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80],
+    medio: [15, 24, 28, 32, 36, 42, 47, 51, 56, 60, 65, 69, 74, 78, 83, 87],
+    grande: [15, 24, 28, 32, 36, 45, 50, 55, 61, 66, 72, 77, 82, 88, 93, 99],
+    gigante: [12, 22, 31, 38, 45, 49, 56, 64, 71, 79, 86, 93, 100, 107, 114, 121],
+  };
+  const PORTE_LABEL: Record<string, string> = {
+    pequeno: 'de porte pequeno',
+    medio: 'de porte médio',
+    grande: 'de porte grande',
+    gigante: 'de porte gigante',
+  };
+
+  // Tabela da International Cat Care: [idade do gato em meses, anos humanos].
+  const CAT: [number, number][] = [
+    [0, 0], [1, 1], [2, 2], [3, 4], [4, 6], [5, 8], [6, 10], [7, 12], [12, 15], [18, 21], [24, 24],
+  ];
+  for (let anos = 3; anos <= 25; anos++) CAT.push([anos * 12, 24 + 4 * (anos - 2)]);
+
+  function interpolate(points: [number, number][], x: number): number {
+    for (let i = 1; i < points.length; i++) {
+      const [x0, y0] = points[i - 1];
+      const [x1, y1] = points[i];
+      if (x <= x1) return y0 + ((y1 - y0) * (x - x0)) / (x1 - x0);
+    }
+    return points[points.length - 1][1];
+  }
+
+  function fmt(n: number): string {
+    return String(Math.round(n));
+  }
+
+  function catStage(totalMeses: number): string {
+    const anos = Math.floor(totalMeses / 12);
+    if (totalMeses <= 6) return 'filhote';
+    if (anos < 3) return 'júnior';
+    if (anos <= 6) return 'adulto';
+    if (anos <= 10) return 'maduro';
+    if (anos <= 14) return 'sênior';
+    return 'super sênior';
+  }
+
+  const form = document.getElementById('calc') as HTMLFormElement;
+  const porteField = document.getElementById('porte-field') as HTMLFieldSetElement;
+  const resultado = document.getElementById('resultado') as HTMLDivElement;
+
+  function especieAtual(): string {
+    return (form.elements.namedItem('especie') as RadioNodeList).value;
+  }
+
+  function syncPorte() {
+    porteField.hidden = especieAtual() !== 'cachorro';
+  }
+
+  function show(html: string) {
+    resultado.innerHTML = html;
+    resultado.hidden = false;
+  }
+
+  form.addEventListener('change', syncPorte);
+  syncPorte();
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const anos = Math.max(0, Math.floor(Number((form.elements.namedItem('anos') as HTMLInputElement).value) || 0));
+    const meses = Math.min(11, Math.max(0, Math.floor(Number((form.elements.namedItem('meses') as HTMLInputElement).value) || 0)));
+    const total = anos * 12 + meses;
+
+    if (total === 0) {
+      show('<p>Informe a idade do pet em anos e/ou meses.</p>');
+      return;
+    }
+
+    if (especieAtual() === 'gato') {
+      if (total > 25 * 12) {
+        show(
+          '<p class="calc__big">Mais de 116 anos humanos</p><p>A tabela da International Cat Care vai até 25 anos. Passando dessa idade, a conta deixa de ter referência.</p>'
+        );
+        return;
+      }
+      const humano = interpolate(CAT, total);
+      show(
+        `<p class="calc__big">Cerca de ${fmt(humano)} anos humanos</p><p>Fase de vida: <strong>${catStage(total)}</strong>, segundo a International Cat Care.</p>`
+      );
+      return;
+    }
+
+    const porte = (form.elements.namedItem('porte') as RadioNodeList).value;
+    const tabela = DOG[porte];
+    const idade = total / 12;
+
+    if (idade < 1) {
+      show(
+        `<p class="calc__big">Filhote</p><p>A tabela do AKC começa em 1 ano, quando um cão ${PORTE_LABEL[porte]} equivale a cerca de ${tabela[0]} anos humanos. Antes disso, o filhote ainda está nessa reta inicial de crescimento rápido.</p>`
+      );
+      return;
+    }
+    if (idade > 16) {
+      show(
+        `<p class="calc__big">Mais de ${tabela[15]} anos humanos</p><p>A tabela do AKC vai até 16 anos. Passando dessa idade, a conta deixa de ter referência, mas o seu cão já está na fase mais avançada da vida.</p>`
+      );
+      return;
+    }
+    const pontos: [number, number][] = tabela.map((valor, i) => [i + 1, valor]);
+    const humano = interpolate(pontos, idade);
+    const idoso = porte === 'pequeno' ? 7 : porte === 'medio' ? null : 5;
+    const nota =
+      idoso === null
+        ? 'A AVMA considera idosos os cães pequenos por volta dos 7 anos e os de raças maiores por volta dos 5 ou 6.'
+        : idade >= idoso
+          ? `Pela referência da AVMA, um cão ${PORTE_LABEL[porte]} nessa idade costuma ser considerado idoso.`
+          : `Pela referência da AVMA, um cão ${PORTE_LABEL[porte]} costuma ser considerado idoso por volta dos ${porte === 'pequeno' ? '7 anos' : '5 ou 6 anos'}.`;
+    show(`<p class="calc__big">Cerca de ${fmt(humano)} anos humanos</p><p>${nota}</p>`);
+  });
+</script>
