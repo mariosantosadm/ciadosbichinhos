@@ -15,7 +15,9 @@ Confira a orientação e o tamanho da imagem informada (dimensões, se horizonta
 
 ## (b) Agente `redator`
 
-Invoque o agente `redator` com a pauta completa, pedindo o frontmatter e o corpo do post em Markdown, **sem criar o arquivo**. Mostre a resposta dele ao Mário sob o título `[redator]`.
+**Se existir `rascunhos/<slug>.md` preparado pelo `/preparar`**, use esse rascunho: ele já passou pelo `redator` e pelo `revisor-tecnico`. Encaixe a foto (se veio agora), confira se o comentário do topo deixou alguma pendência, e vá direto para (d), mostrando as correções que já foram aplicadas. Se for pauta local, confira que só entraram itens marcados como confirmados em `rascunhos/<slug>-verificacao.md`. Ao criar o post em `src/content/blog/`, tire o comentário HTML do topo do rascunho (o frontmatter precisa ser a primeira linha). Depois de publicar, apague `rascunhos/<slug>.md` e `rascunhos/<slug>-verificacao.md` no mesmo commit do post.
+
+Se não existir rascunho, invoque o agente `redator` com a pauta completa, pedindo o frontmatter e o corpo do post em Markdown, **sem criar o arquivo**. Mostre a resposta dele ao Mário sob o título `[redator]`.
 
 ## (c) Agente `revisor-tecnico`
 

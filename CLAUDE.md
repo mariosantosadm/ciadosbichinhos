@@ -2,10 +2,11 @@
 
 O blog conta com 5 subagentes em `.claude/agents/`: `pesquisador-seo`, `redator`, `revisor-tecnico`, `social-media` e `analista`.
 
-- **Posts são escritos pelo agente `redator` e revisados pelo `revisor-tecnico`.** Nada é criado como arquivo, commitado ou publicado antes do Mário dizer "aprovado". Pauta e imagem continuam sendo dele.
+- **Posts são escritos pelo agente `redator` e revisados pelo `revisor-tecnico`.** Nada é criado em `src/content/blog/`, commitado como post ou publicado antes do Mário dizer "aprovado". A única exceção são os rascunhos do `/preparar`, salvos em `rascunhos/`, que nunca são publicados. Pauta e imagem continuam sendo dele.
 - **Quem decide a pauta e a imagem é o Mário.** Nenhum agente cria post, faz commit ou push sem aprovação explícita dele.
 - **Fluxo**: `pesquisador-seo` propõe (lote semanal via `/semana`, considerando também tendências de busca atuais) → Mário escolhe → `redator` escreve → `revisor-tecnico` revisa → Mário aprova → `redator` cria o arquivo → commit direto na `main`, sem PR → o site gera o pin sozinho no deploy → `social-media` escreve os textos do pin e do carrossel → `analista` faz o relatório semanal a partir dos dados coletados automaticamente (`scripts/dados-semana.mjs`) e dos dados que o Mário colar (Pinterest, Amazon).
-- **Planejamento editorial é semanal, não mensal.** A publicação continua diária, mas a pauta de cada dia vem do lote de 5 a 7 sugestões gerado pelo `/semana` daquela semana, ajustado conforme o relatório de desempenho de sexta — não se monta mais um calendário fechado do mês inteiro de uma vez.
+- **Planejamento editorial é semanal, não mensal.** A pauta vem do backlog `pautas/pendentes.md`, alimentado pelo `/semana` de sexta conforme o relatório de desempenho — não se monta calendário fechado do mês.
+- **Ritmo: dias alternados, 15 minutos por dia.** Um dia de preparação (`/preparar`: verificação local ou rascunho pronto) e um dia de post (`/post`: aprovar e publicar), alternando — de 3 a 4 posts por semana. Foco: Brasília/DF e cão idoso; nada de "pode comer X" novo. Teste de 8 semanas a partir de 07/11/2026.
 - **Nunca citar fonte não consultada.** Nunca dizer que há revisão veterinária. Sem dose, sem diagnóstico.
 - **Posts de afiliado**: selo "Publicidade" e a frase obrigatória da Amazon ("Como associados Amazon, ganhamos com compras qualificadas."); sem preço; sem "o melhor"; links só os fornecidos pelo Mário.
 - **Antes de commitar um post**: conferir slugs reais dos links internos, rodar `astro check` e o build, e testar no preview.

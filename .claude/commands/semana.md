@@ -18,7 +18,7 @@ Invoque o agente `analista`, apontando para o resumo de hoje (`relatorios/dados/
 
 ## (c) Agente `pesquisador-seo`
 
-Invoque o agente `pesquisador-seo`, passando o relatório que o `analista` acabou de salvar como contexto. Peça 5 a 7 pautas, sem duplicar posts já publicados (confira `src/content/blog/`). Ele salva `pautas/<AAAA-MM-DD>.md` e atualiza `pautas/pendentes.md` (o backlog vivo de pautas ainda não publicadas). Mostre a resposta dele ao Mário sob o título `[pesquisador-seo]`.
+Invoque o agente `pesquisador-seo`, passando o relatório que o `analista` acabou de salvar como contexto. Peça pautas para manter no backlog uns 4 posts por semana (o ritmo é de dias alternados), priorizando Brasília/DF e cão idoso, sem duplicar posts já publicados nem o que já está pendente (confira `src/content/blog/`). Ele salva `pautas/<AAAA-MM-DD>.md` e atualiza `pautas/pendentes.md` (o backlog vivo de pautas ainda não publicadas). Mostre a resposta dele ao Mário sob o título `[pesquisador-seo]`.
 
 ## (d) Commit
 
