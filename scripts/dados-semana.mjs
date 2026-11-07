@@ -20,6 +20,8 @@ try {
 
 const OUT_DIR = path.join(ROOT, 'relatorios/dados');
 const SITE_DOMAIN = 'ciadosbichinhos.com.br';
+// Página de post: /blog/<slug>/ — exclui a lista /blog/ em si.
+const IS_POST_URL = /\/blog\/[^/]+\/$/;
 const GSC_SITE_URL = process.env.GSC_SITE_URL || `sc-domain:${SITE_DOMAIN}`;
 
 // Termos que marcam uma busca como local (Brasília/DF). Sintaxe RE2 do Search Console.
@@ -151,7 +153,7 @@ async function fetchSearchConsole() {
     atraso_dados_dias: GSC_DELAY_DAYS,
     totais: { atual: totalsFrom(totalsCurrent), anterior: totalsFrom(totalsPrev) },
     paginas_com_impressao: paginas,
-    posts_com_impressao: paginas.filter((p) => p.pagina.includes('/blog/')).length,
+    posts_com_impressao: paginas.filter((p) => IS_POST_URL.test(p.pagina)).length,
     top_consultas: (queries.rows || []).map((r) => ({
       consulta: r.keys[0],
       clicks: r.clicks,
@@ -216,7 +218,7 @@ async function fetchIndexacao() {
     resultados.push(...(await Promise.all(urls.slice(i, i + CONCORRENCIA).map(inspect))));
   }
 
-  const posts = resultados.filter((r) => r.url.includes('/blog/'));
+  const posts = resultados.filter((r) => IS_POST_URL.test(r.url));
   const porSituacao = {};
   for (const r of resultados) {
     const k = r.situacao || 'sem informação';
