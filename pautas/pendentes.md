@@ -4,18 +4,27 @@
 >
 > O histórico completo de cada rodada (com palavra-chave, intenção de busca, sugestão de links internos e a justificativa completa da tendência) continua em `pautas/<data>.md`.
 
-## Pendentes
+## Calendário (3 posts por semana)
 
-| Pauta | Categoria | Species | Dificuldade | Tendência | Proposta em |
-|---|---|---|---|---|---|
-| Pode levar cachorro e gato no metrô e no ônibus do DF? As regras explicadas (**local, precisa de verificação**) | Cuidados | ambos | média | não | `pautas/2026-11-07.md` |
-| Com quantos anos o cachorro fica idoso? O que muda em cada porte | Cachorro | cachorro | média | não | `pautas/2026-11-07.md` |
-| Parque da Cidade com cachorro: o que pode e o que não pode (**local, precisa de verificação**) | Cachorro | cachorro | média | não | `pautas/2026-11-07.md` |
-| Pode levar cachorro em parque ecológico ou unidade de conservação no DF? (**local, precisa de verificação**) | Cachorro | cachorro | baixa | não | `pautas/2026-11-07.md` |
-| Passeio com cachorro idoso no calor: horário, ritmo e piso | Cachorro | cachorro | média | média (calor/El Niño no DF) | `pautas/2026-11-07.md` |
-| Como adotar cachorro ou gato no DF: caminhos oficiais, feiras e como checar uma ONG (**local, precisa de verificação**) | Cuidados | ambos | média | média (feiras recorrentes; Dezembro Verde) | `pautas/2026-11-07.md` |
-| Casa adaptada para cachorro idoso: piso, escada, sofá e cama | Cuidados | cachorro | baixa | não | `pautas/2026-11-07.md` |
-| Pet em Brasília: guia para passear com o cachorro no DF — hub (**local, publicar por último, precisa de verificação**) | Cachorro | ambos | alta | não | `pautas/2026-11-07.md` |
+Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator` (escopo e tempo de verificação). Regras: **segunda é sempre sênior** (a preparação cai no domingo, sem telefone); pauta local que não fechar a verificação a tempo é trocada pela reserva, nunca publicada sem confirmar.
+
+| Preparar | Publicar | Pauta | Tipo | O que confirmar antes (e onde) |
+|---|---|---|---|---|
+| dom 08/11 | seg 09/11 | Com quantos anos o cachorro fica idoso? Veja por porte e calcule a idade | sênior | nada — linkar /calculadora-idade-pet/ |
+| ter 10/11 | qua 11/11 | Passeio com cachorro idoso no calor: horário, ritmo e piso | sênior | nada — ângulo de ritmo/piso/duração, sem repetir o post de hidratação |
+| qui 12/11 | sex 13/11 | Pode levar cachorro e gato no metrô e no ônibus do DF? | local | norma vigente do Metrô-DF (site e SINJ-DF); regra de ônibus/BRT (SEMOB-DF); caixa de transporte, porte e horário. Separar cão de assistência de pet comum |
+| dom 15/11 | seg 16/11 | Casa adaptada para cachorro idoso: piso, escada, sofá e cama | sênior | nada — sai antes da Black Week (23/11) |
+| ter 17/11 | qua 18/11 | Parque da Cidade com cachorro: o que pode e o que não pode | local | por telefone à administração do parque (ligar até ter 17/11): pet pode circular e guia é obrigatória? a área cercada existe e funciona hoje? regras dessa área |
+| qui 19/11 | sex 20/11 (feriado) | Pode levar cachorro no Parque Nacional (Água Mineral) e nos parques ecológicos do DF? | local | ICMBio (site) sobre o Parque Nacional; Brasília Ambiental/IBRAM sobre 1 ou 2 parques distritais. Recorte só nos que forem confirmados. Fechar até qui 19/11 (sexta é feriado) |
+| dom 22/11 | seg 23/11 | Viagem de fim de ano: levar ou deixar o cachorro idoso? | sênior | nada — sem citar hotel ou serviço |
+| ter 24/11 | qua 25/11 | Como adotar cachorro ou gato no DF: caminhos oficiais e feiras | local | canal oficial de adoção do GDF/SEPAN ativo? onde a agenda de feiras é divulgada? Sem citar ONG por nome. Sai antes do Dezembro Verde, sem afirmar edição no DF |
+| qui 26/11 | sex 27/11 | Pet em Brasília: guia para passear com o cachorro no DF (hub) | local | lei/programa de parcões (SINJ-DF); canal oficial pra achar o parcão mais perto. Só sai com 3 ou mais posts locais no ar |
+
+**Reserva** (entra no lugar de qualquer local que travar): Cachorro idoso dormindo muito: o que muda na rotina (sênior, sem verificação).
+
+**Feriados que afetam ligações:** 20/11 (Consciência Negra, nacional) e 30/11 (Dia do Evangélico, distrital).
+
+**Ficou fora por enquanto:** fogos de Réveillon (sem programação oficial do DF 2026/27 confirmada); páginas por região administrativa (fase 2).
 
 ## Observações
 
