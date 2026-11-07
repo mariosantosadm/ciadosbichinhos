@@ -6,7 +6,9 @@ Siga esta sequência, sem pular etapas:
 
 ## (a) Coleta de dados
 
-Rode `npm run dados-semana` (chama `node --use-env-proxy scripts/dados-semana.mjs` — a flag é necessária para o Node alcançar a API da Cloudflare neste ambiente). Isso gera `relatorios/dados/<AAAA-MM-DD>.json` (completo) e `relatorios/dados/<AAAA-MM-DD>-resumo.md` (compacto) com a indexação de cada URL do sitemap (comparada à coleta anterior) e os últimos 7 dias de Search Console, GA4 e Cloudflare Web Analytics, comparados aos 7 dias anteriores. Fontes não configuradas ou com erro ficam marcadas como tal no resumo; o script nunca inventa número.
+Primeiro rode `git pull origin main`. Toda sexta às 07:07 (Brasília) o workflow `.github/workflows/dados-semana.yml` coleta os dados no GitHub Actions, com as credenciais guardadas nos Secrets do repositório, e commita o resumo na `main`. Se `relatorios/dados/<AAAA-MM-DD>-resumo.md` de hoje já existir com as fontes `ok`, use esse e pule para o passo (b).
+
+Só se o resumo de hoje não existir ou tiver fontes "não configurado"/"erro", rode localmente `npm run dados-semana` (chama `node --use-env-proxy scripts/dados-semana.mjs` — a flag é necessária para o Node alcançar a API da Cloudflare neste ambiente). Sem `.env` e chave neste ambiente, não insista: diga ao Mário que a coleta automática falhou e peça para ele conferir a aba Actions do GitHub. A coleta gera `relatorios/dados/<AAAA-MM-DD>.json` (completo) e `relatorios/dados/<AAAA-MM-DD>-resumo.md` (compacto) com a indexação de cada URL do sitemap (comparada à coleta anterior) e os últimos 7 dias de Search Console, GA4 e Cloudflare Web Analytics, comparados aos 7 dias anteriores. Fontes não configuradas ou com erro ficam marcadas como tal no resumo; o script nunca inventa número.
 
 Se o Mário colou dados do Pinterest Analytics ou do relatório de Associados Amazon nesta conversa, guarde-os para passar ao `analista` no próximo passo (o script não coleta essas duas fontes).
 

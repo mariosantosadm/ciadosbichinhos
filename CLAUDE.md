@@ -9,6 +9,7 @@ O blog conta com 5 subagentes em `.claude/agents/`: `pesquisador-seo`, `redator`
 - **Nunca citar fonte não consultada.** Nunca dizer que há revisão veterinária. Sem dose, sem diagnóstico.
 - **Posts de afiliado**: selo "Publicidade" e a frase obrigatória da Amazon ("Como associados Amazon, ganhamos com compras qualificadas."); sem preço; sem "o melhor"; links só os fornecidos pelo Mário.
 - **Antes de commitar um post**: conferir slugs reais dos links internos, rodar `astro check` e o build, e testar no preview.
+- **Conteúdo local (Brasília/DF)**: nenhum lugar, regra, horário, ONG, feira ou serviço vai ao ar sem o Mário ter confirmado (por telefone ou em fonte oficial). Os agentes podem levantar candidatos, nunca confirmar. Todo post local informa a data da última verificação. Nada de pet shop, banho e tosa ou clínica.
 
 ## Regras de publicação
 
