@@ -10,7 +10,6 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 
 | Preparar | Publicar | Pauta | Tipo | O que confirmar antes (e onde) |
 |---|---|---|---|---|
-| ter 10/11 | qua 11/11 | Passeio com cachorro idoso no calor: horário, ritmo e piso | sênior | nada — ângulo de ritmo/piso/duração, sem repetir o post de hidratação |
 | qui 12/11 | sex 13/11 | Pode levar cachorro e gato no metrô e no ônibus do DF? | local | norma vigente do Metrô-DF (site e SINJ-DF); regra de ônibus/BRT (SEMOB-DF); caixa de transporte, porte e horário. Separar cão de assistência de pet comum |
 | dom 15/11 | seg 16/11 | Casa adaptada para cachorro idoso: piso, escada, sofá e cama | sênior | nada — sai antes da Black Week (23/11) |
 | ter 17/11 | qua 18/11 | Parque da Cidade com cachorro: o que pode e o que não pode | local | por telefone à administração do parque (ligar até ter 17/11): pet pode circular e guia é obrigatória? a área cercada existe e funciona hoje? regras dessa área |
@@ -28,6 +27,7 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 ## Observações
 
 - 09/11: "Com quantos anos o cachorro fica idoso? Veja por porte e calcule a idade" foi publicado e saiu do calendário.
+- 11/11: "Passeio com cachorro idoso no calor: horário, ritmo e piso" foi publicado e saiu do calendário.
 
 - A pauta "Fantasia de Halloween no pet" (`pautas/2026-10-30.md`) virou post em 02/11, reescrita atemporal (Halloween já tinha passado).
 - "Cachorro comeu bala/chiclete sem açúcar: o perigo do xilitol" (publicado em 31/10), "Gato pode comer chocolate branco?" (publicado em 01/11), "Cachorro pode comer maçã? Benefícios e cuidados" (publicado em 03/11), "Gato dorme muito: quantas horas por dia é normal?" (publicado em 04/11), "Black Friday pet: o que vale a pena comprar (e o que não)" (publicado em 05/11) e "Gato preto dá mau-olhado? A verdade por trás da superstição" (publicado em 06/11) saíram do backlog porque viraram post.
