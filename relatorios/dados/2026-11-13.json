@@ -1,0 +1,670 @@
+{
+  "gerado_em": "2026-11-13T17:40:54.196Z",
+  "indexacao": {
+    "status": "ok",
+    "dados": {
+      "total": 53,
+      "indexadas": 48,
+      "posts_total": 41,
+      "posts_indexados": 39,
+      "por_situacao": {
+        "Enviada e indexada": 48,
+        "Rastreada, mas não indexada no momento": 2,
+        "O Google não reconhece o URL": 2,
+        "Detectada, mas não indexada no momento": 1
+      },
+      "urls": [
+        {
+          "url": "https://ciadosbichinhos.com.br/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-11T00:20:34Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-13T02:51:16Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/ansiedade-de-separacao-em-caes-como-identificar-e-ajudar/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-10-30T19:15:43Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/bebedouro-automatico-para-gatos-e-caes-vale-a-pena/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-10-26T16:13:39Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/black-friday-pet-o-que-vale-a-pena-comprar-e-o-que-nao/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-05T16:25:40Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-com-dor-de-barriga-sinais-para-observar/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:27:04Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-come-grama-e-vomita-devo-me-preocupar/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-13T01:27:15Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-comeu-bala-ou-chiclete-sem-acucar-o-perigo-do-xilitol/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-12T21:35:28Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-lambendo-demais-as-patas-possiveis-causas/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:27:05Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-banana-beneficios-e-cuidados/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:54:43Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-chocolate-entenda-o-perigo/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-10T04:13:57Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-maca-beneficios-e-cuidados/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-05T01:10:33Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-ovo-beneficios-e-cuidados/",
+          "indexada": false,
+          "veredito": "NEUTRAL",
+          "situacao": "Rastreada, mas não indexada no momento",
+          "ultimo_rastreamento": "2026-11-13T15:59:50Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/cama-ortopedica-para-cachorro-idoso-guia-de-escolha/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-10-25T00:41:57Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/com-quantos-anos-o-cachorro-fica-idoso-veja-por-porte-e-calcule-a-idade/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-10T08:34:23Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/como-apresentar-um-gato-novo-pra-outro-gato-em-casa/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:27:05Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/como-escolher-o-brinquedo-certo-pro-temperamento-do-seu-pet/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-10-30T11:12:04Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/como-manter-seu-pet-hidratado-no-calor-extremo/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-12T14:43:53Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/como-saber-se-meu-gato-esta-estressado-sinais-de-comportamento/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-13T13:16:36Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/dia-mundial-dos-animais-5-atitudes-simples-que-mudam-a-vida-de-um-pet/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-06T08:12:39Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/enriquecimento-ambiental-como-evitar-o-tedio-do-pet-sozinho-em-casa/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-06T02:18:25Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/etiqueta-pet-como-se-comportar-em-espacos-publicos-com-seu-cao/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-05T06:47:46Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/fantasia-no-pet-e-seguro-vestir-o-cachorro-ou-o-gato/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-05T18:48:37Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-dorme-muito-quantas-horas-por-dia-e-normal/",
+          "indexada": false,
+          "veredito": "NEUTRAL",
+          "situacao": "Rastreada, mas não indexada no momento",
+          "ultimo_rastreamento": "2026-11-04T23:55:33Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-nao-usa-a-caixa-de-areia-possiveis-motivos/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-06T17:33:05Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-parou-de-brincar-o-que-pode-ser/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:29:06Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-pode-comer-atum-riscos-e-quantidade-certa/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:25:04Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-pode-comer-chocolate-branco-entenda-o-risco/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-06T04:18:49Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-preto-da-mau-olhado-a-verdade-por-tras-da-supersticao/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-06T13:08:03Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-ronrona-o-que-esse-som-quer-dizer/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-06T11:18:05Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-sabe-quando-vai-morrer-entenda-o-mito/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:33:08Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-se-escondendo-quando-e-normal-e-quando-preocupa/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:29:06Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/gato-se-lambendo-demais-quando-vira-problema/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-05T09:48:18Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/melhor-racao-para-gatos-castrados-comparativo/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:56:43Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/meu-cachorro-come-grama-e-normal/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:52:41Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/o-que-os-gatos-enxergam-que-a-gente-nao-ve/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:31:07Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/passeio-com-cachorro-idoso-no-calor-horario-ritmo-e-piso/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-12T19:05:22Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/plantas-toxicas-para-caes-o-que-evitar-no-passeio/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:52:40Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/por-que-gatos-amassam-antes-de-deitar/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:52:40Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/produtos-de-higiene-pet-mais-sustentaveis-o-que-considerar/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-03T08:03:25Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/quantas-caixas-de-areia-um-gato-precisa/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-07T11:31:07Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/sinais-de-artrite-em-cachorro-idoso-quando-procurar-o-vet/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:56:43Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/blog/sinais-de-que-seu-pet-esta-doente/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-04T19:56:43Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/calculadora-idade-pet/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-08T18:45:44Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/categoria/alimentacao/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-08T23:45:44Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/categoria/cachorro/",
+          "indexada": false,
+          "veredito": "NEUTRAL",
+          "situacao": "O Google não reconhece o URL",
+          "ultimo_rastreamento": null
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/categoria/comportamento/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-13T00:05:22Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/categoria/cuidados/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-05T23:48:35Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/categoria/gato/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-13T04:24:17Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/contato/",
+          "indexada": false,
+          "veredito": "NEUTRAL",
+          "situacao": "O Google não reconhece o URL",
+          "ultimo_rastreamento": null
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/disclosure/",
+          "indexada": false,
+          "veredito": "NEUTRAL",
+          "situacao": "Detectada, mas não indexada no momento",
+          "ultimo_rastreamento": null
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/privacidade/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-03T20:32:35Z"
+        },
+        {
+          "url": "https://ciadosbichinhos.com.br/sobre/",
+          "indexada": true,
+          "veredito": "PASS",
+          "situacao": "Enviada e indexada",
+          "ultimo_rastreamento": "2026-11-11T12:07:07Z"
+        }
+      ]
+    }
+  },
+  "indexacao_anterior": {
+    "data": "2026-11-07",
+    "total": 50,
+    "indexadas": 42,
+    "posts_total": 39,
+    "posts_indexados": 34
+  },
+  "search_console": {
+    "status": "ok",
+    "dados": {
+      "janela": {
+        "atual": [
+          "2026-11-04",
+          "2026-11-10"
+        ],
+        "anterior": [
+          "2026-10-28",
+          "2026-11-03"
+        ]
+      },
+      "atraso_dados_dias": 3,
+      "totais": {
+        "atual": {
+          "clicks": 0,
+          "impressions": 48,
+          "ctr": 0,
+          "position": 41
+        },
+        "anterior": {
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 26.88888888888889
+        }
+      },
+      "paginas_com_impressao": [
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/bebedouro-automatico-para-gatos-e-caes-vale-a-pena/",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 3.5
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/cachorro-comeu-bala-ou-chiclete-sem-acucar-o-perigo-do-xilitol/",
+          "clicks": 0,
+          "impressions": 14,
+          "ctr": 0,
+          "position": 7.928571428571429
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-banana-beneficios-e-cuidados/",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 99
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-chocolate-entenda-o-perigo/",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 87.66666666666667
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-maca-beneficios-e-cuidados/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 96
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/cachorro-pode-comer-ovo-beneficios-e-cuidados/",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 91
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/fantasia-no-pet-e-seguro-vestir-o-cachorro-ou-o-gato/",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 1
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/gato-pode-comer-atum-riscos-e-quantidade-certa/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 90
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/gato-pode-comer-chocolate-branco-entenda-o-risco/",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 62.666666666666664
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/gato-preto-da-mau-olhado-a-verdade-por-tras-da-supersticao/",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/gato-sabe-quando-vai-morrer-entenda-o-mito/",
+          "clicks": 0,
+          "impressions": 6,
+          "ctr": 0,
+          "position": 43.333333333333336
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/melhor-racao-para-gatos-castrados-comparativo/",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0,
+          "position": 66
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/blog/sinais-de-que-seu-pet-esta-doente/",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 87
+        },
+        {
+          "pagina": "https://ciadosbichinhos.com.br/sobre/",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 5.5
+        }
+      ],
+      "posts_com_impressao": 13,
+      "top_consultas": [
+        {
+          "consulta": "cachorro pode comer bala",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 10
+        },
+        {
+          "consulta": "cachorro pode comer ovo frito",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 92
+        },
+        {
+          "consulta": "can cats eat white chocolate",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 93
+        },
+        {
+          "consulta": "can cats have white chocolate",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 94
+        },
+        {
+          "consulta": "cao doente",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 87
+        },
+        {
+          "consulta": "ovo e bom pra cachorro",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 92
+        },
+        {
+          "consulta": "pode dar banana para cachorro",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 99
+        },
+        {
+          "consulta": "pode dar maça pra cachorro",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 96
+        },
+        {
+          "consulta": "por que chocolate faz mal para cachorro",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        },
+        {
+          "consulta": "posso dar atum em lata para meu gato",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 90
+        }
+      ],
+      "buscas_locais": {
+        "regex": "bras[ií]lia|distrito federal|\\bdf\\b|asa (sul|norte)|lago (sul|norte)|[aá]guas claras|taguatinga|plano piloto|ceil[aâ]ndia|vicente pires|park way",
+        "totais": {
+          "atual": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": 0
+          },
+          "anterior": {
+            "clicks": 0,
+            "impressions": 0,
+            "ctr": 0,
+            "position": 0
+          }
+        },
+        "consultas": []
+      }
+    }
+  },
+  "ga4": {
+    "status": "ok",
+    "dados": {
+      "janela": {
+        "atual": [
+          "2026-11-06",
+          "2026-11-12"
+        ],
+        "anterior": [
+          "2026-10-30",
+          "2026-11-05"
+        ]
+      },
+      "totais": {
+        "atual": {
+          "usuarios": 0,
+          "sessoes": 0
+        },
+        "anterior": {
+          "usuarios": 0,
+          "sessoes": 0
+        }
+      },
+      "cliques_afiliado_por_pagina": []
+    }
+  },
+  "cloudflare": {
+    "status": "ok",
+    "dados": {
+      "janela": {
+        "atual": [
+          "2026-11-06",
+          "2026-11-12"
+        ],
+        "anterior": [
+          "2026-10-30",
+          "2026-11-05"
+        ]
+      },
+      "visitas": {
+        "atual": 5,
+        "anterior": 20
+      },
+      "top_paginas": [
+        {
+          "pagina": "/",
+          "visitas": 5
+        }
+      ]
+    }
+  }
+}
