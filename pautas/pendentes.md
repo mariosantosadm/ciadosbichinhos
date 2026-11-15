@@ -10,7 +10,6 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 
 | Preparar | Publicar | Pauta | Tipo | O que confirmar antes (e onde) |
 |---|---|---|---|---|
-| qui 12/11 | sex 13/11 | Pode levar cachorro e gato no metrô e no ônibus do DF? | local | norma vigente do Metrô-DF (site e SINJ-DF); regra de ônibus/BRT (SEMOB-DF); caixa de transporte, porte e horário. Separar cão de assistência de pet comum |
 | dom 15/11 | seg 16/11 | Casa adaptada para cachorro idoso: piso, escada, sofá e cama | sênior | nada — sai antes da Black Week (23/11) |
 | ter 17/11 | qua 18/11 | Parque da Cidade com cachorro: o que pode e o que não pode | local | por telefone à administração do parque (ligar até ter 17/11): pet pode circular e guia é obrigatória? a área cercada existe e funciona hoje? regras dessa área |
 | qui 19/11 | sex 20/11 (feriado) | Pode levar cachorro no Parque Nacional (Água Mineral) e nos parques ecológicos do DF? | local | ICMBio (site) sobre o Parque Nacional; Brasília Ambiental/IBRAM sobre 1 ou 2 parques distritais. Recorte só nos que forem confirmados. Fechar até qui 19/11 (sexta é feriado) |
@@ -31,6 +30,7 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 
 - 09/11: "Com quantos anos o cachorro fica idoso? Veja por porte e calcule a idade" foi publicado e saiu do calendário.
 - 11/11: "Passeio com cachorro idoso no calor: horário, ritmo e piso" foi publicado e saiu do calendário.
+- 15/11: "Pode levar cachorro e gato no metrô e no ônibus do DF?" foi publicado (atrasou de 13/11 por causa da verificação; regras conferidas em 15/11 no site da SEMOB-DF, no FAQ do Metrô-DF e na Agência Brasília) e saiu do calendário.
 - 13/11 (rodada do `/semana`): calendário até 27/11 mantido sem mudança de data. O relatório ainda não tem dado do cluster idoso nem de busca local. Ajuste só de escopo: as sênior de 16/11 e 23/11 devem linkar "Com quantos anos..." e a calculadora (ação 3 do relatório). Entram 3 pautas para 30/11 a 04/12 (detalhes em `pautas/2026-11-13.md`). A reserva não foi usada, para continuar cobrindo as duas locais. O metrô (13/11) ainda não estava em `src/content/blog/` na hora desta rodada, então segue no calendário.
 
 - A pauta "Fantasia de Halloween no pet" (`pautas/2026-10-30.md`) virou post em 02/11, reescrita atemporal (Halloween já tinha passado).
