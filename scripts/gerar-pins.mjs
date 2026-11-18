@@ -129,6 +129,10 @@ function placeholderBuffer(boxWidth, boxHeight) {
 // ---------- download com cache e timeout ----------
 
 async function downloadImage(url) {
+  // Imagem hospedada no próprio site (ex.: "/images/blog/foto.webp"): lê direto de public/.
+  if (url.startsWith('/')) {
+    return readFile(path.join(ROOT, 'public', url));
+  }
   await mkdir(CACHE_DIR, { recursive: true });
   const cacheKey = createHash('sha256').update(url).digest('hex');
   const cachePath = path.join(CACHE_DIR, cacheKey);
