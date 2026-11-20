@@ -6,8 +6,9 @@ category: cuidados
 species: cachorro
 pilar: cuidar
 tags: ["cachorro idoso", "conforto", "cama ortopédica", "artrite canina", "bem-estar"]
-heroImage: "https://images.pexels.com/photos/28860758/pexels-photo-28860758.jpeg?auto=compress&cs=tinysrgb&w=1260"
-heroImageAlt: "Cão Bernese Mountain Dog relaxando em um ambiente interno aconchegante, com luz natural"
+heroImage: "https://images.pexels.com/photos/28860724/pexels-photo-28860724.png?auto=compress&cs=tinysrgb&w=1260"
+heroImageAlt: "Cão Bernese Mountain Dog deitado numa cama retangular cinza com bordas acolchoadas, numa varanda de madeira com cadeiras de jardim ao fundo"
+heroImagePosition: "60% 50%"
 affiliate: false
 ---
 
