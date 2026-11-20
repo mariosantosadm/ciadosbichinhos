@@ -196,11 +196,17 @@ async function fetchIndexacao() {
   if (urls.length === 0) throw new Error('sitemap sem URLs');
 
   async function inspect(url) {
-    const res = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ inspectionUrl: url, siteUrl: GSC_SITE_URL, languageCode: 'pt-BR' }),
-    });
+    // A API às vezes devolve 5xx/429 passageiro numa URL isolada: tenta de novo antes de desistir.
+    let res;
+    for (let tentativa = 1; tentativa <= 4; tentativa++) {
+      res = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ inspectionUrl: url, siteUrl: GSC_SITE_URL, languageCode: 'pt-BR' }),
+      });
+      if (res.ok || !(res.status >= 500 || res.status === 429) || tentativa === 4) break;
+      await new Promise((r) => setTimeout(r, 2000 * 2 ** (tentativa - 1)));
+    }
     if (!res.ok) throw new Error(`inspeção de ${url}: HTTP ${res.status} ${await res.text()}`);
     const r = (await res.json()).inspectionResult?.indexStatusResult || {};
     return {
