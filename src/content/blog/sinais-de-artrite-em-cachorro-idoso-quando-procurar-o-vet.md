@@ -37,6 +37,8 @@ affiliate: false
 - **Manter atividade leve e regular** — parar de se mexer de vez piora, mas sem exagerar
 - **Cuidado com o peso** — cada quilo a mais é sobrecarga extra na articulação
 
+Para adaptar a casa passo a passo, veja [casa adaptada para cachorro idoso](/blog/casa-adaptada-para-cachorro-idoso-piso-escada-sofa-e-cama/). E se ainda não sabe se o seu cão já é considerado idoso, veja [com quantos anos o cachorro fica idoso](/blog/com-quantos-anos-o-cachorro-fica-idoso-veja-por-porte-e-calcule-a-idade/) ou use a [calculadora de idade do pet](/calculadora-idade-pet/).
+
 ## Não é "só idade" — vale a consulta
 
 Diagnóstico correto muda o tratamento, e começar cedo preserva mobilidade e qualidade de vida por mais tempo. Se notar algum desses sinais, vale marcar uma avaliação, mesmo que pareça "coisa normal de cachorro idoso".

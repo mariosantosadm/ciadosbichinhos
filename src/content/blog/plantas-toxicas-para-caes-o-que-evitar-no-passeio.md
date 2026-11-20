@@ -58,6 +58,8 @@ Nem toda planta causa sintoma na hora. Se você viu seu cachorro comendo algo su
 
 Se o seu cachorro tem o hábito de comer grama, vale ler [meu cachorro come grama, é normal?](/blog/meu-cachorro-come-grama-e-normal/) para entender melhor esse comportamento.
 
+E o perigo não está só no passeio: dentro de casa, balas e chicletes sem açúcar também merecem cuidado. Veja [o perigo do xilitol para cães](/blog/cachorro-comeu-bala-ou-chiclete-sem-acucar-o-perigo-do-xilitol/).
+
 ## O que fazer se ele comer uma planta suspeita
 
 1. **Tire o cachorro de perto** e impeça que ele continue mastigando.

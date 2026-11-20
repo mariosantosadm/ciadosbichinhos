@@ -21,6 +21,8 @@ Com o passar dos anos, é comum que o cachorro perca massa muscular, ganhe menos
 
 Camas comuns, com enchimento fofo ou espuma fina, costumam amassar rápido e perdem a capacidade de sustentar o peso do cão de forma equilibrada. Já os modelos pensados para conforto articular distribuem a pressão ao longo do corpo, reduzindo pontos de apoio concentrados em zonas sensíveis, como quadris e cotovelos.
 
+Se você não sabe se o seu cão já entrou nessa fase, veja [com quantos anos o cachorro fica idoso](/blog/com-quantos-anos-o-cachorro-fica-idoso-veja-por-porte-e-calcule-a-idade/) ou faça a conta na [calculadora de idade do pet](/calculadora-idade-pet/). Para outros ajustes em casa, veja [casa adaptada para cachorro idoso](/blog/casa-adaptada-para-cachorro-idoso-piso-escada-sofa-e-cama/).
+
 ## Sinais de que o cachorro precisa de uma cama melhor
 
 Alguns sinais podem indicar que a cama atual já não está dando o suporte necessário:

@@ -46,6 +46,8 @@ O perigo não está só nas barras e nos bombons. Fique atento a:
 
 Em época de festas, a atenção deve ser redobrada, porque os doces ficam ao alcance de pratos, mesas e sacolas.
 
+Outro doce que merece atenção são as balas e os chicletes sem açúcar, que podem conter xilitol. Veja [o que fazer se o cachorro comer bala ou chiclete sem açúcar](/blog/cachorro-comeu-bala-ou-chiclete-sem-acucar-o-perigo-do-xilitol/).
+
 ## Sinais de que o cachorro pode ter se intoxicado
 
 Os sintomas podem aparecer **algumas horas depois** de ele comer o chocolate. Fique atento a:

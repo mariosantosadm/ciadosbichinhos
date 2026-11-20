@@ -68,6 +68,8 @@ Antes de se preocupar, vale reunir algumas informações que ajudam bastante se 
 
 Se o seu gato tem o hábito de pedir comida na mesa ou fuçar coisas que não deveria, vale também observar os sinais de alerta mais amplos, como em [sinais de que seu pet está doente](/blog/sinais-de-que-seu-pet-esta-doente/).
 
+Se na sua casa também tem cachorro, vale cuidado extra com balas e chicletes sem açúcar: entenda [o perigo do xilitol para cães](/blog/cachorro-comeu-bala-ou-chiclete-sem-acucar-o-perigo-do-xilitol/).
+
 ## Quando procurar o veterinário
 
 Procure atendimento o quanto antes se:
