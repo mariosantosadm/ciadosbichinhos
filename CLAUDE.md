@@ -1,3 +1,7 @@
+## Idioma
+
+- **Responda ao Mário sempre em português (Brasil)**, em todas as mensagens, inclusive resumos, relatórios e respostas curtas.
+
 ## Equipe editorial
 
 O blog conta com 5 subagentes em `.claude/agents/`: `pesquisador-seo`, `redator`, `revisor-tecnico`, `social-media` e `analista`.
