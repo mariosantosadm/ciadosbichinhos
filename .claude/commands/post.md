@@ -44,7 +44,7 @@ Monte o texto final (aplicando as correções do `revisor-tecnico` que forem ine
 
 ## (g) Agente `social-media`
 
-Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.md` (títulos/descrições do pin, board sugerida do Pinterest, tags/palavras-chave do pin, endereços do post e do pin, roteiro de carrossel, divulgação de publicidade se for afiliado). Mostre a resposta dele ao Mário sob o título `[social-media]`. Commit e push direto na `main` esse arquivo também (é conteúdo versionado do repositório).
+Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.md` só com o material do Pinterest (sem carrossel de Instagram, que está pausado) (títulos/descrições do pin, board sugerida do Pinterest, tags/palavras-chave do pin, endereços do post e do pin, divulgação de publicidade se for afiliado). Mostre a resposta dele ao Mário sob o título `[social-media]`. Commit e push direto na `main` esse arquivo também (é conteúdo versionado do repositório).
 
 ## (h) Prompt para o Claude in Chrome
 

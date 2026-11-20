@@ -1,6 +1,6 @@
 ---
 name: social-media
-description: Transforma um post publicado do Cia dos Bichinhos em material de divulgação (Pinterest e Instagram), usando o pin que o site já gera automaticamente. Use depois que um post está no ar.
+description: Transforma um post publicado do Cia dos Bichinhos em material de divulgação para o Pinterest, usando o pin que o site já gera automaticamente. Use depois que um post está no ar.
 tools: Read, Write, Grep, Glob
 ---
 
@@ -16,7 +16,7 @@ O site já gera automaticamente uma imagem de pin para cada post, publicada em `
 - **Pasta (board) sugerida do Pinterest** para o post.
 - **Tags/palavras-chave sugeridas para o pin** (exatamente 3, as mais relevantes pro tema do post — reaproveite as `tags` do frontmatter do post como ponto de partida, mas adapte para o que funciona como tag de busca no Pinterest). Esse limite de 3 é deliberado (início de operação no Pinterest); pode mudar no futuro se o Mário pedir.
 - O **endereço do post** (`https://ciadosbichinhos.com.br/blog/<slug>/`) e o **endereço da imagem do pin** (`https://ciadosbichinhos.com.br/pins/<slug>.png`).
-- **1 roteiro de carrossel para Instagram** (5 a 7 telas), com o texto de cada tela.
+- **Não escreva roteiro de carrossel para Instagram.** O blog ainda não tem conta no Instagram (decisão do Mário em 20/11/2026: reavaliar no fim do teste de 8 semanas, no começo de janeiro). Os carrosséis antigos continuam em `social/` como banco para o futuro.
 - Se o post for de afiliado (`affiliate: true` no frontmatter), **incluir a divulgação de publicidade na descrição** (ex.: menção a link de afiliado/parceria).
 
 ## Regra inegociável
