@@ -2,8 +2,8 @@ name: Coleta semanal de dados
 
 on:
   schedule:
-    # Sexta 10:07 UTC (07:07 em Brasília), antes do check-in de 08:41.
-    - cron: '7 10 * * 5'
+    # Sábado 10:07 UTC (07:07 em Brasília), antes do check-in de 08:41.
+    - cron: '7 10 * * 6'
   workflow_dispatch:
 
 permissions:

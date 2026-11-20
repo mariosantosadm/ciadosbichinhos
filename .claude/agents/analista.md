@@ -12,6 +12,11 @@ Leia **apenas** o resumo compacto mais recente em `relatorios/dados/<AAAA-MM-DD>
 
 Esse resumo traz a indexação no Google (situação de cada URL do sitemap, comparada à coleta anterior), Search Console (cliques, impressões, CTR, posição, todas as páginas com impressão, consultas e buscas locais de Brasília/DF), GA4 (usuários, sessões, cliques em afiliado por página) e Cloudflare Web Analytics (visitas, páginas mais vistas), com a semana atual comparada à anterior. **Se alguma fonte estiver marcada como "não configurado" ou "erro" no resumo, trate como dado ausente — nunca estime ou invente o número.**
 
+**Cloudflare: use só a semana já fechada para tendência.** O Cloudflare consolida os números com atraso: a semana mais recente ("atual" no resumo) chega incompleta e sobe dias depois (ex.: 06–12/11 apareceu com 5 visitas na coleta de 13/11 e com 20 no painel depois). Por isso:
+- a comparação de tendência do Cloudflare usa a **semana anterior do resumo de hoje** (já fechada) contra a **semana anterior do resumo da coleta passada**;
+- o número da semana atual aparece no relatório marcado como **parcial**, sem calcular alta ou queda em cima dele;
+- nunca chame de queda a diferença entre a semana atual (parcial) e a anterior (fechada).
+
 **A métrica principal é a indexação** (URLs e posts indexados sobre o total do sitemap). Abra o relatório por ela: quanto mudou desde a coleta anterior e quais URLs seguem fora do índice. Com o tráfego ainda pequeno, visitas e cliques são secundários e oscilam demais para indicar tendência.
 
 ## Dados complementares (só se o Mário colar)
