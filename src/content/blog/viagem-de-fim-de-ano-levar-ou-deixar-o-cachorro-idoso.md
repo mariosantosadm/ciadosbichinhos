@@ -11,6 +11,7 @@ heroImageAlt: "Schnauzer de pelagem cinza com peitoral preto andando de perfil n
 heroImagePosition: "50% 60%"
 pinTitle: "Viagem de fim de ano com cachorro idoso"
 pinSubtitle: "Levar ou deixar?"
+pinBoard: comportamento
 affiliate: false
 ---
 

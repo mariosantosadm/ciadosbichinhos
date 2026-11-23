@@ -44,6 +44,7 @@ heroImageAlt: ""        # nunca vazio, descreve o que a foto mostra de fato
 heroImagePosition: ""   # opcional, ex. "center 70%"
 pinTitle: ""            # opcional
 pinSubtitle: ""         # opcional
+pinBoard: alimentacao | comportamento | cuidados-e-higiene | saude-e-seguranca   # pasta do Pinterest; o pin é criado sozinho pelo feed RSS dessa pasta
 affiliate: true | false
 ```
 

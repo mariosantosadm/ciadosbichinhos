@@ -17,6 +17,8 @@ const blog = defineCollection({
     heroImagePosition: z.string().optional(),
     pinTitle: z.string().optional(),
     pinSubtitle: z.string().optional(),
+    // Pasta do Pinterest onde o pin entra pelo feed RSS automático (src/pages/pinterest/[pasta].xml.ts).
+    pinBoard: z.enum(['alimentacao', 'comportamento', 'cuidados-e-higiene', 'saude-e-seguranca']).optional(),
     affiliate: z.boolean().default(false),
     affiliateProduct: z
       .object({

@@ -46,17 +46,12 @@ Monte o texto final (aplicando as correções do `revisor-tecnico` que forem ine
 
 Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.md` só com o material do Pinterest (sem carrossel de Instagram, que está pausado) (títulos/descrições do pin, board sugerida do Pinterest, tags/palavras-chave do pin, endereços do post e do pin, divulgação de publicidade se for afiliado). Mostre a resposta dele ao Mário sob o título `[social-media]`. Commit e push direto na `main` esse arquivo também (é conteúdo versionado do repositório).
 
-## (h) Prompt para o Claude in Chrome
+## (h) Pin no Pinterest (automático)
 
-Depois do `[social-media]`, monte e entregue ao Mário, em bloco de código, o prompt abaixo pronto para colar no Claude in Chrome — usando o título, a descrição e as tags da **variação 1** e a **pasta sugerida** que o `social-media` entregou.
+O pin é criado **sozinho** pelo Pinterest: cada pasta do Pinterest está ligada a um feed RSS do site (`/pinterest/<pasta>.xml`, gerado por `src/pages/pinterest/[pasta].xml.ts`), e o Pinterest confere o feed e cria o pin com a imagem `/pins/<slug>.png`, o título, a descrição e o link do post. Por isso:
 
-**Como a imagem chega ao Pinterest (testado em 23/11/2026):** o Claude in Chrome só consegue subir arquivos que o Mário anexou no chat dele, e o Pinterest não conseguiu buscar a imagem pelo endereço do site (nem pelo link de "Salvar", nem pelo "Salvar do URL"). Então o caminho é: **o Mário baixa o PNG do pin e anexa no chat do Claude in Chrome junto com o prompt.** Antes de entregar, confira que o pin (`<URL_DO_PIN>`) abre com `200 image/png`. Entregue ao Mário, nesta ordem:
-
-1. "Baixe o pin: <URL_DO_PIN> (abra e salve a imagem)."
-2. "No Claude in Chrome, anexe o arquivo baixado e cole o prompt abaixo."
-
-```
-No Pinterest (já estou logado), crie UM pin usando a imagem que anexei nesta conversa: abra Criar > Criar pin e suba esse arquivo. Título: <título da variação 1>; descrição: <descrição da variação 1, com o aviso de publicidade se o post for afiliado>; link de destino: <URL_DO_POST>; pasta: <pasta sugerida>; tags (se o formulário tiver o campo): <tags>. Se a imagem não estiver anexada, me avise e pare. Preencha tudo e PARE antes de publicar, para eu revisar e clicar em Publicar. Não crie mais de um pin e não mexa em nenhuma outra configuração da conta.
-```
+1. Antes de criar o arquivo do post (passo e), confira que o frontmatter tem `pinBoard` com uma das 4 pastas: `alimentacao`, `comportamento`, `cuidados-e-higiene` ou `saude-e-seguranca` (use a pasta que o `social-media` costuma escolher para o tema; sem `pinBoard`, vale a padrão pela categoria em `src/lib/pinterest.ts`).
+2. Depois do deploy, confira que o post aparece em `https://ciadosbichinhos.com.br/pinterest/<pinBoard>.xml` com o `<enclosure>` do pin, e diga ao Mário: "o Pinterest deve criar o pin sozinho nas próximas horas (até ~1 dia), na pasta X".
+3. **Não** entregue prompt de Claude in Chrome para criar pin, nem peça para baixar ou anexar imagem. Só se o Mário avisar que o pin não apareceu depois de 1 dia, investigue o feed (Configurações > Criar Pins em massa no Pinterest mostra erros do feed).
 
 Não pule esta etapa — ela é parte obrigatória do fluxo do `/post`, mesmo quando não for pedida explicitamente na invocação do comando.
