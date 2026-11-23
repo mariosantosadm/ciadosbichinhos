@@ -10,7 +10,6 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 
 | Preparar | Publicar | Pauta | Tipo | O que confirmar antes (e onde) |
 |---|---|---|---|---|
-| dom 22/11 | seg 23/11 | Viagem de fim de ano: levar ou deixar o cachorro idoso? | sênior | nada — sem citar hotel ou serviço |
 | ter 24/11 | qua 25/11 | Como adotar cachorro ou gato no DF: caminhos oficiais e feiras | local | canal oficial de adoção do GDF/SEPAN ativo? onde a agenda de feiras é divulgada? Sem citar ONG por nome. Sai antes do Dezembro Verde, sem afirmar edição no DF |
 | qui 26/11 | sex 27/11 | Pet em Brasília: guia para passear com o cachorro no DF (hub) | local | lei/programa de parcões (SINJ-DF); canal oficial pra achar o parcão mais perto. Só sai com 3 ou mais posts locais no ar |
 | dom 29/11 | seg 30/11 (feriado distrital) | Cachorro idoso com medo de fogos e trovão: como deixar a casa mais segura | sênior | nada local — sem calmante, floral ou dose; sem diagnóstico; sem programação de fogos do DF |
@@ -34,6 +33,7 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 - 16/11: "Casa adaptada para cachorro idoso: piso, escada, sofá e cama" foi publicado e saiu do calendário.
 - 18/11: "Parque da Cidade com cachorro: o que pode e o que não pode" foi publicado (Decreto 19.988/1998 conferido no SINJ, placa e fotos do Mário, Correio Braziliense) e saiu do calendário.
 - 20/11: "Pode levar cachorro na Água Mineral? Veja a regra do parque" foi publicado (PROV do Parque Nacional de Brasília/ICMBio). Os parques ecológicos do DF ficaram de fora por falta de fonte do Brasília Ambiental — podem virar pauta própria.
+- 23/11: "Viagem de fim de ano: levar ou deixar o cachorro idoso?" foi publicado e saiu do calendário (a parte de fogos ficou curta para não adiantar a pauta de 30/11).
 - 13/11 (rodada do `/semana`): calendário até 27/11 mantido sem mudança de data. O relatório ainda não tem dado do cluster idoso nem de busca local. Ajuste só de escopo: as sênior de 16/11 e 23/11 devem linkar "Com quantos anos..." e a calculadora (ação 3 do relatório). Entram 3 pautas para 30/11 a 04/12 (detalhes em `pautas/2026-11-13.md`). A reserva não foi usada, para continuar cobrindo as duas locais. O metrô (13/11) ainda não estava em `src/content/blog/` na hora desta rodada, então segue no calendário.
 - 21/11 (rodada do `/semana`, a primeira no sábado): nenhuma data mudou. A semana de 23–27/11 foi revisada com o Mário em 20/11; para 30/11–04/12 não há dado local (Search Console só até 17/11) nem motivo concreto para mexer. Notas de escopo: o hub de 27/11 já cumpre a condição de 3 posts locais no ar (metrô, Parque da Cidade, Água Mineral). Entram 3 pautas para 07 a 11/12 (detalhes em `pautas/2026-11-21.md`); a dos parques ecológicos é a lacuna deixada pelo post da Água Mineral. Sugestão de segunda reserva, a decidir pelo Mário: "Brincadeiras para cachorro idoso" (sem verificação), porque a reserva atual cobre 6 pautas locais seguidas.
 
