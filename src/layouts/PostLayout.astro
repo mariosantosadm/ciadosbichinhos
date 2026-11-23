@@ -7,6 +7,8 @@ import PostCard from '../components/PostCard.astro';
 import { categories } from '../lib/categories';
 import { readingTime } from '../lib/reading-time';
 import { getRelatedPosts } from '../lib/posts';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -29,6 +31,11 @@ const {
 const cat = categories[category];
 const minutes = readingTime(post.body);
 const related = getRelatedPosts(post, allPosts);
+
+// Pin do Pinterest gerado no prebuild (scripts/gerar-pins.mjs). Aparece no fim do post
+// para o Pinterest (e o "Salvar do URL") encontrarem a imagem vertical hospedada no próprio site.
+const pinPath = `/pins/${post.slug}.png`;
+const hasPin = existsSync(path.join(process.cwd(), 'public', pinPath));
 
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 ---
@@ -78,6 +85,21 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
             note={affiliateProduct.note}
             postSlug={post.slug}
           />
+        )
+      }
+
+      {
+        hasPin && (
+          <aside class="pin-save" aria-label="Salvar no Pinterest">
+            <img
+              src={pinPath}
+              alt={`Imagem para o Pinterest: ${title}`}
+              width="1000"
+              height="1500"
+              loading="lazy"
+            />
+            <p>Gostou? <strong>Salve no Pinterest</strong> para consultar depois.</p>
+          </aside>
         )
       }
 
@@ -231,6 +253,27 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 
 
   .post-layout__content :global(tbody td:first-child) {
     font-weight: 700;
+  }
+
+  .pin-save {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem;
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius);
+  }
+
+  .pin-save img {
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .pin-save p {
+    margin: 0;
   }
 
   .related {
