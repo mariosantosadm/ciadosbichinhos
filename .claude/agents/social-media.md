@@ -13,7 +13,7 @@ O site já gera automaticamente uma imagem de pin para cada post, publicada em `
 ## Para cada post, salve em `social/<slug>.md`
 
 - **2 a 3 variações** de título (até 100 caracteres) e descrição (2 a 3 frases, com palavras-chave, sem exagero, sem promessa de resultado, sem clickbait enganoso), pensadas pro mesmo pin ser usado em dias diferentes.
-- **Pasta (board) sugerida do Pinterest** para o post.
+- **Pasta (board) sugerida do Pinterest** para o post, **escolhida só entre as pastas que existem na conta** (conferidas em 23/11/2026): **Alimentação**, **Comportamento**, **Cuidados e Higiene** e **Saúde e Segurança**. Escreva o nome exatamente assim. Nunca invente pasta nova; se nenhuma servir, use a mais próxima e avise.
 - **Tags/palavras-chave sugeridas para o pin** (exatamente 3, as mais relevantes pro tema do post — reaproveite as `tags` do frontmatter do post como ponto de partida, mas adapte para o que funciona como tag de busca no Pinterest). Esse limite de 3 é deliberado (início de operação no Pinterest); pode mudar no futuro se o Mário pedir.
 - O **endereço do post** (`https://ciadosbichinhos.com.br/blog/<slug>/`) e o **endereço da imagem do pin** (`https://ciadosbichinhos.com.br/pins/<slug>.png`).
 - **Não escreva roteiro de carrossel para Instagram.** O blog ainda não tem conta no Instagram (decisão do Mário em 20/11/2026: reavaliar no fim do teste de 8 semanas, no começo de janeiro). Os carrosséis antigos continuam em `social/` como banco para o futuro.
