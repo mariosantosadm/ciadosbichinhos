@@ -48,10 +48,16 @@ Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.m
 
 ## (h) Prompt para o Claude in Chrome
 
-Depois do `[social-media]`, monte e entregue ao Mário, em bloco de código, o prompt abaixo pronto para colar no Claude in Chrome — usando o título, a descrição e as tags da **variação 1** e a **pasta sugerida** que o `social-media` entregou:
+Depois do `[social-media]`, monte e entregue ao Mário, em bloco de código, o prompt abaixo pronto para colar no Claude in Chrome — usando o título, a descrição e as tags da **variação 1** e a **pasta sugerida** que o `social-media` entregou.
+
+**Não peça para baixar e anexar a imagem como arquivo:** o Claude in Chrome não consegue subir arquivos que não foram anexados no chat dele (isso falhou mais de uma vez). O pin é criado pelo endereço da imagem, usando o link oficial de "Salvar" do Pinterest, que busca a imagem direto do site. Monte o `<LINK_PINTEREST>` assim, com cada valor codificado para URL (use `python3 -c "import urllib.parse as u; print(u.quote(..., safe=''))"`, nunca à mão):
+
+`https://www.pinterest.com/pin/create/button/?url=<URL_DO_POST codificada>&media=<URL_DO_PIN codificada>&description=<descrição da variação 1 codificada>`
+
+Antes de entregar, confira que o pin (`<URL_DO_PIN>`) abre com `200 image/png`.
 
 ```
-No Pinterest (já estou logado), crie UM pin: abra Criar > Criar pin; baixe a imagem de <URL_DO_PIN> e anexe como arquivo (se não conseguir, me avise e pare); título: <título da variação 1 do social-media>; descrição: <descrição da variação 1, com o aviso de publicidade se o post for afiliado>; tags: <tags/palavras-chave sugeridas pelo social-media>; link de destino: <URL_DO_POST>; pasta: <board sugerida>. Preencha tudo e PARE antes de publicar, para eu revisar e clicar em Publicar. Não crie mais de um pin e não mexa em nenhuma outra configuração da conta.
+No Pinterest (já estou logado), crie UM pin a partir do endereço da imagem (você está autorizado a importar a imagem pelo link; não precisa baixar nem anexar arquivo). Abra este link: <LINK_PINTEREST> . Ele abre o criador de pin do Pinterest já com a imagem, o link de destino e a descrição. Confira que a imagem carregou (pin vertical da Cia dos Bichinhos) e que o link de destino é <URL_DO_POST>. Se houver campo de título, preencha: <título da variação 1>. Descrição (confira ou cole): <descrição da variação 1, com o aviso de publicidade se o post for afiliado>. Tags, se o formulário tiver o campo: <tags>. Pasta: <board sugerida>. Se o link não abrir o criador com a imagem, use Criar > Criar pin > "Salvar do URL" com o endereço <URL_DO_PIN> e preencha os mesmos campos. Preencha tudo e PARE antes de publicar/salvar, para eu revisar e clicar. Não crie mais de um pin e não mexa em nenhuma outra configuração da conta.
 ```
 
 Não pule esta etapa — ela é parte obrigatória do fluxo do `/post`, mesmo quando não for pedida explicitamente na invocação do comando.
