@@ -18,6 +18,9 @@ const blog = defineCollection({
     pinTitle: z.string().optional(),
     pinSubtitle: z.string().optional(),
     // Pasta do Pinterest onde o pin entra pelo feed RSS automático (src/pages/pinterest/[pasta].xml.ts).
+    // Título e descrição do pin no Pinterest (variação 1 do social-media). Sem eles, o feed usa title/description.
+    pinterestTitle: z.string().max(100).optional(),
+    pinterestDescription: z.string().max(500).optional(),
     pinBoard: z.enum(['alimentacao', 'comportamento', 'cuidados-e-higiene', 'saude-e-seguranca']).optional(),
     affiliate: z.boolean().default(false),
     affiliateProduct: z

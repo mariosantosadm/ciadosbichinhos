@@ -11,6 +11,8 @@ heroImageAlt: "Schnauzer de pelagem cinza com peitoral preto andando de perfil n
 heroImagePosition: "50% 60%"
 pinTitle: "Viagem de fim de ano com cachorro idoso"
 pinSubtitle: "Levar ou deixar?"
+pinterestTitle: "Viagem de fim de ano: levar ou deixar o cachorro idoso?"
+pinterestDescription: "Levar ou deixar o cachorro idoso na viagem de fim de ano depende da saúde dele, do tipo de viagem e de como ele lida com carro e mudanças de rotina. Veja perguntas para ajudar a decidir e os cuidados para ele ficar bem em cada caso."
 pinBoard: comportamento
 affiliate: false
 ---

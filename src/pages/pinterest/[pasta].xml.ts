@@ -25,8 +25,8 @@ export async function GET(context: APIContext) {
     const imageUrl = `${site}/pins/${post.slug}.png`;
     return [
       {
-        title: post.data.title,
-        description: post.data.description,
+        title: post.data.pinterestTitle ?? post.data.title,
+        description: post.data.pinterestDescription ?? post.data.description,
         pubDate: post.data.pubDate,
         link: `/blog/${post.slug}/`,
         enclosure: { url: imageUrl, length: statSync(file).size, type: 'image/png' },

@@ -29,11 +29,12 @@ Monte o texto final (aplicando as correções do `revisor-tecnico` que forem ine
 
 ## (e) Depois do "aprovado"
 
-1. Crie `src/content/blog/<slug>.md` com o conteúdo aprovado.
-2. Se essa pauta estiver listada em `pautas/pendentes.md`, remova a linha dela de lá (o post deixou de ser pendente).
-3. Rode `astro check` e `npm run build`.
-4. Commit e push **direto na `main`, sem Pull Request** (incluindo a atualização do `pautas/pendentes.md`, se houve).
-5. Aguarde o deploy da Cloudflare: tente abrir o endereço do post e o do pin a cada ~20 segundos, por até 3 minutos. Só conte como no ar quando o `<title>` da página do post trouxer o título do post e o pin responder `200` com `Content-Type: image/png` — código `200` sozinho não prova nada. Se o ambiente não conseguir acessar o site (rede bloqueada), não fique esperando — siga para o próximo passo mesmo sem confirmar.
+1. **Antes de criar o arquivo**, invoque o agente `social-media` com o texto aprovado (frontmatter + corpo, e o slug), para ele salvar `social/<slug>.md` com o material do Pinterest no padrão dele. Mostre a resposta ao Mário sob o título `[social-media]`. Copie para o frontmatter do post: `pinterestTitle` = título da variação 1, `pinterestDescription` = descrição da variação 1 (com o aviso de publicidade se for afiliado) e `pinBoard` = slug da pasta sugerida (`alimentacao`, `comportamento`, `cuidados-e-higiene` ou `saude-e-seguranca`). É esse texto que o feed RSS manda para o Pinterest, então ele precisa estar no post **no mesmo commit** da publicação.
+2. Crie `src/content/blog/<slug>.md` com o conteúdo aprovado (já com os três campos do Pinterest).
+3. Se essa pauta estiver listada em `pautas/pendentes.md`, remova a linha dela de lá (o post deixou de ser pendente).
+4. Rode `astro check` e `npm run build`.
+5. Commit e push **direto na `main`, sem Pull Request**, num commit só: o post, `social/<slug>.md` e a atualização do `pautas/pendentes.md`, se houve.
+6. Aguarde o deploy da Cloudflare: tente abrir o endereço do post e o do pin a cada ~20 segundos, por até 3 minutos. Só conte como no ar quando o `<title>` da página do post trouxer o título do post e o pin responder `200` com `Content-Type: image/png` — código `200` sozinho não prova nada. Se o ambiente não conseguir acessar o site (rede bloqueada), não fique esperando — siga para o próximo passo mesmo sem confirmar.
 
 ## (f) Entregue ao Mário
 
@@ -44,7 +45,7 @@ Monte o texto final (aplicando as correções do `revisor-tecnico` que forem ine
 
 ## (g) Agente `social-media`
 
-Invoque o agente `social-media` para esse post, para ele salvar `social/<slug>.md` só com o material do Pinterest (sem carrossel de Instagram, que está pausado) (títulos/descrições do pin, board sugerida do Pinterest, tags/palavras-chave do pin, endereços do post e do pin, divulgação de publicidade se for afiliado). Mostre a resposta dele ao Mário sob o título `[social-media]`. Commit e push direto na `main` esse arquivo também (é conteúdo versionado do repositório).
+Já rodou no passo (e), antes da publicação. Não há commit separado.
 
 ## (h) Pin no Pinterest (automático)
 
