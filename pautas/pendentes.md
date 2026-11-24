@@ -10,7 +10,7 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 
 | Preparar | Publicar | Pauta | Tipo | O que confirmar antes (e onde) |
 |---|---|---|---|---|
-| ter 24/11 | qua 25/11 | Como adotar cachorro ou gato no DF: caminhos oficiais e feiras | local | canal oficial de adoção do GDF/SEPAN ativo? onde a agenda de feiras é divulgada? Sem citar ONG por nome. Sai antes do Dezembro Verde, sem afirmar edição no DF |
+| ter 24/11 | qua 25/11 | Serviços gratuitos para cães e gatos no DF: o que o GDF oferece (panorama) | local | página oficial da SEPAN/GDF de cada serviço citado (castração gratuita, HVEP/HVEP Móvel, Cartões Ração e Castração, Cria), com a data. Só entra o que tiver fonte oficial; cada item com 1–2 linhas e o caminho oficial para acessar. Sem ONG. Adoção entra só como guarda responsável (o GDF não tem canal oficial de adoção, conferido pelo Mário em 24/11) |
 | qui 26/11 | sex 27/11 | Pet em Brasília: guia para passear com o cachorro no DF (hub) | local | lei/programa de parcões (SINJ-DF); canal oficial pra achar o parcão mais perto. Só sai com 3 ou mais posts locais no ar |
 | dom 29/11 | seg 30/11 (feriado distrital) | Cachorro idoso com medo de fogos e trovão: como deixar a casa mais segura | sênior | nada local — sem calmante, floral ou dose; sem diagnóstico; sem programação de fogos do DF |
 | ter 01/12 | qua 02/12 | Achei um cachorro ou gato abandonado no DF (ou vi maus-tratos): a quem recorrer | local | telefone/WhatsApp/e-mail atuais de denúncia da PCDF (fontes citam 197, 190 e 167) e nome da delegacia especializada; Ouvidoria do GDF (162); canal da SEPAN-DF; o que fazer com animal achado na rua (Zoonoses/SES-DF). Começar a ligar em 23–27/11 (30/11 é feriado). Sem citar ONG |
@@ -20,6 +20,8 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 | qui 10/12 | sex 11/12 | Pode levar cachorro no Lago Paranoá? Orla, prainhas e banho do cão | local | norma do DF sobre animais na orla/áreas de banho (Seduh/Orla Livre, SINJ-DF); quem administra 2–3 pontos públicos escolhidos pelo Mário (candidatos: Prainha do Lago Norte, Orla JK, Deck Sul) e o que vale em cada um; orientação do CBMDF nas áreas com guarda-vidas; quem monitora a balneabilidade (Caesb/Adasa/Ibram) e se fala de animais; lei distrital de guia e coleira (número e texto). Sem estabelecimento comercial. Se não houver norma, o post diz isso |
 
 **Reserva** (entra no lugar de qualquer local que travar): Cachorro idoso dormindo muito: o que muda na rotina (sênior, sem verificação).
+
+**Série de serviços públicos (depois do panorama de 25/11, datas a definir no /semana):** posts específicos sobre cada serviço do GDF, cada um com fonte oficial e data de verificação: castração gratuita (como agendar pelo Agenda DF), Cria (cadastro de identificação animal), vacinação antirrábica (campanha anual) e HVEP/HVEP Móvel. Cada um linka o panorama e é linkado por ele.
 
 **Feriados que afetam ligações:** 20/11 (Consciência Negra, nacional) e 30/11 (Dia do Evangélico, distrital).
 
@@ -34,6 +36,7 @@ Revisado em 07/11 pelo `pesquisador-seo` (datas e sazonalidade) e pelo `redator`
 - 18/11: "Parque da Cidade com cachorro: o que pode e o que não pode" foi publicado (Decreto 19.988/1998 conferido no SINJ, placa e fotos do Mário, Correio Braziliense) e saiu do calendário.
 - 20/11: "Pode levar cachorro na Água Mineral? Veja a regra do parque" foi publicado (PROV do Parque Nacional de Brasília/ICMBio). Os parques ecológicos do DF ficaram de fora por falta de fonte do Brasília Ambiental — podem virar pauta própria.
 - 23/11: "Viagem de fim de ano: levar ou deixar o cachorro idoso?" foi publicado e saiu do calendário (a parte de fogos ficou curta para não adiantar a pauta de 30/11).
+- 24/11: a pauta de 25/11 mudou de "Como adotar no DF" para um panorama dos serviços gratuitos do GDF: o Mário não achou canal oficial de adoção na SEPAN/GDF, e citar ONG por nome está fora das regras. Os serviços viram uma série de posts específicos depois.
 - 13/11 (rodada do `/semana`): calendário até 27/11 mantido sem mudança de data. O relatório ainda não tem dado do cluster idoso nem de busca local. Ajuste só de escopo: as sênior de 16/11 e 23/11 devem linkar "Com quantos anos..." e a calculadora (ação 3 do relatório). Entram 3 pautas para 30/11 a 04/12 (detalhes em `pautas/2026-11-13.md`). A reserva não foi usada, para continuar cobrindo as duas locais. O metrô (13/11) ainda não estava em `src/content/blog/` na hora desta rodada, então segue no calendário.
 - 21/11 (rodada do `/semana`, a primeira no sábado): nenhuma data mudou. A semana de 23–27/11 foi revisada com o Mário em 20/11; para 30/11–04/12 não há dado local (Search Console só até 17/11) nem motivo concreto para mexer. Notas de escopo: o hub de 27/11 já cumpre a condição de 3 posts locais no ar (metrô, Parque da Cidade, Água Mineral). Entram 3 pautas para 07 a 11/12 (detalhes em `pautas/2026-11-21.md`); a dos parques ecológicos é a lacuna deixada pelo post da Água Mineral. Sugestão de segunda reserva, a decidir pelo Mário: "Brincadeiras para cachorro idoso" (sem verificação), porque a reserva atual cobre 6 pautas locais seguidas.
 
