@@ -11,8 +11,8 @@ export const PINTEREST_BOARDS = {
 export type PinterestBoard = keyof typeof PINTEREST_BOARDS;
 
 // Só entram nos feeds posts publicados a partir desta data. Os anteriores já foram
-// pinados à mão; incluí-los faria o Pinterest criar pins duplicados.
-export const PINTEREST_FEED_DESDE = new Date('2026-11-23T00:00:00Z');
+// pinados à mão (o de 23/11, viagem de fim de ano, também); incluí-los faria o Pinterest criar pins duplicados.
+export const PINTEREST_FEED_DESDE = new Date('2026-11-24T00:00:00Z');
 
 // Pasta do post: a do frontmatter (pinBoard) ou, se não houver, uma padrão pela categoria.
 export function pinterestBoardOf(post: CollectionEntry<'blog'>): PinterestBoard {
