@@ -18,7 +18,7 @@ const { title, description, image, article } = Astro.props;
 const siteName = 'Cia dos Bichinhos';
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image ?? '/logo-horizontal.svg', Astro.site);
+const ogImage = new URL(image || '/logo-horizontal.svg', Astro.site);
 
 const schema = article
   ? {
