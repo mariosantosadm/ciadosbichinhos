@@ -1,10 +1,3 @@
-<!--
-Rascunho do /preparar (26/11) para o post de sex 27/11.
-Correções do revisor-tecnico já aplicadas: proibição da Água Mineral restrita à Área de Visitação (com a ressalva de que o protocolo não explica o motivo e do cão-guia); metrô "dois por carro" × ônibus "dois por veículo"; "fora do ParCão" na regra da guia do Parque da Cidade; rodapé sem "fontes oficiais" e explicando que o guia resume posts publicados.
-FALTA: a FOTO (heroImage + heroImageAlt descrevendo a foto + heroImagePosition). Sem foto não há pin nem imagem de compartilhamento.
-Parcões: só entram se o Mário confirmar a lei/programa no SINJ-DF (ver -verificacao.md). Sem isso, o guia sai como está.
-No /post: social-media → pinterestTitle/pinterestDescription; tirar este comentário antes de criar o arquivo.
--->
 ---
 title: "Pet em Brasília: guia para passear com o cachorro no DF"
 description: "Guia para passear com o cachorro no DF: coleira, guia e focinheira, Parque da Cidade e ParCão, Água Mineral, metrô e ônibus e serviços gratuitos do GDF."
@@ -13,8 +6,13 @@ category: cachorro
 species: cachorro
 pilar: passear
 tags: ["brasília", "distrito federal", "passeio com cachorro", "parque da cidade", "parcão", "água mineral", "metrô-df", "sepan", "decreto 19.988"]
+heroImage: "https://images.pexels.com/photos/13344830/pexels-photo-13344830.jpeg?auto=compress&cs=tinysrgb&w=1260"
+heroImageAlt: "Congresso Nacional, em Brasília, com as duas torres, a cúpula e a cuia brancas, sob céu nublado, com o gramado da Esplanada em primeiro plano"
+heroImagePosition: "40% 55%"
 pinTitle: "Pet em Brasília"
 pinSubtitle: "Guia para passear com o cachorro no DF"
+pinterestTitle: "Pet em Brasília: guia para passear com o cachorro no DF, com regras, parques, metrô e ônibus"
+pinterestDescription: "Guia para passear com o cachorro no Distrito Federal: coleira e guia em lugar público, focinheira quando a regra pede e fezes sempre recolhidas. Veja onde o cão entra (Parque da Cidade, com o ParCão) e onde não entra (Água Mineral), as regras do metrô e do ônibus para pets de até 12 kg e os serviços gratuitos do GDF. Informações conferidas entre 15/11 e 24/11/2026."
 pinBoard: comportamento
 affiliate: false
 ---
