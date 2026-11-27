@@ -53,6 +53,12 @@ O pin é criado **sozinho** pelo Pinterest: cada pasta do Pinterest está ligada
 
 1. Antes de criar o arquivo do post (passo e), confira que o frontmatter tem `pinBoard` com uma das 4 pastas: `alimentacao`, `comportamento`, `cuidados-e-higiene` ou `saude-e-seguranca` (use a pasta que o `social-media` costuma escolher para o tema; sem `pinBoard`, vale a padrão pela categoria em `src/lib/pinterest.ts`).
 2. Depois do deploy, confira que o post aparece em `https://ciadosbichinhos.com.br/pinterest/<pinBoard>.xml` com o `<enclosure>` do pin, e diga ao Mário: "o Pinterest deve criar o pin sozinho nas próximas horas (até ~1 dia), na pasta X".
-3. **Não** entregue prompt de Claude in Chrome para criar pin, nem peça para baixar ou anexar imagem. Só se o Mário avisar que o pin não apareceu depois de 1 dia, investigue o feed (Configurações > Criar Pins em massa no Pinterest mostra erros do feed).
+3. **Enquanto o RSS não estiver ligado** (o Pinterest ainda não gravou a reivindicação do site; conferido em 27/11/2026), entregue ao Mário o prompt abaixo para o Claude in Chrome, com os textos da variação 1 e a pasta. Ele usa o "Salvar do URL" com o endereço do post: a página traz a arte do pin no bloco "Salve no Pinterest" (testado em 27/11/2026). Não peça para baixar nem anexar imagem.
+
+```
+No Pinterest (já estou logado), crie UM pin a partir do endereço do post: abra Criar > Criar pin > "Salvar do URL" e cole <URL_DO_POST> . Na lista de imagens, selecione SÓ a arte vertical do pin, com o título "<pinTitle>" e o logo Cia dos Bichinhos (não escolha a foto). Depois preencha: título: <título da variação 1>; descrição: <descrição da variação 1>; link de destino: <URL_DO_POST>; pasta: <pasta>; tags (se houver o campo): <tags>. Se a arte do pin não aparecer na lista, me diga quais imagens apareceram e pare. Preencha tudo e PARE antes de publicar, para eu revisar e clicar em Publicar. Não crie mais de um pin e não mexa em nenhuma outra configuração da conta.
+```
+
+   Quando o RSS for ligado, este passo deixa de existir: aí só confira que o post entrou no feed.
 
 Não pule esta etapa — ela é parte obrigatória do fluxo do `/post`, mesmo quando não for pedida explicitamente na invocação do comando.
